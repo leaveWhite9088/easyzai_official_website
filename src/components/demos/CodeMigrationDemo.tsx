@@ -142,7 +142,7 @@ export default function CodeMigrationDemo() {
 
             {/* Target */}
             <div className="relative min-w-0">
-              <PaneHeader label={t('targetLabel')} lang="cangjie" dot="#BE9A63" />
+              <PaneHeader label={t('targetLabel')} lang="cangjie" dot="rgb(var(--c-accent))" />
               <pre className="max-w-full overflow-x-auto p-3 text-[12px] leading-[1.7] font-mono min-h-[220px] sm:min-h-[240px] sm:p-4 sm:text-[12.5px]">
                 {status === 'idle' ? (
                   <div className="text-text-tertiary pt-2 flex items-center gap-2">
