@@ -7,7 +7,7 @@ export default function TrustBar() {
   const t = useTranslations('trustBar')
 
   return (
-    <section className="site-section site-mobile-static min-h-svh flex items-center bg-bg-base overflow-hidden">
+    <section className="site-section site-mobile-static min-h-svh flex items-center bg-bg-base statement-texture overflow-hidden">
       {/* Subtle top glow — continuation from hero */}
       <div
         className="absolute top-0 left-0 right-0 h-32 pointer-events-none"

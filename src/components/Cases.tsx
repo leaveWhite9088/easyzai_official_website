@@ -45,7 +45,7 @@ function FeaturedCaseRow({
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <Link href={href} className="interactive-row group block border-t border-border-subtle py-10 lg:py-14">
+      <Link href={href} className="interactive-row group block border-t border-border-subtle py-10 lg:py-14 px-4 lg:px-6">
         <div className="grid lg:grid-cols-[1fr_320px] gap-10 lg:gap-16">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -141,7 +141,7 @@ export default function Cases() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.12 + i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="interactive-row py-8 lg:py-10 px-0 lg:pr-8 first:lg:pr-8 last:lg:pl-8 border-t border-border-subtle"
+              className="interactive-row py-8 lg:py-10 px-4 lg:px-6 border-t border-border-subtle"
             >
               <div className="flex items-center gap-3 mb-3">
                 <span className="font-mono text-[11px] text-accent tracking-wide">Case {String(i + 3).padStart(2, '0')}</span>

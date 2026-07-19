@@ -6,24 +6,6 @@ import type { Problem, Step } from '@/types/content'
 import SectionLabel from './ui/SectionLabel'
 import LineSidebar from './bits/LineSidebar'
 
-function StepIcon({ i }: { i: number }) {
-  const paths = [
-    // understand — magnifier
-    'M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z',
-    // research — beaker
-    'M9 3h6M10 3v5.5L5.5 18a2 2 0 001.8 3h9.4a2 2 0 001.8-3L14 8.5V3',
-    // deliver — cube
-    'M21 8l-9-5-9 5m18 0l-9 5m9-5v8l-9 5m0-8L3 8m9 5v8M3 8v8l9 5',
-    // iterate — refresh
-    'M4 4v5h5M20 20v-5h-5M20 9a8 8 0 00-15-2M4 15a8 8 0 0015 2',
-  ]
-  return (
-    <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
-      <path strokeLinecap="round" strokeLinejoin="round" d={paths[i] || paths[0]} />
-    </svg>
-  )
-}
-
 export default function Services() {
   const t = useTranslations('services')
   const problems = t.raw('problems') as Problem[]
@@ -85,32 +67,35 @@ export default function Services() {
             <h2 className="text-h1 text-text-primary">{t('methodTitle')}</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.55, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="method-card group relative py-8 text-left border-t border-border-subtle lg:py-10"
-              >
-                <div className="flex items-center justify-between mb-5">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-ink/[0.08] text-text-tertiary group-hover:text-text-secondary transition-colors duration-300">
-                    <StepIcon i={i} />
-                  </span>
-                  <span className="font-mono text-[26px] tabular-nums text-text-tertiary group-hover:text-text-secondary transition-colors duration-300">
-                    {step.number}
-                  </span>
-                </div>
-                <h3 className="text-[15px] font-medium text-text-primary mb-2">{step.title}</h3>
-                <p className="text-[13.5px] text-text-secondary leading-relaxed mb-5">{step.desc}</p>
-                <div className="border-t border-border-subtle pt-5">
-                  <p className="text-[14px] text-text-secondary/90 leading-relaxed">{step.detail}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {/* Step timeline: vertical spine on mobile, horizontal on lg. */}
+          <ol className="relative">
+            <span
+              aria-hidden
+              className="absolute left-[5px] top-2 bottom-2 w-px bg-border-subtle lg:left-0 lg:right-0 lg:top-[5px] lg:bottom-auto lg:h-px lg:w-auto"
+            />
+            <div className="grid grid-cols-1 gap-14 lg:grid-cols-4 lg:gap-12">
+              {steps.map((step, i) => (
+                <motion.li
+                  key={step.number}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="group relative pl-10 lg:pl-0 lg:pt-10"
+                >
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-[6px] h-[11px] w-[11px] rounded-full border-2 border-accent/50 bg-bg-base transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/25 lg:top-0"
+                  />
+                  <h3 className="text-[19px] font-medium text-text-primary mb-2">{step.title}</h3>
+                  <p className="text-[14px] text-text-secondary leading-relaxed mb-4">{step.desc}</p>
+                  <p className="border-l border-border-subtle pl-3 text-[13px] text-text-tertiary leading-relaxed">
+                    {step.detail}
+                  </p>
+                </motion.li>
+              ))}
+            </div>
+          </ol>
         </div>
       </div>
     </section>

@@ -127,9 +127,13 @@ test('all secondary page templates inherit the homepage visual language', async 
   for (const template of [thinkingList, thinkingDetail, caseDetail]) {
     assert.match(template, /SubpageAtmosphere/)
     assert.match(template, /motion\./)
-    assert.match(template, /subpage-surface/)
     assert.match(template, /subpage-mobile-static/)
   }
+  for (const template of [thinkingList, thinkingDetail]) {
+    assert.match(template, /subpage-surface/)
+  }
+  // Case detail reads as a plain article — no surface frame around the body.
+  assert.doesNotMatch(caseDetail, /subpage-surface/)
   assert.match(notFound, /radial-gradient/)
   assert.match(globalCss, /\.subpage-surface/)
   assert.match(globalCss, /\.subpage-mobile-static/)
@@ -194,7 +198,7 @@ test('light theme, page transitions and reading axes are deliberately designed',
   assert.match(pageTransition, /AnimatePresence/)
   assert.match(pageTransition, /usePathname/)
   assert.match(localeLayout, /PageTransition/)
-  assert.match(services, /method-card/)
+  assert.match(services, /lg:grid-cols-4/)
   assert.match(lineCss, /\.line-sidebar--markers\s*\{[\s\S]*?padding-left:\s*0/)
   assert.match(globalCss, /\[data-theme='light'\]\s+\.site-section/)
   assert.match(globalCss, /\.hero-light-texture/)
