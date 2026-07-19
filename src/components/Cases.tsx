@@ -45,8 +45,8 @@ function FeaturedCaseRow({
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <Link href={href} className="interactive-row group block border-t border-border-subtle py-10 lg:py-14 px-4 lg:px-6">
-        <div className="grid lg:grid-cols-[1fr_320px] gap-10 lg:gap-16">
+      <Link href={href} className="interactive-row group block border-t border-border-subtle py-8 lg:py-10 px-4 lg:px-6">
+        <div className="grid lg:grid-cols-[1fr_400px] gap-10 lg:gap-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="font-mono text-[11px] text-accent tracking-wide">{label}</span>
@@ -66,17 +66,14 @@ function FeaturedCaseRow({
             </span>
           </div>
           <div className="flex flex-col justify-center">
-            <div className="mb-6">
+            <div className="flex items-baseline gap-3 mb-4">
               <AnimatedMetric
                 value={item.coreMetric}
-                className="block text-6xl lg:text-[68px] font-semibold font-mono tracking-tighter leading-[1.1] text-text-primary py-2"
+                className="text-4xl lg:text-5xl font-semibold font-mono tracking-tighter leading-[1.1] text-text-primary"
               />
-              <div className="flex items-center gap-2 mt-3">
-                <span className="h-px w-5 bg-accent/70" />
-                <span className="text-text-tertiary text-[12.5px]">{item.coreMetricLabel}</span>
-              </div>
+              <span className="text-text-tertiary text-[12.5px]">{item.coreMetricLabel}</span>
             </div>
-            <div className="space-y-1.5 mb-5">
+            <div className="space-y-1 mb-4">
               {item.otherMetrics?.map((metric, idx) => (
                 <p key={idx} className="text-[13px] text-text-tertiary leading-relaxed flex gap-2">
                   <span className="text-accent/50 flex-shrink-0">·</span>
