@@ -6,7 +6,6 @@ import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import ThemeToggle from './theme/ThemeToggle'
-import SpecularButton from './SpecularButton'
 
 const NAV_ITEMS = [
   { id: 'services', labelKey: 'services' },
@@ -166,14 +165,12 @@ export default function Navbar() {
             >
               {locale === 'zh' ? 'EN' : '中'}
             </Link>
-            <SpecularButton
+            <a
               href={isHomePage ? '#contact' : `/${locale}#contact`}
-              radius={12}
-              proximity={200}
-              className="px-4 py-2.5 min-h-[44px] text-[13px]"
+              className="px-4 py-2.5 min-h-[44px] flex items-center text-[13px] text-text-secondary hover:text-text-primary transition-colors duration-200"
             >
               {t('cta')}
-            </SpecularButton>
+            </a>
           </div>
 
           {/* Mobile toggle */}
