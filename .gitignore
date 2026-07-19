@@ -1,0 +1,90 @@
+# ============ Dependencies ============
+node_modules/
+.pnp
+.pnp.js
+
+# ============ Next.js ============
+.next/
+out/
+next-env.d.ts
+
+# ============ Build outputs ============
+build/
+dist/
+
+# ============ Testing / Coverage ============
+coverage/
+.nyc_output/
+*.lcov
+
+# ============ Cache ============
+.cache/
+.turbo/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# ============ Debug / Logs ============
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+logs/
+
+# ============ Environment files ============
+.env
+.env.*
+.env*.local
+!.env.example
+.envrc
+
+# ============ Deployment / Hosting ============
+.vercel
+.netlify
+.firebase
+
+# ============ TypeScript ============
+*.tsbuildinfo
+
+# ============ IDEs / Editors ============
+.idea/
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.history/
+
+# ============ OS ============
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ============ Backup / Temp ============
+*.bak
+*.tmp
+*.temp
+*.orig
+*.rej
+
+# ============ Playwright MCP ============
+.playwright-mcp/
+
+# ============ Screenshots (temporary design files) ============
+*.png
+!public/**/*.png
+
+# ============ Design docs (optional) ============
+DESIGN.md
+PRODUCT.md
+
+# ============ Archives ============
+*.tar.gz
+*.zip
+*.tgz
