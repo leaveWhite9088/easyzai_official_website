@@ -7,6 +7,12 @@
 - **动画库**: framer-motion、@react-three/fiber、@react-three/drei、three
 - **仓库**: GitHub `leaveWhite9088/easyzai_official_website`，主分支 `main`
 
+## 提交原则
+
+- **每一次改动完成后都必须 `git commit` 并 `git push` 到 `main`**，不允许只改不提交
+- 多个不相关改动按计划拆分为多个语义化提交（fix / feat / docs / refactor），不要混在一个提交里
+- 提交前确保 `npm run typecheck` 通过；涉及结构或样式约定变化时同步更新契约测试
+
 ## 常见问题：Next.js 热更新缓存损坏
 
 本项目在 Windows 环境下频繁出现 Next.js / Webpack 热更新缓存损坏，典型报错：
