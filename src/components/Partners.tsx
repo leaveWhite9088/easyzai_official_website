@@ -47,7 +47,7 @@ export default function Partners() {
                   src={partner.logo}
                   alt={partner.name}
                   fill
-                  className="partner-logo object-contain transition-all duration-300 group-hover:scale-[1.03]"
+                  className="object-contain transition-all duration-300 group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>

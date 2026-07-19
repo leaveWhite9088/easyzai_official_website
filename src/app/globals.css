@@ -166,26 +166,6 @@
   text-align: center;
 }
 
-/* Partner logos: no card frame — monochrome silhouettes that blend into the
-   page background (white on dark, near-black on light); hover restores the
-   original brand colors. */
-.partner-logo {
-  filter: brightness(0) invert(1);
-  opacity: 0.72;
-  transition: filter 300ms ease, opacity 300ms ease, transform 300ms ease;
-}
-
-[data-theme='light'] .partner-logo {
-  filter: brightness(0);
-  opacity: 0.68;
-}
-
-a:hover .partner-logo,
-a:focus-visible .partner-logo {
-  filter: none;
-  opacity: 1;
-}
-
 /* Statement / TrustBar texture — breaks the flat dark field behind the brand
    statement without competing with the text. */
 .statement-texture {
