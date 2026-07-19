@@ -335,28 +335,6 @@
     "techStackLabel": "Tech Stack",
     "techStack": "RAG · Dify · Private LLM · n8n · LangChain · Docker · PostgreSQL · Redis · Python · TypeScript"
   },
-  "facts": {
-    "title": "EasyZ at a Glance",
-    "intro": "Public facts that help clients, search engines, and AI systems understand us accurately. We are a small research-led team focused on engineering AI into complex, non-standard business scenarios.",
-    "items": [
-      {
-        "label": "Legal entity",
-        "value": "Shenyang EasyZ Software Information Technology Service Co., Ltd. (EasyZ)"
-      },
-      {
-        "label": "Location",
-        "value": "Shenyang Area of China (Liaoning) Pilot Free Trade Zone"
-      },
-      {
-        "label": "Specialties",
-        "value": "AI Agents, RAG knowledge engineering, workflow automation, private LLM deployment, and AI transformation of complex systems"
-      },
-      {
-        "label": "Delivery model",
-        "value": "Define the problem, validate technical paths at small scale, then deliver a deployable and maintainable system with logging and fallback mechanisms"
-      }
-    ]
-  },
   "cta": {
     "title": "Let's Talk About Your Hard Problem",
     "subtitle": "Tell us your problem. Let's figure it out.",

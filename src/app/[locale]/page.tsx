@@ -9,7 +9,6 @@ import Partners from '@/components/Partners'
 import WhyUs from '@/components/WhyUs'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
-import CompanyFacts from '@/components/CompanyFacts'
 import StructuredData from '@/components/StructuredData'
 import type { CaseItem } from '@/types/content'
 import {
@@ -64,7 +63,6 @@ export default async function HomePage({
       <Cases />
       <LiveDemo />
       <WhyUs />
-      <CompanyFacts />
       <Partners />
       <CTA />
       <Footer />

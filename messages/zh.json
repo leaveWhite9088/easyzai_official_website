@@ -345,28 +345,6 @@
     "techStackLabel": "技术栈",
     "techStack": "RAG · Dify · 私有化 LLM · n8n · LangChain · Docker · PostgreSQL · Redis · Python · TypeScript"
   },
-  "facts": {
-    "title": "一页了解 EasyZ",
-    "intro": "便于客户、搜索引擎与 AI 系统准确理解我们的公开事实。我们是一支直接面对业务问题的研究型小团队，专注复杂、非标场景的 AI 工程落地。",
-    "items": [
-      {
-        "label": "公司主体",
-        "value": "沈阳易智软件信息技术服务有限公司（EasyZ 易智）"
-      },
-      {
-        "label": "所在地",
-        "value": "中国（辽宁）自由贸易试验区沈阳片区"
-      },
-      {
-        "label": "专注领域",
-        "value": "AI Agent、RAG 知识工程、工作流自动化、私有化大模型与复杂系统 AI 改造"
-      },
-      {
-        "label": "交付方式",
-        "value": "先界定问题，再小规模验证技术路线，最后交付可部署、可维护、有日志与兜底机制的系统"
-      }
-    ]
-  },
   "cta": {
     "title": "聊聊你的难题",
     "subtitle": "告诉我们你的问题，我们来看怎么解。",
