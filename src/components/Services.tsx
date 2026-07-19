@@ -67,34 +67,30 @@ export default function Services() {
             <h2 className="text-h1 text-text-primary">{t('methodTitle')}</h2>
           </motion.div>
 
-          {/* Step timeline: vertical spine on mobile, horizontal on lg. */}
-          <ol className="relative">
-            <span
-              aria-hidden
-              className="absolute left-[5px] top-2 bottom-2 w-px bg-border-subtle lg:left-0 lg:right-0 lg:top-[5px] lg:bottom-auto lg:h-px lg:w-auto"
-            />
-            <div className="grid grid-cols-1 gap-14 lg:grid-cols-4 lg:gap-12">
-              {steps.map((step, i) => (
-                <motion.li
-                  key={step.number}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="group relative pl-10 lg:pl-0 lg:pt-10"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute left-0 top-[6px] h-[11px] w-[11px] rounded-full border-2 border-accent/50 bg-bg-base transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/25 lg:top-0"
-                  />
-                  <h3 className="text-[19px] font-medium text-text-primary mb-2">{step.title}</h3>
-                  <p className="text-[14px] text-text-secondary leading-relaxed mb-4">{step.desc}</p>
-                  <p className="border-l border-border-subtle pl-3 text-[13px] text-text-tertiary leading-relaxed">
-                    {step.detail}
-                  </p>
-                </motion.li>
-              ))}
-            </div>
+          {/* Step rows: number + title + one-liner sit on the hairline axis,
+              the long-form detail reads below at a comfortable size. */}
+          <ol>
+            {steps.map((step, i) => (
+              <motion.li
+                key={step.number}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="group border-t border-border-subtle py-8 lg:py-10 last:border-b"
+              >
+                <div className="flex flex-col gap-2 lg:grid lg:grid-cols-[72px_1fr_1.6fr] lg:items-baseline lg:gap-8 mb-4 lg:mb-5">
+                  <span className="font-mono text-[13px] tracking-[0.2em] text-accent">{step.number}</span>
+                  <h3 className="text-xl lg:text-2xl font-medium text-text-primary transition-colors duration-300 group-hover:text-accent">
+                    {step.title}
+                  </h3>
+                  <p className="text-[15px] lg:text-base text-text-secondary leading-relaxed">{step.desc}</p>
+                </div>
+                <p className="text-[14px] lg:text-[15px] text-text-tertiary leading-relaxed max-w-3xl lg:col-start-2 lg:ml-[104px]">
+                  {step.detail}
+                </p>
+              </motion.li>
+            ))}
           </ol>
         </div>
       </div>
