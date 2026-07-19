@@ -5,7 +5,7 @@
 - **技术栈**: Next.js 14 + React 18 + TypeScript + Tailwind CSS + next-intl
 - **端口**: `3010`
 - **动画库**: framer-motion、@react-three/fiber、@react-three/drei、three
-- **仓库**: Gitee `leaveWhite9088/official_website2`，主分支 `master`
+- **仓库**: GitHub `leaveWhite9088/easyzai_official_website`，主分支 `main`
 
 ## 常见问题：Next.js 热更新缓存损坏
 
