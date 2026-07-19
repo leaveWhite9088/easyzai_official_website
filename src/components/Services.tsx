@@ -67,8 +67,9 @@ export default function Services() {
             <h2 className="text-h1 text-text-primary">{t('methodTitle')}</h2>
           </motion.div>
 
-          {/* Step rows: number + title + one-liner sit on the hairline axis,
-              the long-form detail reads below at a comfortable size. */}
+          {/* Step rows: quiet number + large title anchor the left column,
+              one-liner and long-form detail stack in the right column.
+              Alignment is structural (grid columns), never margin-computed. */}
           <ol>
             {steps.map((step, i) => (
               <motion.li
@@ -77,18 +78,20 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="group border-t border-border-subtle py-8 lg:py-10 last:border-b"
+                className="group grid gap-3 border-t border-border-subtle py-10 last:border-b lg:grid-cols-[220px_1fr] lg:gap-x-16 lg:py-14"
               >
-                <div className="flex flex-col gap-2 lg:grid lg:grid-cols-[72px_1fr_1.6fr] lg:items-baseline lg:gap-8 mb-4 lg:mb-5">
-                  <span className="font-mono text-[13px] tracking-[0.2em] text-accent">{step.number}</span>
-                  <h3 className="text-xl lg:text-2xl font-medium text-text-primary transition-colors duration-300 group-hover:text-accent">
+                <div className="flex items-baseline gap-4 lg:flex-col lg:items-start lg:gap-3">
+                  <span className="font-mono text-[13px] tracking-[0.2em] text-text-tertiary transition-colors duration-300 group-hover:text-accent">
+                    {step.number}
+                  </span>
+                  <h3 className="text-2xl lg:text-3xl font-medium text-text-primary transition-colors duration-300 group-hover:text-accent">
                     {step.title}
                   </h3>
-                  <p className="text-[15px] lg:text-base text-text-secondary leading-relaxed">{step.desc}</p>
                 </div>
-                <p className="text-[14px] lg:text-[15px] text-text-tertiary leading-relaxed max-w-3xl lg:col-start-2 lg:ml-[104px]">
-                  {step.detail}
-                </p>
+                <div className="max-w-2xl lg:pt-1.5">
+                  <p className="text-base text-text-secondary leading-relaxed mb-4">{step.desc}</p>
+                  <p className="text-[15px] text-text-tertiary leading-relaxed">{step.detail}</p>
+                </div>
               </motion.li>
             ))}
           </ol>
