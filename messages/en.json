@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "siteName": "EasyZ",
+    "title": "EasyZ · Hard Problems, Researched Solutions",
+    "description": "Complex AI implementation by a research-driven team from top universities. RAG, Agents, and private LLMs that bring AI into your real business.",
+    "keywords": "AI implementation, complex AI, research team, Agent, RAG, private LLM, LLM applications, EasyZ",
+    "casesTitle": "Selected Cases",
+    "casesDesc": "Anonymized real deliveries: language library migration, securities-platform AI, smart support, and overseas lead generation.",
+    "thinkingTitle": "Thinking · Views & Methodology",
+    "thinkingDesc": "Technical views, methodology, and real lessons learned."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "cases": "Cases",
+    "about": "About",
+    "thinking": "Thinking",
+    "contact": "Contact",
+    "demo": "Live Demo",
+    "cta": "Start a Conversation",
+    "themeToggle": "Toggle light / dark theme"
+  },
+  "hero": {
+    "eyebrow": "EasyZ · AI Implementation for Complex Scenarios",
+    "title": "Hard Problems, Researched Solutions",
+    "subtitle": "A Research-Driven Team from Top Universities",
+    "ctaPrimary": "See Our Work",
+    "ctaSecondary": "Talk About Your Problem"
+  },
+  "trustBar": {
+    "eyebrow": "We do one thing",
+    "text": "Bring AI into real business. Non-standard scenarios, complex data, uncertain technical paths — that's exactly what we're built for."
+  },
+  "services": {
+    "problemsTitle": "You Come to Us Because of Problems Like These",
+    "methodTitle": "How We Work",
+    "problems": [
+      {
+        "number": "01",
+        "title": "Your business processes don't fit any standard SaaS",
+        "desc": "Off-the-shelf SaaS is designed for generic scenarios. Your business has unique approval flows, data logic, and compliance requirements — forcing standard products onto them is like fitting square pegs in round holes."
+      },
+      {
+        "number": "02",
+        "title": "Your data is too complex for generic models",
+        "desc": "Product manuals, technical docs, internal knowledge bases... messy formats, domain-specific jargon. Plugging them straight into an LLM gives terrible results — it requires dedicated knowledge engineering."
+      },
+      {
+        "number": "03",
+        "title": "You want to use AI but don't know where or if it'll work",
+        "desc": "You've heard plenty of AI success stories, but back in your own business, you can't tell where Agents make sense, where RAG fits, and where AI shouldn't be used at all."
+      },
+      {
+        "number": "04",
+        "title": "You've tried other solutions but results fell short",
+        "desc": "You've attempted solutions before, but accuracy didn't improve, costs didn't drop, and maintenance became a nightmare — you need a team that can rethink from first principles."
+      }
+    ],
+    "steps": [
+      {
+        "number": "01",
+        "title": "Understand the Problem",
+        "desc": "We don't take requirement documents — we work with you to define the problem boundary",
+        "detail": "We don't start coding on day one. First we take the problem apart with you: what actually needs solving, where the boundaries are, what counts as success. Most projects fail not because the tech is hard, but because no one nailed down what was wanted. We'd rather be slow here and stay aligned."
+      },
+      {
+        "number": "02",
+        "title": "Research Solutions",
+        "desc": "Evaluate technical approaches, run small-scale validations — no guessing",
+        "detail": "Once the direction is set, we evaluate several technical paths and validate them on small-scale data instead of betting on a guess. Where an Agent fits, where RAG fits, where AI shouldn't be used at all — decided by experiment data, surfacing risk early."
+      },
+      {
+        "number": "03",
+        "title": "Engineer & Deliver",
+        "desc": "Deliver running systems, not PowerPoints",
+        "detail": "Research findings have to become a system that runs inside your business. We do real engineering: deployable, maintainable, logged, with fallback mechanisms. What we deliver ships — not a demo deck or a flaky prototype."
+      },
+      {
+        "number": "04",
+        "title": "Iterate Continuously",
+        "desc": "Going live is when the real test begins — we stick around to tune it",
+        "detail": "The real test starts once the system is live. Real data exposes problems you couldn't foresee, and quality needs ongoing tuning. We don't ship and vanish — we stay to watch the data, adjust strategy, and iterate until it hits the bar."
+      }
+    ]
+  },
+  "cases": {
+    "title": "Selected Cases",
+    "subtitle": "All cases are anonymized. Data from real deliveries.",
+    "featuredCta": "See Research Story",
+    "detailCta": "See the Transformation",
+    "items": [
+      {
+        "industry": "Tech / Developer Tools",
+        "title": "Programming Language Ecosystem Migration",
+        "desc": "For emerging languages with scarce training data, used RAG + Agent to automate cross-language library migration, breaking through the manual translation bottleneck.",
+        "coreMetric": "80%+",
+        "coreMetricLabel": "Migration Automation Rate",
+        "otherMetrics": [
+          "Single-library migration time reduced by 80%+, from weeks to hours",
+          "Compilation pass rate 85%+, auto-corrected after multi-round self-checks",
+          "Full language documentation indexed, version updates auto-synced"
+        ],
+        "tags": ["RAG Pipeline", "AST Parsing", "Compiler Integration", "Self-Check Agent", "Multi-Round Iteration"]
+      },
+      {
+        "industry": "FinTech",
+        "title": "Securities Mid-Office AI Transformation",
+        "desc": "Covered three core scenarios: intelligent authorization, intelligent tweets, and intelligent integration — all non-intrusively layered on existing systems.",
+        "coreMetric": "70%+",
+        "coreMetricLabel": "Permission Cycle Reduction",
+        "otherMetrics": [
+          "Financial product tweet production: from 1-2 hours to under 10 minutes",
+          "Business query resolution: from avg. 30 minutes to under 1 minute",
+          "Three scenarios delivered modularly, can go live independently"
+        ],
+        "tags": ["Multi-source RAG", "LLM Content Gen", "Permission Rule Engine", "Private Deployment"]
+      },
+      {
+        "industry": "Manufacturing",
+        "title": "Laser Equipment Enterprise Smart Customer Service",
+        "desc": "Connected 30+ product documents, 24/7 auto-response for procurement and troubleshooting queries.",
+        "coreMetric": "75%+",
+        "coreMetricLabel": "Auto-Resolution Rate",
+        "tags": ["RAG", "Private LLM", "Ticket System Integration", "Multi-Turn Agent"]
+      },
+      {
+        "industry": "Cross-border E-commerce",
+        "title": "Overseas Customer Acquisition Automation",
+        "desc": "End-to-end coverage: target customer identification, personalized outreach, automated touch and lead follow-up.",
+        "coreMetric": "3x+",
+        "coreMetricLabel": "Efficiency Improvement",
+        "tags": ["OpenClaw", "Multilingual LLM", "Automation Workflow", "CRM Integration"]
+      }
+    ]
+  },
+  "partners": {
+    "title": "Partner Organizations",
+    "subtitle": "Organizations exploring AI implementation with us."
+  },
+  "demo": {
+    "title": "Click Around and See How It Works",
+    "subtitle": "Four interactive product demos, each simplified from a real case. Front-end scripted simulation showing the shape of the capability — not backed by a live model.",
+    "tab_migration": "Code Migration",
+    "tab_chat": "Smart Authorization",
+    "tab_support": "Smart Support",
+    "tab_outreach": "Overseas Outreach",
+    "migration": {
+      "sourceLabel": "Source (Python)",
+      "targetLabel": "Target (Cangjie)",
+      "targetPlaceholder": "Click \"Start Migration\" to watch the source rewrite into the target language…",
+      "run": "Start Migration →",
+      "running": "Migrating…",
+      "reset": "Run Again",
+      "caseCta": "See the full case study →",
+      "success": "Compiled · converged in 2 rounds · 80%+ library automation",
+      "stages": ["Parse AST", "RAG Retrieval", "Generate Target", "Compile Self-Check"],
+      "stageDetails": [
+        "1 function · 3 list comprehensions · 2 recursive calls",
+        "Cangjie docs matched: Array.filter · generics · recursion",
+        "Generating target line by line…",
+        "Multi-round compile self-check…"
+      ],
+      "compile": {
+        "round1": "Round 1: 2 type mismatches (Int64 generic inference)",
+        "fixing": "Auto-fixing from compiler feedback…",
+        "round2": "Round 2: ✓ all passed"
+      }
+    },
+    "chat": {
+      "assistant": "Securities Platform Assistant",
+      "hint": "Try one of these:",
+      "empty": "Pick a question on the left to see the assistant recognize intent, extract parameters, and act — step by step.",
+      "caseCta": "See the full case study →",
+      "items": [
+        {
+          "q": "Grant interns view access to Product A",
+          "steps": ["Parse instruction · classified as permission change", "Extract params: role / action / resource", "Query the \"Intern\" role's current baseline", "Risk check: view-only · low risk · needs confirmation"],
+          "fields": [
+            { "k": "Role", "v": "Intern · 12" },
+            { "k": "Access", "v": "View (read-only)" },
+            { "k": "Resource", "v": "Product A" }
+          ],
+          "a": "Found the \"Intern\" role — 12 members. This will add:\n· Product A — View access (read-only, no export)\n\nThe role already has 3 view grants; no privilege conflict. This is a low-risk change and takes effect for all 12 members once confirmed.",
+          "confirm": {
+            "label": "Confirm",
+            "cancel": "Cancel",
+            "done": "✓ Done: Product A view access granted to \"Intern\" (12 members) · Change #CHG-20260702-041 · Written to the audit log"
+          },
+          "followups": ["View full role permissions", "Revert this change", "Export change record"]
+        },
+        {
+          "q": "Consolidate the info on Product B for me",
+          "steps": ["Parse instruction · classified as info aggregation", "RAG: 5 chunks matched in the vector store", "Cross-doc extraction: risk / return / suitability", "Structured summary · with source attribution"],
+          "sources": ["Prospectus PDF", "Risk Rating Sheet", "1-Year NAV", "Suitability Policy"],
+          "a": "Consolidated \"Product B\" from 5 documents:\n· Risk rating: R2 (medium-low)\n· Benchmark: 3.8%–4.5% (annualized)\n· 1-year NAV growth: 4.82%\n· Minimum: ¥10,000\n· Suitability: conservative or above\n\nNote: NAV data is as of the prior trading day; returns are not a guarantee of principal.",
+          "followups": ["Generate a client one-pager", "Compare with Product C", "View NAV history"]
+        },
+        {
+          "q": "Draft a sales pitch for Product C",
+          "steps": ["Parse instruction · classified as pitch generation", "Pull Product C highlights & compliance wording", "Match target profile: conservative", "Generate · pass compliance keyword check"],
+          "a": "Sales pitch (conservative client · compliance-checked):\n\n\"This product wins on stability. Ten straight years of positive returns, low volatility, a steady ride — ideal if you want your assets to grow steadily without taking on much drawdown.\n\n(Disclaimer: past performance does not indicate future results; principal is not guaranteed — refer to the prospectus.)\"",
+          "followups": ["Switch to a growth-oriented pitch", "Trim to 50 words", "Make a social-post version"]
+        }
+      ]
+    },
+    "support": {
+      "assistant": "Laser Equipment Support",
+      "hint": "Try a question:",
+      "empty": "Pick a question to see support retrieve from product docs, pinpoint the cause, and give an actionable fix.",
+      "caseCta": "",
+      "items": [
+        {
+          "q": "Burrs when cutting stainless — how do I tune it?",
+          "steps": ["Identify intent · cutting-process fault", "RAG: 3 process docs matched", "Locate params for \"stainless + burrs\"", "Rank by impact · generate a fix plan"],
+          "sources": ["Cutting Process Manual v3.2 §4.2", "FAQ Q17", "Stainless Parameter Sheet"],
+          "a": "For burrs on stainless, check in this priority order (with recommended values):\n\n① Assist-gas pressure too low (most common)\n → Nitrogen 1.2–1.5 MPa, purity ≥99.999%\n② Focus position too high\n → Drop focus 0.5–1.0 mm, ~ -1/3 of plate thickness\n③ Cutting speed too fast\n → For 3mm, reduce to 2.4–2.8 m/min\n④ Nozzle wear / coaxiality drift\n → Check nozzle bore, re-center\n\nStart with ① — it resolves ~80% of burr cases.",
+          "followups": ["Full 3mm parameter table", "Params for carbon steel", "Book an on-site engineer"]
+        },
+        {
+          "q": "Cutting 3mm aluminum — which power model?",
+          "steps": ["Identify intent · equipment selection", "RAG: selection guide matched", "Match \"material=aluminum · 3mm\"", "Recommend by speed / cost / headroom"],
+          "sources": ["Product Selection Guide v2.1", "Aluminum Parameter Sheet"],
+          "a": "For 3mm aluminum, go with a 2000W fiber laser cutter (e.g. LC-2000):\n\n· Aluminum is highly reflective — needs ≥1500W to start cutting reliably\n· 2000W on 3mm Al: ~6–8 m/min, clean edges\n· On a budget, 1500W works at 4–5 m/min\n· If you'll later cut 5–6mm Al, go straight to 3000W for headroom\n\nSetup tip: pair with high-purity nitrogen + anti-reflection optics.",
+          "followups": ["2000W vs 3000W quote", "Aluminum consumables list", "Book a cutting sample"]
+        },
+        {
+          "q": "What does alarm E-042 mean?",
+          "steps": ["Identify intent · alarm-code lookup", "RAG: alarm code table matched", "Locate the E-042 entry", "Give cause + step-by-step fix"],
+          "sources": ["Alarm Code Manual · E-series"],
+          "a": "E-042 = coolant flow abnormal (water-cooling protective shutdown).\n\nCheck in order:\n1. Tank water level — below minimum triggers it (most common)\n   → Top up with deionized water to the mark\n2. Inspect in/out hoses — kinks or debris blockage\n3. Confirm the pump runs — listen, gauge ≥0.3 MPa\n4. Clean the water-line filter — scales up over time\n\nPress \"Reset\" to clear once fixed. Recurring? Usually pump aging — needs service.",
+          "followups": ["Full E-series alarm table", "Cooling maintenance cycle", "Open a service ticket"]
+        }
+      ]
+    },
+    "outreach": {
+      "hint": "Pick a target market:",
+      "empty": "Pick a target profile to see the system identify the decision-maker, gather intel, and draft a personalized outreach email.",
+      "doneNote": "Localized versions generated · queued for automated outreach",
+      "genLabel": "Drafting a personalized email…",
+      "contactLabel": "Decision-maker",
+      "intelLabel": "Sources",
+      "langLabel": "Versions",
+      "stages": ["Find Decision-Maker", "Gather Intel", "Draft Email", "Localize"],
+      "targets": [
+        {
+          "label": "Industrial Automation · Module Supplier",
+          "region": "Germany · DACH",
+          "contact": "CTO · Markus Weber",
+          "intel": ["LinkedIn profile", "Company tech blog", "Trade-show directory"],
+          "langs": "EN · DE",
+          "subject": "Cutting your CNC integration lead time by ~40%",
+          "lines": [
+            "Hi Markus,",
+            "",
+            "Noticed Weidmann supplies automation modules across the DACH manufacturing sector — and that integration timelines are where most of your customers stall.",
+            "",
+            "We've helped similar suppliers cut CNC integration lead time by ~40% with a lightweight AI layer that sits on top of the existing stack — no rip-and-replace.",
+            "",
+            "Worth a 20-min call next week?",
+            "",
+            "— The EasyZ Team"
+          ]
+        },
+        {
+          "label": "Medical Devices · Mid-size OEM",
+          "region": "United States · MedTech",
+          "contact": "VP Quality · Dr. Elena Reyes",
+          "intel": ["FDA registry", "Product line", "Recent funding news"],
+          "langs": "EN",
+          "subject": "A faster path to 510(k)-ready documentation",
+          "lines": [
+            "Hi Dr. Reyes,",
+            "",
+            "Saw that Nimbus Medical is scaling its device line — documentation overhead tends to become the bottleneck right around this stage.",
+            "",
+            "We build AI workflows that keep 510(k) documentation audit-ready as your specs evolve, so compliance stops slowing releases.",
+            "",
+            "Happy to share a 2-page teardown of how it'd map to your process.",
+            "",
+            "— The EasyZ Team"
+          ]
+        },
+        {
+          "label": "Consumer Electronics · EMS",
+          "region": "Southeast Asia · EMS",
+          "contact": "Ops Director · Wei Tan",
+          "intel": ["LinkedIn profile", "Alibaba.com store", "Capacity disclosure"],
+          "langs": "EN · 中文",
+          "subject": "Turning your RFQ backlog into same-day quotes",
+          "lines": [
+            "Hi Wei,",
+            "",
+            "EMS teams like yours often lose deals to slow RFQ turnaround — buyers move on before the quote lands.",
+            "",
+            "Our AI quoting assistant reads incoming RFQs, matches them to your capability sheet, and drafts a same-day quote for your team to approve.",
+            "",
+            "Can I send a short demo tailored to your product mix?",
+            "",
+            "— The EasyZ Team"
+          ]
+        }
+      ]
+    }
+  },
+  "whyUs": {
+    "whoTitle": "Who We Are",
+    "whoText": "A research-driven team from top universities. Core members have deep academic research backgrounds and engineering delivery capabilities. Flat collaboration — everyone faces the problem directly. No layers, no information loss.",
+    "compareTitle": "Where Big Teams Get Stuck",
+    "compareSubtitle": "How We Don't",
+    "compareRows": [
+      {
+        "problem": "PM relays requirements, engineers interpret them second-hand",
+        "solution": "Business, research, and engineering are the same people — direct access"
+      },
+      {
+        "problem": "Changing requirements means restarting the approval process",
+        "solution": "Decisions made face-to-face, adjustments same day"
+      },
+      {
+        "problem": "Decisions wait for weekly meetings, reports, sign-offs",
+        "solution": "No one to report to — decisions are instant"
+      },
+      {
+        "problem": "Knowledge lives in PMs' heads, engineers just execute",
+        "solution": "Everyone solves the problem, everyone understands the context"
+      }
+    ],
+    "commitmentTitle": "Our Commitment",
+    "commitmentIntro": "To ensure every project gets enough research depth and engineering rigor, we actively limit how much we take on:",
+    "commitments": [
+      "Concurrent projects ≤ 3",
+      "Annual projects ≤ 8",
+      "Capability assessment before accepting — we don't take what we can't deliver"
+    ],
+    "techStackLabel": "Tech Stack",
+    "techStack": "RAG · Dify · Private LLM · n8n · LangChain · Docker · PostgreSQL · Redis · Python · TypeScript"
+  },
+  "facts": {
+    "title": "EasyZ at a Glance",
+    "intro": "Public facts that help clients, search engines, and AI systems understand us accurately. We are a small research-led team focused on engineering AI into complex, non-standard business scenarios.",
+    "items": [
+      {
+        "label": "Legal entity",
+        "value": "Shenyang EasyZ Software Information Technology Service Co., Ltd. (EasyZ)"
+      },
+      {
+        "label": "Location",
+        "value": "Shenyang Area of China (Liaoning) Pilot Free Trade Zone"
+      },
+      {
+        "label": "Specialties",
+        "value": "AI Agents, RAG knowledge engineering, workflow automation, private LLM deployment, and AI transformation of complex systems"
+      },
+      {
+        "label": "Delivery model",
+        "value": "Define the problem, validate technical paths at small scale, then deliver a deployable and maintainable system with logging and fallback mechanisms"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Let's Talk About Your Hard Problem",
+    "subtitle": "Tell us your problem. Let's figure it out.",
+    "button": "Start a Conversation",
+    "emailLabel": "Or email us at",
+    "qrHint": "Scan to add WeChat",
+    "qrClose": "Close"
+  },
+  "footer": {
+    "companyCn": "沈阳易智软件信息技术服务有限公司",
+    "companyEn": "Shenyang EasyZ Software Information Technology Service Co., Ltd.",
+    "addressLabel": "Address",
+    "address": "No. 39-4, Innovation 2nd Road, Shenyang Area, China (Liaoning) Pilot Free Trade Zone",
+    "emailLabel": "Business",
+    "beian": "辽ICP备2026008888号-1",
+    "quote": "We believe AI implementation is never a tool problem — it's a problem-understanding problem.",
+    "casesTitle": "Cases",
+    "caseMigration": "Lang Migration",
+    "caseSecurities": "Securities AI",
+    "contactTitle": "Contact"
+  },
+  "thinking": {
+    "title": "Thinking",
+    "subtitle": "Technical perspectives, methodology, and real-world lessons",
+    "readMore": "Read Full Article",
+    "notFound": "Article not found",
+    "articles": [
+      {
+        "slug": "ai-project-screening",
+        "title": "5 Questions We Ask Before Taking an AI Project",
+        "excerpt": "Not every problem is worth solving with AI. We built a screening framework — 5 questions asked before project kickoff to decide whether this is a fit.",
+        "date": "2026-04-15",
+        "category": "Methodology",
+        "content": "## Why We Screen\n\nAfter years of AI implementation work, we've learned a key lesson: **projects fail not because the technology doesn't work, but because the problem itself shouldn't be solved with AI.**\n\nSome problems can be solved with a three-line rule engine in seconds, but forcing a large model onto them makes them ten times slower and a hundred times more expensive. Some problems lack sufficient data for the model to learn anything meaningful. Some problems change three times mid-project because the client themselves haven't figured out what they want.\n\nSo we made a rule for ourselves: **before taking on any AI project, we run it through 5 questions first.** If it doesn't pass, we don't take it.\n\nThis isn't about being picky — it's about being responsible to both sides.\n\n---\n\n## The Five Questions\n\n### Question 1: How far can traditional methods get with this problem?\n\n**Purpose: Confirm whether AI is truly necessary.**\n\nMany clients come to us saying \"we want to use AI\" as their first sentence. But we first ask: How is this problem currently being solved? With rules, with manual work, with traditional software — how far can those approaches get?\n\nIf traditional methods can achieve 80% and AI can achieve 90%, is that 10% improvement worth hundreds of thousands of dollars? If traditional methods can only achieve 40% and AI can achieve 85%, then the investment makes sense.\n\n**We don't do nice-to-haves. We do must-haves.**\n\nFor example: a client wanted to use AI for data validation. When we asked, we found their data format was very regular, and regex could handle 99% of cases. So why use a large model? We recommended a rule engine instead — saved money and got better results.\n\n---\n\n### Question 2: Do you have enough clean data?\n\n**Purpose: Confirm whether AI can actually learn.**\n\nAI isn't magic — it learns patterns from data. Without data, it's like asking a student to take an exam without reading any books — no matter how smart they are, they won't do well.\n\nWe ask:\n- How much historical data do you have?\n- Is the data format consistent?\n- Is there human-labeled \"correct answer\" data?\n- How's the data quality? Any dirty data, missing values?\n\nIf the data is insufficient or too dirty, we recommend data cleaning first rather than jumping straight to modeling.\n\n**Some projects require two months just for data cleaning.** This isn't wasted time — it's laying the foundation. A weak foundation means the building will collapse no matter how tall you make it.\n\n---\n\n### Question 3: What are the boundaries of this scenario?\n\n**Purpose: Confirm what happens when AI gets it wrong.**\n\nAI isn't 100% accurate. We need to ask: if AI makes a mistake, what's the consequence?\n\n- If it's a recommendation system and recommends the wrong song, the user skips it — minor consequence.\n- If it's a medical diagnosis system and misdiagnoses — major consequence.\n- If it's a financial risk control system and misses a fraud case — major consequence.\n\n**The heavier the consequence, the more we need human oversight mechanisms.** This means higher costs and more complex workflows.\n\nWe design different approaches based on risk level:\n- Low risk: AI outputs directly, humans spot-check\n- Medium risk: AI outputs + human review\n- High risk: AI assists + human decision-making\n\nIf a client wants a \"fully automated, zero human involvement\" solution for a high-risk scenario, we tell them directly: it can't be done, or it can be done but the risk is something they can't bear.\n\n---\n\n### Question 4: Can your team handle it?\n\n**Purpose: Confirm whether it can be used after delivery.**\n\nAI projects don't end when you deliver a model. Models need continuous iteration, data needs continuous collection, systems need continuous maintenance.\n\nWe ask:\n- Do you have technical staff who can maintain this system?\n- Is your business team willing to change their workflows to work with AI?\n- Does your management have the patience to wait for AI to gradually optimize?\n\n**Some projects succeed technically but the business team won't use them.** Because using AI means changing habits, learning new things, and trusting a \"black box.\"\n\nIf the team can't handle it, we recommend starting with a small pilot to let the team gradually adapt, rather than going all-in from the start.\n\n---\n\n### Question 5: Are you willing to pay for \"imperfection\"?\n\n**Purpose: Confirm whether expectations are realistic.**\n\nAI isn't omnipotent. It will have errors, delays, and limitations.\n\nWe ask:\n- Can you accept AI's accuracy being 85% instead of 100%?\n- Can you accept AI needing 3 months of optimization to reach its best performance?\n- Can you accept AI performing poorly in certain edge cases?\n\n**If a client is追求 100% perfection, then AI isn't the answer.** Traditional rule engines, manual review, or simple if-else statements might be more appropriate.\n\nAI is suited for scenarios where \"there's enough room for error, enough data, and the problem is complex enough.\"\n\n---\n\n## After Screening\n\nProjects that pass these 5 questions are the ones we take on. After taking them on, we do three things:\n\n1. **Research first, then develop.** Spend a week deeply understanding the problem before writing any code.\n2. **Build MVP first, then scale.** Spend two weeks building a working prototype so the client can see results before deciding whether to continue investing.\n3. **Build trust first, then collaborate.** We explain the technical approach, risk points, and expected outcomes clearly so the client knows what we're doing and why.\n\n**We believe good AI projects aren't taken on — they're screened into existence.**\n\n---\n\n## Final Thoughts\n\nThese 5 questions aren't set in stone. As we complete more projects, these questions continue to evolve.\n\nBut the core logic remains: **AI is a tool, not a goal.** What we need to do is find the problems that truly need this tool, and then solve them in the most appropriate way.\n\nIf you have an AI project idea, feel free to reach out. We may not take it on, but we'll definitely tell you: whether this problem is worth solving with AI, and whether it can be solved well."
+      },
+      {
+        "slug": "securities-ai-case-study",
+        "title": "Non-Intrusive Securities Mid-Office Transformation: Three AI Scenarios",
+        "excerpt": "Financial system overhauls fear the 'rip and replace' approach. We layered three AI scenarios non-intrusively on top of existing infrastructure — each with different entry points and trade-offs.",
+        "date": "2026-03-28",
+        "category": "Case Study",
+        "content": "## Background\n\nIn early 2025, a domestic To B securities fintech company approached us. They'd been in the securities services business for over a decade with a mature data mid-office system containing stock data, product data, personnel data, and more.\n\nThe problem: **the system was too old.**\n\nThe code was written over a decade ago, with developers cycling through multiple generations. The code style was inconsistent, comments were missing, and the logic was chaotic. In their own words: \"This is a mountain of legacy code, but we still have to build on top of it.\"\n\nThey wanted to add AI capabilities but had two hard constraints:\n\n1. **Cannot modify the original system.** The system has been running for over a decade, and stability is paramount. Any changes require rigorous testing and approval, with long cycles and high costs.\n2. **Cannot take the system offline for upgrades.** The system runs 24/7, serving dozens of securities firms. Every day of downtime is a day of losses.\n\nSo we proposed a solution: **non-intrusive transformation.**\n\n---\n\n## What is Non-Intrusive Transformation\n\nSimply put, it means **layering** AI capabilities on top of the existing system, rather than **replacing** it.\n\nThe specific approach:\n\n1. **Add a floating ball.** Add a small circle in the bottom-right corner of the existing system. Clicking it opens a chat dialog. Users can interact with the system using natural language.\n2. **Deploy AI services independently.** The AI service runs on separate servers, communicating with the existing system via API. The existing system doesn't need any changes.\n3. **Roll out gradually.** Launch one scenario first, stabilize it, then launch the second, and finally the third. Each scenario is independent and doesn't affect the others.\n\n**Benefits of this approach:**\n- Zero changes to the existing system, risk可控\n- Independent AI service deployment, performance可控\n- Independent scenario rollouts, timeline可控\n\n---\n\n## Three Scenarios\n\nWe chose three scenarios to切入, each with different logic.\n\n### Scenario 1: Smart Authorization\n\n**Problem:** The system has many roles, each with different permissions. The roles are numerous and messy, making management very cumbersome.\n\nThe original workflow: administrators manually configure permissions for each role. If 5 roles need changes, the administrator must enter 5 separate pages and modify each one. After making changes, they must check each one individually, fearing they might have missed or incorrectly modified one.\n\n**Pain points:**\n- Too many roles, tedious operations\n- Easy to miss changes or make errors\n- Inconvenient to view permissions, requiring page navigation\n\n**Our solution:**\n\nUse natural language to manage permissions. Administrators just need to say one sentence, like \"give interns view access to Product A,\" and the system automatically:\n\n1. **Intent recognition:** Determines the user wants to change permissions\n2. **Parameter extraction:** Extracts the role (interns), permission (view), and object (Product A)\n3. **Secondary confirmation:** Shows a confirmation dialog: \"Will add view access for Product A to the intern role. Confirm?\"\n4. **Execute operation:** Calls the permission management API to complete the permission change\n5. **Result confirmation:** Displays the modified permission list for final confirmation\n\n**Why secondary confirmation?**\n\nBecause permission management is a high-risk operation. Errors can lead to data leaks or business interruptions. So we added confirmation at two critical points:\n- Pre-execution confirmation: Verify intent understanding is correct\n- Post-execution confirmation: Verify the operation result meets expectations\n\n**Technical details:**\n\n- **Intent recognition:** Uses prompt engineering to identify user intent. Since their deployed model is DeepSeek V3 (though they claim it's self-developed), its tool-calling capabilities are slightly weaker, so we optimized prompts specifically for this model's characteristics.\n- **Tool encapsulation:** Since the original code was too messy, we didn't modify the original framework. Instead, we created an independent package that encapsulates permission management APIs as tools. This doesn't affect the original code and makes future maintenance easier.\n- **Floating ball interaction:** Created a floating ball + chat dialog UI, allowing users to complete operations without leaving their current page.\n\n---\n\n### Scenario 2: Smart Integration\n\n**Problem:** The system has many documents scattered across various locations. Finding information requires searching through many documents.\n\nFor example, a user wants to learn about \"Financial Product A.\" The basic info is in one document, risk rating in another, historical returns in a third, and sales pitch in a fourth. The user must open four documents and search through each one — very inefficient.\n\n**Pain points:**\n- Documents scattered, difficult to find\n- Information fragmented, requires manual integration\n- Time-consuming, easy to miss information\n\n**Our solution:**\n\nUse AI for document integration. Users just need to ask \"Financial Product A info,\" and the system automatically:\n\n1. **Document retrieval:** Uses RAG (Retrieval-Augmented Generation) technology to retrieve documents related to \"Financial Product A\" from all documents\n2. **Information extraction:** Extracts key information from each document\n3. **Summary display:** Integrates all information and displays it to the user\n\n**Display approach:**\n\nWe created a two-layer display:\n- **Layer 1: Document list.** Lists all documents containing \"Financial Product A\" information. Users can click to view the original text.\n- **Layer 2: Information summary.** Extracts all key information into a structured table for quick browsing.\n\n**Technical details:**\n\n- **RAG:** Uses vector databases to store document embeddings and semantic retrieval to find relevant documents.\n- **Information extraction:** Uses LLM to extract key information from documents, such as product name, risk rating, return range, target audience, etc.\n- **Tool encapsulation:** Similarly encapsulated as independent tools, accessible via the floating ball.\n\n---\n\n### Scenario 3: Smart Content Generation\n\n**Problem:** Sales staff need to recommend products to clients, but understanding products is a tedious task.\n\nSales staff need to know:\n- What are the product's features?\n- What kind of clients is this product suitable for?\n- How to express the product's highlights in plain language?\n\nThis information is scattered across product documents, sales manuals, and training materials. Sales staff must search through many materials to prepare a recommendation pitch.\n\n**Pain points:**\n- Time-consuming to understand products\n- Inconsistent quality of recommendation pitches\n- Slow onboarding for new products\n\n**Our solution:**\n\nUse AI to generate recommendation pitches. Sales staff just need to ask \"help me write a recommendation pitch for Financial Product A,\" and the system automatically:\n\n1. **Product analysis:** Analyzes the product's features, highlights, risk level, and target audience\n2. **Pitch generation:** Generates an easy-to-understand recommendation pitch based on the analysis\n3. **Personalized adjustment:** Adjusts the pitch's focus based on the salesperson's client profile\n\n**Examples:**\n\n- If a product has 5% annualized returns but has maintained 5% for 10 consecutive years, the pitch emphasizes \"stability\": \"While this product doesn't have the highest returns, its strength is consistency. Over the past 10 years, it has maintained 5% returns every year, making it ideal for stability-focused investors.\"\n- If a product comes from a well-known company, the pitch emphasizes \"brand\": \"This product comes from XX Company, one of the largest XX institutions in the country, with a trustworthy brand.\"\n- If a product is newly launched, the pitch emphasizes \"novelty\": \"This is a new product with no similar alternatives on the market, perfect for investors who enjoy trying new things.\"\n\n**Technical details:**\n\n- **Product analysis:** Uses LLM to analyze product documents and extract features, highlights, and target audience.\n- **Pitch generation:** Uses LLM to generate pitches based on analysis, with prompts controlling the style and focus.\n- **Tool encapsulation:** Similarly encapsulated as independent tools, accessible via the floating ball.\n\n---\n\n## Why We Cut It This Way\n\nThese three scenarios look different on the surface, but there's logic behind our selection:\n\n1. **By pain intensity:** Smart Authorization > Smart Integration > Smart Content Generation. Permission management is used daily and errors have severe consequences; document integration is high-frequency with clear efficiency gains; content generation is a nice-to-have that improves quality.\n2. **By implementation difficulty:** Smart Authorization < Smart Integration < Smart Content Generation. Permission management APIs are readily available, requiring only intent recognition and tool calls; document integration requires RAG, adding complexity; content generation requires understanding products and clients, making it most complex.\n3. **By risk level:** Smart Authorization > Smart Integration > Smart Content Generation. Permission management is high-risk, requiring multiple confirmations; document integration is medium-risk, as incorrect information could mislead decisions; content generation is low-risk, as a poor pitch at worst loses one client.\n\n**So our launch order was: Smart Authorization → Smart Integration → Smart Content Generation.**\n\nWe launched the most painful, most difficult, and highest-risk scenario first because once done well, it significantly boosts client trust. Plus, the APIs for this scenario were readily available, keeping technical risk可控.\n\n---\n\n## Tool Assembly Factory\n\nWhile building these three scenarios, we discovered a pattern: each scenario required tool encapsulation, but the encapsulation approach was similar.\n\nSo we built a \"Tool Assembly Factory\":\n\n1. **Unified tool interface:** All tools follow the same interface specification, including input parameters, output formats, error handling, etc.\n2. **Automated tool generation:** Just provide the API address and parameters to automatically generate tool code.\n3. **Unified tool management:** All tools are registered in one place for easy discovery, reuse, and updates.\n\n**Benefits:**\n- Faster new scenario launches, no need to reinvent the wheel\n- More stable tool quality thanks to unified standards\n- Easier future maintenance with all tools in one place\n\nMoreover, this Tool Assembly Factory is itself non-intrusive. When clients want to add new AI scenarios in the future, they just need to add new tools to the factory without modifying the existing system.\n\n---\n\n## Results\n\nAfter launching all three scenarios:\n\n- **Smart Authorization:** Permission management efficiency improved by 80%, operation error rate reduced by 95%.\n- **Smart Integration:** Document search time reduced from an average of 30 minutes to 2 minutes.\n- **Smart Content Generation:** Pitch generation time reduced from 1 hour to 5 minutes, pitch quality score improved by 40%.\n\nMore importantly, **zero changes to the existing system, zero downtime.**\n\n---\n\n## Final Thoughts\n\nThis project taught us several things:\n\n1. **Non-intrusive transformation is viable.** For legacy systems, the cost and risk of rip-and-replace are too high. Layering AI capabilities is a more pragmatic choice.\n2. **Scenario selection matters.** Not all scenarios are suitable for AI. We need to choose scenarios with strong pain points, sufficient data, and enough room for error.\n3. **Toolization is key.** Encapsulating AI capabilities as tools enables reuse, scalability, and maintainability.\n\nIf you have a legacy system you'd like to add AI capabilities to, feel free to reach out."
+      },
+      {
+        "slug": "why-not-dify-langchain",
+        "title": "Why We Don't Blindly Use Dify / LangChain",
+        "excerpt": "Tools are means, not ends. When facing a concrete problem, we first ask: does this framework's abstraction level match our scenario? Will its assumptions become future constraints?",
+        "date": "2026-03-10",
+        "category": "Technical Perspective",
+        "content": "## The Bottom Line\n\nDify and LangChain are both excellent tools. **But they're general-purpose tools, and we work on non-standard scenarios.**\n\nGeneral-purpose tools are designed to cover 80% of use cases. But if you want to achieve 90% or even 95%, you need to build it yourself.\n\nThis isn't to say Dify/LangChain are bad — it's that their abstraction level doesn't match our scenarios.\n\n---\n\n## What Are Non-Standard Scenarios\n\nStandard scenarios are those with clear workflows, clear inputs, and clear outputs. For example:\n\n- Customer service chatbot: User asks a question, system provides an answer\n- Document Q&A: User asks a document-related question, system finds the answer in the document\n- Content generation: User provides a prompt, system generates text\n\nThese scenarios are well-handled by Dify and LangChain because their abstraction level matches the complexity of these scenarios.\n\n**Non-standard scenarios are those with blurry boundaries, uncertain workflows, and frequently changing requirements.** For example:\n\n- Smart authorization: User says one sentence, system must determine if they want to change permissions, extract role/permission/object, do secondary confirmation, call API, return results. This workflow has many branches and edge cases.\n- Smart integration: User asks a question, system must find information from multiple documents, determine which information is relevant, integrate it, handle conflicts and contradictions. This workflow has many judgments and decisions.\n- Smart content generation: User wants to generate a pitch, system must understand product features, customer profiles, sales scenarios, generate appropriate pitches, handle different styles and tones. This workflow has many creative elements and variations.\n\n**These scenarios encounter many problems when processed using Dify/LangChain's standard workflows.**\n\n---\n\n## Problem 1: Abstraction Level Mismatch\n\nDify and LangChain's abstraction level is \"Chain\" — stringing a series of steps together to form a workflow.\n\nThis abstraction works for simple scenarios. For example:\n\n```\nUser input → Retrieve documents → Generate answer → Output\n```\n\nBut for complex scenarios, this abstraction falls short. Take the smart authorization workflow:\n\n```\nUser input → Intent recognition → [Is permission operation] → Parameter extraction → Secondary confirmation → [Confirm] → Call API → [Success] → Return result → Secondary confirmation → [Confirm] → Complete\n                ↓                              ↓           ↓                ↓\n            [Not] → Normal conversation    [Reject] → Cancel  [Fail] → Error handling  [Reject] → Rollback\n```\n\nThis workflow has many branches and loops, making it very complex to express with a Chain. Moreover, each branch has different logic — some need API calls, some need user interaction, some need error handling.\n\n**Implementing this workflow with Dify/LangChain's Chain would result in very complex, hard-to-maintain code.**\n\n---\n\n## Problem 2: Assumptions Become Constraints\n\nDify and LangChain have many assumptions:\n\n- They assume how models are called (usually OpenAI API)\n- They assume Prompt templates\n- They assume tool interfaces\n- They assume workflow structures\n\nThese assumptions are reasonable for most scenarios. But in non-standard scenarios, these assumptions become constraints.\n\n**For example:**\n\nOur client uses DeepSeek V3, not OpenAI. DeepSeek V3's tool-calling capabilities differ from OpenAI's, and we need to optimize specifically for DeepSeek V3's characteristics.\n\nWith LangChain, we'd either need to write an adapter layer to convert DeepSeek V3's interface to OpenAI's interface, or modify LangChain's source code to support DeepSeek V3.\n\nBoth approaches are problematic. Writing an adapter layer increases complexity and latency; modifying source code makes future upgrades difficult.\n\n**We chose to call DeepSeek V3's API directly and optimize for its characteristics.** This is more direct, efficient, and可控.\n\n---\n\n## Problem 3: Insufficient Flexibility\n\nNon-standard scenario requirements change frequently. Today the client wants to add a feature, tomorrow they want to change logic, the day after they want to switch models.\n\nWith Dify/LangChain, every requirement change means modifying the Chain definition, Prompt templates, and tool interfaces. This process is tedious and error-prone.\n\n**We chose a more flexible implementation approach:**\n\n1. **Modular design:** Make each function an independent module, with modules communicating through interfaces. When requirements change, only the corresponding module needs modification, without affecting others.\n2. **Configuration management:** Make variable parts (like Prompts, model parameters, tool interfaces) configurable. Change configuration to change behavior without changing code.\n3. **Progressive development:** Start with a minimum viable version, then iterate based on feedback. Each iteration only changes a small portion, keeping risk可控.\n\nThis approach is more flexible and better suited for non-standard scenarios.\n\n---\n\n## Problem 4: Debugging Difficulty\n\nDify and LangChain's high abstraction level means when you encounter problems, it's hard to pinpoint where the issue lies.\n\nFor example, the user says \"the system's answer is wrong.\" This problem could be in:\n- Retrieval stage: Retrieved documents are irrelevant\n- Generation stage: LLM's understanding is incorrect\n- Tool stage: Tool's return value has issues\n- Workflow stage: Workflow logic has bugs\n\nWith Dify/LangChain, you'd need to check layer by layer to find the root cause. Moreover, many intermediate processes are invisible — you can only see the final output.\n\n**We chose a more transparent implementation approach:**\n\n1. **Logging:** Each step logs detailed information, including input, output, duration, errors, etc.\n2. **Visual tracing:** Visualize the workflow execution process for easy problem定位.\n3. **Unit testing:** Each module has independent unit tests to ensure the module itself is correct.\n\nThis approach is easier to debug and better suited for complex scenarios.\n\n---\n\n## When to Use Dify/LangChain\n\nGiven all this, does that mean Dify/LangChain are useless?\n\n**Of course not.**\n\nDify/LangChain are suitable for these scenarios:\n\n1. **Standard scenarios:** Customer service, Q&A, content generation — scenarios with clear workflows\n2. **Rapid prototyping:** When you need to quickly validate an idea without high completion requirements\n3. **Limited team capability:** When you don't have enough technical capability to implement it yourself and need framework assistance\n4. **Limited budget:** When you don't have enough budget for custom development and need to use open-source solutions\n\n**If your scenario fits the above conditions, using Dify/LangChain is an excellent choice.**\n\nBut if your scenario is non-standard, complex, and requires high customization, you'll need to build it yourself.\n\n---\n\n## Our Approach\n\nOur approach is: **Use Dify/LangChain's ideas, but not their code.**\n\nSpecifically:\n\n1. **Borrow ideas:** Learn from Dify/LangChain's design philosophy, like Chain abstraction, tool encapsulation, Prompt management, etc.\n2. **Use components:** Use certain Dify/LangChain components, like vector databases, Embedding models, parsers, etc.\n3. **Implement ourselves:** Implement core logic ourselves, without depending on frameworks.\n\n**Benefits of this approach:**\n- Framework flexibility without framework constraints\n- Component reusability without component limitations\n- Philosophical guidance without philosophical dogma\n\n---\n\n## An Example\n\nWhen we built our smart customer service, we initially used RAGFlow. RAGFlow is an excellent RAG framework — ready to use out of the box with good results.\n\nBut after using it for a while, we encountered some issues:\n\n1. **Insufficient retrieval precision:** RAGFlow's retrieval strategy is fixed and can't be customized for our scenarios.\n2. **Insufficient generation flexibility:** RAGFlow's generation strategy is also fixed and can't be adjusted for our needs.\n3. **Insufficient scalability:** RAGFlow's architecture is closed and doesn't easily accommodate new features.\n\n**So we decided to implement our own RAG system.**\n\nWe borrowed RAGFlow's ideas but redesigned the architecture:\n\n1. **Retrieval layer:** Supports multiple retrieval strategies, including semantic search, keyword search, hybrid search, etc. Choose the most appropriate strategy based on the scenario.\n2. **Generation layer:** Supports multiple generation strategies, including direct generation, citation generation, multi-turn dialogue, etc. Choose the most appropriate strategy based on requirements.\n3. **Extension layer:** Supports adding new functional modules, like knowledge graphs, multimodal processing, etc. Gradually expand based on development.\n\n**Results:** Accuracy improved from 75% to 92%, response time reduced from 3 seconds to 1.5 seconds.\n\n---\n\n## Final Thoughts\n\n**Tools are means, not ends.**\n\nWe do AI implementation not to use a specific framework, but to solve a specific problem. Frameworks are just tools; problems are the goal.\n\nWhen tools solve problems, we use tools. When tools can't solve problems, we build our own tools.\n\n**This isn't technical purism — it's pragmatism.**\n\nIf you have a non-standard scenario you'd like help with, feel free to reach out. We may not use Dify/LangChain, but we'll definitely use the most appropriate approach to solve your problem."
+      }
+    ]
+  },
+  "caseDetail": {
+    "backToCases": "← Back to Cases",
+    "problemLabel": "Problem Background",
+    "researchLabel": "Research Process",
+    "solutionLabel": "Final Solution",
+    "resultLabel": "Results"
+  }
+}
