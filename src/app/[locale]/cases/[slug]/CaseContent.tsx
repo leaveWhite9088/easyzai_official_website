@@ -627,7 +627,7 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
   return (
     <article className="relative isolate overflow-hidden pt-24 pb-20 sm:pb-28 lg:pb-32">
       <SubpageAtmosphere />
-      <div className="subpage-mobile-static relative z-10 max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="subpage-mobile-static relative z-10 max-w-[57.6rem] mx-auto px-5 sm:px-6 lg:px-8">
         <motion.a
           href={`/${locale}#cases`}
           initial={{ opacity: 0, x: -10 }}
@@ -664,7 +664,7 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.16, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="subpage-surface article-prose prose prose-invert max-w-none min-w-0 rounded-2xl p-5 sm:p-8 lg:p-10"
+          className="article-prose prose prose-invert max-w-none min-w-0"
         >
           <Markdown
             components={{
