@@ -35,16 +35,15 @@ export default function ThinkingListContent() {
             </p>
           </motion.header>
 
-          <div className="space-y-5 sm:space-y-6">
+          <div>
             {articles.map((article, i) => (
               <motion.article
                 key={article.slug}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="subpage-surface subpage-surface-interactive group rounded-2xl"
               >
-                <Link href={`/${locale}/thinking/${article.slug}`} className="block rounded-2xl p-5 sm:p-7">
+                <Link href={`/${locale}/thinking/${article.slug}`} className="group block border-b border-border-subtle py-8 sm:py-10">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
                     <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, '0')}</span>
                     <span className="h-px w-5 bg-accent/50" />
@@ -54,7 +53,7 @@ export default function ThinkingListContent() {
                   <h2 className="break-words text-xl font-medium text-text-primary mb-3 group-hover:text-accent transition-colors">
                     {article.title}
                   </h2>
-                  <p className="text-text-secondary text-sm leading-relaxed mb-5">{article.excerpt}</p>
+                  <p className="text-text-secondary text-sm leading-relaxed mb-5 max-w-xl">{article.excerpt}</p>
                   <span className="inline-flex min-h-[44px] items-center gap-1 text-sm text-accent transition-all group-hover:gap-2">
                     {t('readMore')} →
                   </span>

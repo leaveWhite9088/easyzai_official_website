@@ -38,7 +38,7 @@ export default function ThinkingDetailContent({ locale, slug }: { locale: string
       <SubpageAtmosphere />
       <Navbar />
       <article className="subpage-mobile-static relative z-10 pt-24 pb-20 sm:pt-32 sm:pb-24">
-        <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-10">
+        <div className="max-w-[51.84rem] mx-auto px-5 sm:px-6 lg:px-8">
           <motion.a
             href={`/${locale}/thinking`}
             initial={{ opacity: 0, x: -10 }}
@@ -67,7 +67,7 @@ export default function ThinkingDetailContent({ locale, slug }: { locale: string
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.16, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="subpage-surface article-prose prose prose-invert max-w-none min-w-0 rounded-2xl p-5 sm:p-8 lg:p-10"
+            className="article-prose prose prose-invert max-w-none min-w-0"
           >
             <Markdown
               components={{

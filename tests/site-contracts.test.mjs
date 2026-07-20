@@ -128,14 +128,10 @@ test('all secondary page templates inherit the homepage visual language', async 
     assert.match(template, /SubpageAtmosphere/)
     assert.match(template, /motion\./)
     assert.match(template, /subpage-mobile-static/)
+    // Secondary pages read as plain articles — no surface frames anywhere.
+    assert.doesNotMatch(template, /subpage-surface/)
   }
-  for (const template of [thinkingList, thinkingDetail]) {
-    assert.match(template, /subpage-surface/)
-  }
-  // Case detail reads as a plain article — no surface frame around the body.
-  assert.doesNotMatch(caseDetail, /subpage-surface/)
   assert.match(notFound, /radial-gradient/)
-  assert.match(globalCss, /\.subpage-surface/)
   assert.match(globalCss, /\.subpage-mobile-static/)
 })
 
