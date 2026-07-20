@@ -67,10 +67,9 @@ export default function Services() {
             <h2 className="text-h1 text-text-primary">{t('methodTitle')}</h2>
           </motion.div>
 
-          {/* Step rows: quiet number + large title anchor the left column,
-              one-liner and long-form detail stack in the right column.
-              Alignment is structural (grid columns), never margin-computed. */}
-          <ol>
+          {/* Editorial single column: accent number → big title → one-liner →
+              detail, separated by generous whitespace only — no rules, no boxes. */}
+          <ol className="mt-4">
             {steps.map((step, i) => (
               <motion.li
                 key={step.number}
@@ -78,20 +77,20 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="group grid gap-3 border-t border-border-subtle py-10 last:border-b lg:grid-cols-[220px_1fr] lg:gap-x-16 lg:py-14"
+                className="group mt-24 first:mt-0 lg:mt-32 lg:first:mt-0"
               >
-                <div className="flex items-baseline gap-4 lg:flex-col lg:items-start lg:gap-3">
-                  <span className="font-mono text-[13px] tracking-[0.2em] text-text-tertiary transition-colors duration-300 group-hover:text-accent">
-                    {step.number}
-                  </span>
-                  <h3 className="text-2xl lg:text-3xl font-medium text-text-primary transition-colors duration-300 group-hover:text-accent">
-                    {step.title}
-                  </h3>
-                </div>
-                <div className="max-w-2xl lg:pt-1.5">
-                  <p className="text-base text-text-secondary leading-relaxed mb-4">{step.desc}</p>
-                  <p className="text-[15px] text-text-tertiary leading-relaxed">{step.detail}</p>
-                </div>
+                <span className="font-mono text-[13px] tracking-[0.3em] text-accent">
+                  {step.number}
+                </span>
+                <h3 className="mt-3 text-[32px] lg:text-[48px] leading-[1.15] font-medium text-text-primary transition-colors duration-300 group-hover:text-accent">
+                  {step.title}
+                </h3>
+                <p className="mt-5 max-w-[560px] text-[18px] lg:text-[20px] text-text-secondary leading-relaxed">
+                  {step.desc}
+                </p>
+                <p className="mt-4 max-w-[640px] text-[15px] leading-[1.9] text-text-tertiary">
+                  {step.detail}
+                </p>
               </motion.li>
             ))}
           </ol>

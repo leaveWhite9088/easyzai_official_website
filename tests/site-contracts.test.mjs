@@ -198,7 +198,7 @@ test('light theme, page transitions and reading axes are deliberately designed',
   assert.match(pageTransition, /key=\{pathname\}/)
   assert.match(pageTransition, /usePathname/)
   assert.match(localeLayout, /PageTransition/)
-  assert.match(services, /lg:grid-cols-\[220px_1fr\]/)
+  assert.match(services, /lg:text-\[48px\]/)
   assert.match(lineCss, /\.line-sidebar--markers\s*\{[\s\S]*?padding-left:\s*0/)
   assert.match(globalCss, /\[data-theme='light'\]\s+\.site-section/)
   assert.match(globalCss, /\.hero-light-texture/)
