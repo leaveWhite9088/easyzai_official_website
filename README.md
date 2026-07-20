@@ -13,7 +13,7 @@ Slogan: 你的需求，我们来实现
 - **框架**: Next.js 14 (App Router)，静态导出 (`output: 'export'`)
 - **UI**: React 18 + Tailwind CSS + TypeScript
 - **国际化**: next-intl，双语 `zh` / `en`（文案集中在 `messages/zh.json`、`messages/en.json`）
-- **动效**: framer-motion；3D 背景用 three + @react-three/fiber + @react-three/drei
+- **动效**: framer-motion；WebGL 背景与按钮光效用 ogl
 - **内容渲染**: react-markdown（思考文章）
 
 ## 常用命令
@@ -43,7 +43,7 @@ src/
 │       └── thinking/         # 思考文章列表 + [slug] 详情
 ├── components/
 │   ├── Navbar.tsx            # 固定顶部导航
-│   ├── Hero.tsx              # 首屏（Beams 3D 背景 + SplitText 标题 + BlurText 副标题）
+│   ├── Hero.tsx              # 首屏（Ferrofluid WebGL 背景 + SplitText 标题 + BlurText 副标题）
 │   ├── TrustBar.tsx          # 服务行业条
 │   ├── Services.tsx          # 服务能力
 │   ├── Cases.tsx             # 落地案例
@@ -53,7 +53,7 @@ src/
 │   ├── CTA.tsx               # 行动召唤（含微信二维码悬浮）
 │   ├── Footer.tsx            # 页脚
 │   ├── StructuredData.tsx    # JSON-LD 结构化数据（SEO/GEO）
-│   ├── BeamsBackground.tsx / SplitText.tsx / BlurText.tsx  # 动画组件
+│   ├── Ferrofluid.tsx / SpecularButton.tsx / SplitText.tsx / BlurText.tsx  # 动画组件
 │   └── bits/ demos/ theme/ ui/                              # 子组件库
 ├── lib/structured-data.ts    # 结构化数据节点生成
 ├── hooks/                    # useTimers、useTypewriter
@@ -92,4 +92,4 @@ tests/site-contracts.test.mjs # 站点契约测试（基于构建产物 out/）
 ## 其他笔记
 
 - Windows 下热更新缓存损坏（`Cannot find module './xxx.js'`）不是代码问题，运行 `npm run dev:clean` 即可；详见 `AGENTS.md`
-- 动画组件使用规范（Beams 背景、SplitText、BlurText 的中文拆分方式）见 `AGENTS.md`
+- 动画组件使用规范（Ferrofluid 背景、SpecularButton、SplitText、BlurText 的中文拆分方式）见 `AGENTS.md`

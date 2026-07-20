@@ -4,7 +4,7 @@
 
 - **技术栈**: Next.js 14 + React 18 + TypeScript + Tailwind CSS + next-intl
 - **端口**: `3010`
-- **动画库**: framer-motion、@react-three/fiber、@react-three/drei、three
+- **动画库**: framer-motion、ogl（WebGL）
 - **仓库**: GitHub `leaveWhite9088/easyzai_official_website`，主分支 `main`
 
 ## 提交原则
@@ -62,12 +62,20 @@ npm run dev:clean
 
 ## 动画组件使用规范
 
-### Beams 背景
+### Ferrofluid 背景
 
-- 文件: `src/components/BeamsBackground.tsx`
-- 基于 React Bits 的 Beams 组件，使用 `@react-three/fiber` + `@react-three/drei` + `three`
-- Canvas 使用 `alpha: true`，让 Hero 的 CSS 背景色透出来，避免主题切换时背景色不同步
-- 默认 `lightColor="#ffffff"`，通过降低 `directionalLight` / `ambientLight` 的 intensity 让光束成为点缀
+- 文件: `src/components/Ferrofluid.tsx`（+ `Ferrofluid.css`）
+- 基于 React Bits 的 Ferrofluid 组件，使用 `ogl`（WebGL 着色器）
+- 仅深色主题 + 桌面端渲染（Hero 的 `showFluid` 门控），浅色主题回退到 CSS 纹理
+- 配色用品牌矿物金：`['#d8b67f', '#be9a63', '#6f5836']`
+- DPR 上限 1.5，鼠标监听挂在 window（上层文字容器会挡住 canvas 的指针事件）
+- 注意 BeamsBackground / three 依赖已移除，不要回引
+
+### SpecularButton
+
+- 文件: `src/components/SpecularButton.tsx`（+ `SpecularButton.css`）
+- 基于 React Bits 的 Specular Button，使用 `ogl`，用于 CTA 区块「开始沟通」
+- 描边色运行时读取 `--c-accent` / `--c-border`，跟随主题切换
 
 ### SplitText
 
