@@ -73,7 +73,7 @@ export default function Services() {
           <ol className="relative">
             <span
               aria-hidden
-              className="absolute left-[19px] top-2 bottom-2 w-px bg-border-subtle lg:left-1/2 lg:-translate-x-1/2"
+              className="absolute left-[19px] top-2 bottom-2 w-px bg-border-subtle lg:left-[calc(25%+2rem)] lg:-translate-x-1/2"
             />
             {steps.map((step, i) => (
               <motion.li
@@ -82,7 +82,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative grid gap-4 py-10 pl-16 lg:grid-cols-[1fr_64px_1fr] lg:gap-x-8 lg:py-14 lg:pl-0"
+                className="group relative grid gap-4 py-10 pl-16 lg:grid-cols-[1fr_64px_3fr] lg:gap-x-8 lg:py-9 lg:pl-0"
               >
                 <span className="absolute left-0 top-10 flex h-10 w-10 items-center justify-center rounded-full border border-accent/40 bg-bg-base font-mono text-[12px] tracking-wider text-accent lg:hidden">
                   {step.number}
