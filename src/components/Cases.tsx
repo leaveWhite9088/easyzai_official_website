@@ -141,11 +141,12 @@ export default function Cases() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.12 + i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="interactive-row py-8 lg:py-10 px-4 lg:px-6 border-t border-border-subtle"
+              className="py-8 lg:py-10 px-4 lg:px-6 border-t border-border-subtle"
             >
               <div className="flex items-center gap-3 mb-3">
                 <span className="font-mono text-[11px] text-accent tracking-wide">Case {String(i + 3).padStart(2, '0')}</span>
                 <span className="text-[11px] text-text-tertiary">{caseItem.industry}</span>
+                <span className="text-[11px] text-text-tertiary/60">· {t('comingSoon')}</span>
               </div>
               <h3 className="text-lg font-medium text-text-primary mb-3">{caseItem.title}</h3>
               <p className="text-[14px] text-text-secondary leading-relaxed mb-5 max-w-md">
