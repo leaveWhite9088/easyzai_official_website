@@ -67,7 +67,7 @@ npm run dev:clean
 - 文件: `src/components/Ferrofluid.tsx`（+ `Ferrofluid.css`）
 - 基于 React Bits 的 Ferrofluid 组件，使用 `ogl`（WebGL 着色器）
 - 仅深色主题 + 桌面端渲染（Hero 的 `showFluid` 门控），浅色主题回退到 CSS 纹理
-- 配色用品牌矿物金：`['#d8b67f', '#be9a63', '#6f5836']`
+- 配色为纯白色：`['#ffffff', '#ffffff', '#ffffff']`
 - DPR 上限 1.5，鼠标监听挂在 window（上层文字容器会挡住 canvas 的指针事件）
 - 注意 BeamsBackground / three 依赖已移除，不要回引
 

@@ -52,7 +52,7 @@ export default function Hero() {
       {showFluid && (
         <div className="hero-dark-beams absolute inset-0">
           <Ferrofluid
-            colors={['#d8b67f', '#be9a63', '#6f5836']}
+            colors={['#ffffff', '#ffffff', '#ffffff']}
             speed={0.3}
             scale={1.6}
             turbulence={1}
