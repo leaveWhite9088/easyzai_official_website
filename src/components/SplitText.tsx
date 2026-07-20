@@ -42,7 +42,21 @@ export default function SplitText({
   threshold = 0.1,
   ease = [0.25, 0.46, 0.45, 0.94],
 }: SplitTextProps) {
-  const chars = useMemo(() => text.split(''), [text])
+  const units = useMemo(() => {
+    // Per-char inline-block spans bypass the browser's CJK line-break rules,
+    // so closing punctuation (，。 etc.) can land at a line start. Merge those
+    // chars into the preceding unit so they never orphan.
+    const noLineStart = new Set('，。、；：？！…·」』）】》”’'.split(''))
+    const out: string[] = []
+    for (const ch of text) {
+      if (noLineStart.has(ch) && out.length > 0) {
+        out[out.length - 1] += ch
+      } else {
+        out.push(ch)
+      }
+    }
+    return out
+  }, [text])
 
   const containerVariants = {
     hidden: {},
@@ -70,14 +84,14 @@ export default function SplitText({
       viewport={{ once, amount: threshold }}
       variants={containerVariants}
     >
-      {chars.map((char, index) => (
+      {units.map((unit, index) => (
         <motion.span
-          key={`${char}-${index}`}
+          key={`${unit}-${index}`}
           className="inline-block"
           variants={childVariants}
-          style={{ whiteSpace: char === ' ' ? 'pre' : 'normal' }}
+          style={{ whiteSpace: unit === ' ' ? 'pre' : 'normal' }}
         >
-          {char === ' ' ? ' ' : char}
+          {unit === ' ' ? ' ' : unit}
         </motion.span>
       ))}
     </motion.span>
