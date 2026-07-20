@@ -307,6 +307,8 @@
     "whoText": "A research-driven team from top universities. Core members have deep academic research backgrounds and engineering delivery capabilities. Flat collaboration — everyone faces the problem directly. No layers, no information loss.",
     "compareTitle": "Where Big Teams Get Stuck",
     "compareSubtitle": "How We Don't",
+    "compareLeftLabel": "Big teams",
+    "compareRightLabel": "Us",
     "compareRows": [
       {
         "problem": "PM relays requirements, engineers interpret them second-hand",

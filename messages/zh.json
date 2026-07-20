@@ -317,6 +317,8 @@
     "whoText": "来自顶尖院校的研究型小团队，核心成员均具备深厚的学术研究背景与工程实践能力。扁平协作，每个人都直接面对问题——没有层层转述，没有信息损耗。",
     "compareTitle": "大团队通常卡在这",
     "compareSubtitle": "我们怎么不卡",
+    "compareLeftLabel": "大团队",
+    "compareRightLabel": "我们",
     "compareRows": [
       {
         "problem": "PM 转述需求，工程师二次理解",

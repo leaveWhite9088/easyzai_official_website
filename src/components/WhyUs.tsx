@@ -78,12 +78,12 @@ export default function WhyUs() {
 
           <div>
             <div className="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center gap-4 pb-3 mb-2 border-b border-border-subtle">
-              <div className="text-[13px] font-medium text-text-secondary text-right">
-                {t('compareTitle')}
+              <div className="text-[13px] font-medium text-text-tertiary">
+                {t('compareLeftLabel')}
               </div>
               <div className="w-px h-4 bg-border-subtle" />
               <div className="text-[13px] font-medium text-accent">
-                {t('compareSubtitle')}
+                {t('compareRightLabel')}
               </div>
             </div>
 
@@ -96,11 +96,12 @@ export default function WhyUs() {
                 transition={{ duration: 0.6, delay: 0.12 + i * 0.07 }}
                 className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-start sm:items-center gap-1.5 sm:gap-4 py-3 border-b border-border-subtle/40 sm:border-b-0"
               >
-                <div className="text-[14px] text-text-tertiary text-left sm:text-right order-1 sm:order-none">
+                <div className="text-[14px] text-text-secondary order-1 sm:order-none">
                   {row.problem}
                 </div>
                 <div className="hidden sm:block w-px h-4 bg-border-subtle/50" />
-                <div className="text-[14px] text-text-primary order-2 sm:order-none pl-3 border-l-2 border-accent/60 sm:pl-0 sm:border-l-0">
+                <div className="text-[14px] text-text-primary order-2 sm:order-none flex items-start gap-2">
+                  <span className="mt-[9px] h-1 w-1 flex-shrink-0 rounded-full bg-accent/70 sm:hidden" />
                   {row.solution}
                 </div>
               </motion.div>
