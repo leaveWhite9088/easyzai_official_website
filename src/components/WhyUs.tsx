@@ -78,7 +78,7 @@ export default function WhyUs() {
 
           <div>
             <div className="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center gap-4 pb-3 mb-2 border-b border-border-subtle">
-              <div className="text-[13px] font-medium text-text-tertiary">
+              <div className="text-[13px] font-medium text-text-tertiary sm:text-right">
                 {t('compareLeftLabel')}
               </div>
               <div className="w-px h-4 bg-border-subtle" />
@@ -96,7 +96,7 @@ export default function WhyUs() {
                 transition={{ duration: 0.6, delay: 0.12 + i * 0.07 }}
                 className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-start sm:items-center gap-1.5 sm:gap-4 py-3 border-b border-border-subtle/40 sm:border-b-0"
               >
-                <div className="text-[14px] text-text-secondary order-1 sm:order-none">
+                <div className="text-[14px] text-text-secondary order-1 sm:order-none sm:text-right">
                   {row.problem}
                 </div>
                 <div className="hidden sm:block w-px h-4 bg-border-subtle/50" />
