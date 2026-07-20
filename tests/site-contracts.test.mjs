@@ -209,9 +209,9 @@ test('light theme, page transitions and reading axes are deliberately designed',
 })
 
 test('hero and demo interactions close reduced-motion and keyboard gaps', async () => {
-  const [hero, beams, demo, migration, chat, outreach] = await Promise.all([
+  const [hero, ferrofluid, demo, migration, chat, outreach] = await Promise.all([
     readFile('src/components/Hero.tsx', 'utf8'),
-    readFile('src/components/BeamsBackground.tsx', 'utf8'),
+    readFile('src/components/Ferrofluid.tsx', 'utf8'),
     readFile('src/components/LiveDemo.tsx', 'utf8'),
     readFile('src/components/demos/CodeMigrationDemo.tsx', 'utf8'),
     readFile('src/components/demos/ChatDemo.tsx', 'utf8'),
@@ -221,7 +221,7 @@ test('hero and demo interactions close reduced-motion and keyboard gaps', async 
   assert.match(hero, /useReducedMotion/)
   assert.match(hero, /matchMedia\('\(min-width: 768px\)'\)/)
   assert.match(hero, /visibilitychange/)
-  assert.match(beams, /dpr=\{1\.5\}/)
+  assert.match(ferrofluid, /1\.5/)
   assert.match(demo, /ArrowRight/)
   assert.match(demo, /Home/)
   assert.match(demo, /tabIndex=\{tab === key \? 0 : -1\}/)

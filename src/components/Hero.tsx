@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 import SplitText from './SplitText'
 import { useTheme } from './theme/ThemeProvider'
 
-const BeamsBackground = dynamic(() => import('./BeamsBackground'), { ssr: false })
+const Ferrofluid = dynamic(() => import('./Ferrofluid'), { ssr: false })
 
 export default function Hero() {
   const t = useTranslations('hero')
@@ -43,23 +43,29 @@ export default function Hero() {
     return () => observer.disconnect()
   }, [])
 
-  const showBeams = theme === 'dark' && largeScreen && pageVisible && heroVisible && !reduceMotion
+  const showFluid = theme === 'dark' && largeScreen && pageVisible && heroVisible && !reduceMotion
 
   return (
     <section ref={heroRef} id="hero" className="relative overflow-hidden min-h-svh flex items-center py-20 sm:py-24" style={{ backgroundColor: 'rgb(var(--c-hero))' }}>
-      {/* Dark mode keeps the dimensional beam field. Light mode uses a quiet
+      {/* Dark mode keeps the ferrofluid field. Light mode uses a quiet
           paper-and-graphite texture, so contrast never depends on WebGL. */}
-      {showBeams && (
+      {showFluid && (
         <div className="hero-dark-beams absolute inset-0">
-          <BeamsBackground
-            beamWidth={2}
-            beamHeight={20}
-            beamNumber={12}
-            lightColor="#ffffff"
-            speed={2}
-            noiseIntensity={1.4}
-            scale={0.2}
-            rotation={30}
+          <Ferrofluid
+            colors={['#d8b67f', '#be9a63', '#6f5836']}
+            speed={0.3}
+            scale={1.6}
+            turbulence={1}
+            fluidity={0.1}
+            rimWidth={0.2}
+            sharpness={2.5}
+            shimmer={1.5}
+            glow={2}
+            flowDirection="down"
+            opacity={1}
+            mouseInteraction
+            mouseStrength={1}
+            mouseRadius={0.35}
           />
         </div>
       )}
