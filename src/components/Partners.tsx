@@ -40,7 +40,7 @@ export default function Partners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.65, delay: 0.08 + i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="group relative flex min-h-[120px] items-center justify-center p-5 sm:p-6 lg:p-8"
+              className="interactive-card group relative flex min-h-[120px] items-center justify-center rounded-xl bg-white p-5 sm:p-6 lg:p-8"
             >
               <div className="relative h-16 w-full max-w-[200px]">
                 <Image
