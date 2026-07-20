@@ -350,6 +350,9 @@
     "subtitle": "告诉我们你的问题，我们来看怎么解。",
     "button": "开始沟通",
     "emailLabel": "或邮件联系我们",
+    "copyEmail": "复制",
+    "emailCopied": "已复制",
+    "reassurance": "通常 24 小时内回复，首次沟通不收费",
     "qrHint": "扫码添加微信",
     "qrClose": "关闭"
   },

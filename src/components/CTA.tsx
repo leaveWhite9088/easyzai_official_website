@@ -9,6 +9,7 @@ import SpecularButton from './SpecularButton'
 export default function CTA() {
   const t = useTranslations('cta')
   const [qrOpen, setQrOpen] = useState(false)
+  const [emailCopied, setEmailCopied] = useState(false)
   const qrRef = useRef<HTMLDivElement>(null)
 
   // When pinned open (click/tap), close on outside click or Esc.
@@ -104,9 +105,31 @@ export default function CTA() {
             </div>
           </div>
 
-          <p className="mx-auto mt-6 max-w-full break-all text-text-tertiary text-[13px]">
-            {t('emailLabel')}: 18781630574@163.com
-          </p>
+          <div className="mx-auto mt-6 flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[13px] text-text-tertiary">
+            <span>{t('emailLabel')}:</span>
+            <a
+              href="mailto:18781630574@163.com"
+              className="break-all text-text-secondary underline decoration-border-subtle underline-offset-4 transition-colors hover:text-accent"
+            >
+              18781630574@163.com
+            </a>
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  await navigator.clipboard.writeText('18781630574@163.com')
+                  setEmailCopied(true)
+                  setTimeout(() => setEmailCopied(false), 2000)
+                } catch {
+                  // Clipboard unavailable (e.g. insecure context) — the mailto link still works.
+                }
+              }}
+              className="rounded border border-border-subtle px-2 py-0.5 text-[12px] text-text-tertiary transition-colors hover:border-accent/40 hover:text-accent"
+            >
+              {emailCopied ? t('emailCopied') : t('copyEmail')}
+            </button>
+          </div>
+          <p className="mt-3 text-[13px] text-text-tertiary">{t('reassurance')}</p>
         </motion.div>
       </div>
     </section>

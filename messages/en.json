@@ -340,6 +340,9 @@
     "subtitle": "Tell us your problem. Let's figure it out.",
     "button": "Start a Conversation",
     "emailLabel": "Or email us at",
+    "copyEmail": "Copy",
+    "emailCopied": "Copied",
+    "reassurance": "We usually reply within 24 hours. The first conversation is free.",
     "qrHint": "Scan to add WeChat",
     "qrClose": "Close"
   },
