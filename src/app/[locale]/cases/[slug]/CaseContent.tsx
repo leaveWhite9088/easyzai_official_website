@@ -142,15 +142,15 @@ Huawei's self-developed programming language **Cangjie** is a next-generation do
 
 **Small community → Weak ecosystem → Developers won't come → Even smaller community**
 
-The core of an ecosystem is libraries. When developers choose a language, they first ask: Are the libraries I need available? Can I use them directly? If everything needs to be written from scratch, it's better to stick with mature languages.
+The core of an ecosystem is libraries. When developers choose a language, they first ask: Are the libraries I need available? Can I use them directly? If everything has to be written from scratch, it's better to stick with mature languages.
 
 Cangjie needs to migrate mature libraries from other languages (Java, Python, Go, etc.) and reimplement them in Cangjie. But the problems are:
 
 - **Manual migration is too slow.** A medium-sized library takes weeks to migrate manually.
 - **The language is too new for AI.** Cangjie has very little training data; large models have barely seen this language.
-- **Documentation is scattered.** Cangjie's syntax, standard library, and compiler features are in different places.
+- **Documentation is scattered.** Cangjie's syntax, standard library, and compiler features live in different places, so developers have to look things up repeatedly.
 
-**Our task: Build a tool that lets AI automatically migrate libraries from other languages to Cangjie.**
+**Our task: build a tool that lets AI automatically migrate libraries from other languages to Cangjie.**
 
 ---
 
@@ -158,42 +158,80 @@ Cangjie needs to migrate mature libraries from other languages (Java, Python, Go
 
 The core challenge: **AI can't write Cangjie code.**
 
-Large models have almost no Cangjie code in their training data. Direct translation would likely fail to compile.
+Large models have almost no Cangjie code in their training data. Ask AI to translate directly, and the result will most likely fail to compile.
 
 We needed to solve three problems:
 
-1. **Knowledge injection:** How to teach AI Cangjie's syntax and features?
-2. **Code understanding:** How to make AI understand the source library's logic?
-3. **Quality assurance:** How to ensure generated code compiles and works correctly?
+1. **Knowledge injection:** How do we teach AI Cangjie's syntax and features?
+2. **Code understanding:** How do we make AI understand the source library's logic?
+3. **Quality assurance:** How do we ensure the generated code compiles and works correctly?
 
 ---
 
 ## Approach
 
-Our solution: **RAG + Agent + Multi-round Self-Check.**
+Our solution: **RAG + Agent + multi-round self-check.**
 
 ### Step 1: Knowledge Injection (RAG)
 
-We indexed all Cangjie documentation (language spec, standard library docs, compiler docs, example code) into a vector database.
+We ingested the full set of Cangjie documentation (language specification, standard library docs, compiler docs, example code) and built a vector index.
 
-When AI needs to write a function, it first retrieves relevant documentation for the latest syntax and API information.
+When AI needs to write a feature, it first retrieves the relevant documentation to get the latest syntax and API information.
+
+**Key points:**
+- Documentation versions sync automatically — when Cangjie updates, the RAG knowledge base updates with it
+- Multi-language retrieval — it searches Cangjie docs and source-language docs at the same time
 
 ### Step 2: Code Understanding & Migration (Agent)
 
-This step references multiple academic papers:
+This step draws on methods from several academic papers:
 
-- **Codex (OpenAI, 2021):** Decomposing tasks into subtasks, generating step by step
-- **AlphaCode (DeepMind, 2022):** Large-scale sampling strategy
-- **CodeRL (Salesforce, 2022):** Using compilation results as reward signals
-- **Self-Debug (Meta, 2023):** Self-correction based on error messages
+- **Codex (OpenAI, 2021):** its code generation approach — decompose the task into subtasks and generate step by step
+- **AlphaCode (DeepMind, 2022):** its large-scale sampling strategy — generate multiple candidate solutions and select the best
+- **CodeRL (Salesforce, 2022):** its reinforcement learning feedback — use compilation results as reward signals to iterate
+- **Self-Debug (Meta, 2023):** its self-debugging capability — let the model correct itself based on error messages
+
+The concrete workflow:
+
+1. **Parse the source code:** Use AST (abstract syntax tree) parsing to extract the source library's structure — functions, classes, and dependencies
+2. **Decompose the task:** Break the whole library migration into subtasks (migrate function by function, class by class)
+3. **Inject context:** For each subtask, inject relevant documentation (Cangjie syntax, source-language semantics, previous migration results)
+4. **Generate code:** Generate Cangjie code based on that context
 
 ### Step 3: Multi-round Self-Check (Self-Refine)
 
-Single-pass compilation success rate is only ~40%. After multi-round self-check, it rises to 85%+.
+Generated code is rarely right on the first try, so we built a multi-round self-check mechanism:
+
+1. **Compilation check:** Call the Cangjie compiler to check whether the code compiles
+2. **Error analysis:** If compilation fails, analyze the error messages and locate the problem
+3. **Auto-correction:** Feed the error messages back to the AI and let it fix itself
+4. **Repeat:** Iterate up to 5 rounds, until the code compiles or we confirm it can't be fixed
+
+**This mechanism is the key.** Single-pass generation compiles only about 40% of the time; after multi-round self-check, the pass rate rises to 85%+.
+
+---
+
+## Technical Details
+
+### Toolchain Integration
+
+- **Compiler integration:** Call the Cangjie compiler API directly for real-time compilation checks
+- **Test framework:** Automatically generate unit tests to verify functional correctness
+- **Version management:** Migration results are committed to Git automatically, with rollback and diff support
+
+### Knowledge Injection Strategy
+
+Beyond RAG retrieval, we also built:
+
+- **Few-shot examples:** Extract examples from successfully migrated libraries as references for new migrations
+- **Error pattern library:** Collect common compilation errors and their fixes to speed up the self-check loop
+- **API mapping table:** Map source-language APIs to their Cangjie equivalents
 
 ---
 
 ## Results
+
+**Core metrics:**
 
 | Metric | Data |
 |--------|------|
@@ -201,17 +239,29 @@ Single-pass compilation success rate is only ~40%. After multi-round self-check,
 | Compilation success rate (after self-check) | 85%+ |
 | Single library migration time | From weeks to hours |
 | Successfully migrated projects | Dozens |
-| Community recognition | Multiple community contribution awards |
+| Community recognition | Multiple community contribution awards and "Contributor Star" honors |
+
+The migrated projects include several large ones, covering foundational utility libraries, data structure libraries, networking libraries, and more. The quality of the migrated code earned community recognition, and several projects were listed as officially recommended in the Cangjie ecosystem.
 
 ---
 
 ## Why This Project Was Hard
 
-1. **Language too new.** Not enough training data; AI can't write Cangjie directly.
-2. **Quality requirements high.** Libraries are infrastructure; code must be reliable.
-3. **Deep understanding required.** Not just syntax translation—need to understand design intent.
+1. **The language is too new.** With insufficient training data, AI can't write Cangjie directly — knowledge has to be injected via RAG.
+2. **Quality requirements are high.** Libraries are infrastructure; code quality directly affects everything built on top. "Mostly works" isn't good enough — it has to be reliable.
+3. **Deep understanding is required.** This isn't simple syntax translation; the AI must understand the source library's design intent and reimplement it the Cangjie way.
 
-**This is what we're good at: non-standard scenarios, complex data, uncertain technical paths.`
+**This is what we're good at: non-standard scenarios, complex data, uncertain technical paths.**
+
+---
+
+## Final Thoughts
+
+This project proved one thing: **what AI doesn't know can be taught through engineering.**
+
+RAG solves the knowledge problem, the Agent solves the process problem, and multi-round self-check solves the quality problem. Combined, they let AI accomplish tasks it couldn't do before.
+
+If you have a similar "AI can't do this" scenario, feel free to reach out.`
     }
   },
   'securities-ai-platform': {
@@ -446,15 +496,15 @@ The specific approach:
 3. **Roll out gradually.** Launch one scenario first, stabilize it, then launch the second, and finally the third. Each scenario is independent and doesn't affect the others.
 
 **Benefits of this approach:**
-- Zero changes to the existing system, risk可控
-- Independent AI service deployment, performance可控
-- Independent scenario rollouts, timeline可控
+- Zero changes to the existing system, keeping risk under control
+- Independent AI service deployment, keeping performance under control
+- Independent scenario rollouts, keeping the timeline under control
 
 ---
 
 ## Three Scenarios
 
-We chose three scenarios to切入, each with different logic.
+We chose three scenarios as entry points, each with its own logic.
 
 ### Scenario 1: Smart Authorization
 
@@ -572,7 +622,7 @@ These three scenarios look different on the surface, but there's logic behind ou
 
 **So our launch order was: Smart Authorization → Smart Integration → Smart Content Generation.**
 
-We launched the most painful, most difficult, and highest-risk scenario first because once done well, it significantly boosts client trust. Plus, the APIs for this scenario were readily available, keeping technical risk可控.
+We launched the most painful, most difficult, and highest-risk scenario first because once done well, it significantly boosts client trust. Plus, the APIs for this scenario were readily available, keeping technical risk under control.
 
 ---
 
