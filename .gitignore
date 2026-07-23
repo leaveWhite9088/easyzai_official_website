@@ -76,6 +76,19 @@ Desktop.ini
 # ============ Playwright MCP ============
 .playwright-mcp/
 
+# ============ Agent Skills (CLI-installed, env-specific) ============
+# Keep `.agents/skills/` tracked (shared project-level install).
+# Ignore per-agent symlink dirs and the regenerated lock file.
+.claude/
+agent/
+skills-lock.json
+
+# ============ Dev server logs ============
+.dev*.log
+
+# ============ Impeccable critique output (regenerated each run) ============
+.impeccable/
+
 # ============ Screenshots (temporary design files) ============
 *.png
 !public/**/*.png
