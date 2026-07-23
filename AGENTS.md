@@ -103,3 +103,15 @@ npm run dev:clean
 - 静态导出: `output: 'export'`
 - 构建产物在 `out/` 目录
 - 部署前确保 `npm run build` 成功
+
+## 项目目录整洁原则
+
+- **Skill 只放一处**：`.agents/skills/` 是唯一存放点。**不要**生成 `.claude/`、`agent/` 等 agent 专用 symlink 目录，也不要提交 `skills-lock.json`。
+- **不创建临时分支**：所有改动直接 commit 到 `main`，不需要 `feature/xxx` 或 `redesign/xxx` 之类的"准备分支"。
+- **工具/缓存产物一律 gitignore**：`out/`、`.next/`、`.playwright-mcp/`、`.impeccable/`、`.dev*.log`、`.tsbuildinfo` 等。
+
+## Windows 环境差异（PowerShell）
+
+- 清理 `.next` 缓存用 `mavis-trash .next`，**不要**用 `rm -rf .next`（`package.json` 里的 `dev:clean` 脚本是 bash 写法，在 PowerShell 下不走）。
+- `npx kill-port 3010` 仍然有效，跨平台。
+- 提交信息中的中文文件名可能被 PowerShell 显示为乱码（UTF-8 解码问题），但 git 内部存储正确，远程可正常显示。
