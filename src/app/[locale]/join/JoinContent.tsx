@@ -1,7 +1,7 @@
 // Join us — single editorial section. Pattern mirrors AboutHowWeWork (left
-// large eyebrow + right narrow read column), but the body is a list of
-// who-we're-looking-for attributes + email CTA at the end. Static page, no
-// sections beyond this one — keeping it tight per "简单写一下".
+// large eyebrow + right narrow read column). Body: title → intro (frame) →
+// traits (who we look for) → benefits (what you'll get) → small email at the
+// bottom. Static page.
 'use client'
 
 import Link from 'next/link'
@@ -12,6 +12,7 @@ export default function JoinContent() {
   const t = useTranslations('join')
   const locale = useLocale()
   const traits = t.raw('traits') as string[]
+  const benefits = t.raw('benefits') as string[]
 
   return (
     <section className="bg-canvas border-t border-rule py-[clamp(72px,9vw,128px)]">
@@ -38,7 +39,7 @@ export default function JoinContent() {
               {t('intro')}
             </p>
 
-            {/* Trait list */}
+            {/* Trait list — who we look for */}
             <h2 className="mt-12 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2">
               {t('traitsTitle')}
             </h2>
@@ -53,15 +54,29 @@ export default function JoinContent() {
               ))}
             </ul>
 
-            {/* Email CTA */}
-            <div className="mt-14 border-t border-rule pt-8">
+            {/* Benefits list — what you'll get */}
+            <h2 className="mt-12 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2">
+              {t('benefitsTitle')}
+            </h2>
+            <ul className="mt-5 space-y-3 text-ink-2 text-[15px] sm:text-[16px] leading-[1.7]">
+              {benefits.map((line, i) => (
+                <li key={i} className="grid grid-cols-[28px_1fr] gap-3">
+                  <span className="font-mono text-[11px] tracking-[0.1em] text-ink-3 pt-1">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-ink">{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Email — small, at the bottom (was big serif; user wants modest). */}
+            <div className="mt-14 border-t border-rule pt-6">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink-3">
                 {t('contactTitle')}
               </p>
               <a
                 href={`mailto:${t('email')}`}
-                className="mt-3 inline-block font-serif text-ink leading-[1.3] tracking-[-0.005em] text-[clamp(22px,3vw,32px)] transition-colors hover:text-cyan"
-                style={{ wordBreak: 'break-all' }}
+                className="mt-2 inline-block break-all font-mono text-[14px] text-ink-2 transition-colors hover:text-ink"
               >
                 {t('email')}
               </a>
