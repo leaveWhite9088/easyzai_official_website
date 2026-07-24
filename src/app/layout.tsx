@@ -22,9 +22,10 @@ export const metadata: Metadata = {
   },
 }
 
-// Match the mobile browser chrome to the dark theme.
+// Match the mobile browser chrome to the paper background (建筑白).
+// Manifest `background_color` / `theme_color` are kept in sync.
 export const viewport: Viewport = {
-  themeColor: '#0C0C0F',
+  themeColor: '#F2F1ED',
   width: 'device-width',
   initialScale: 1,
 }
