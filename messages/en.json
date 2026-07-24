@@ -101,6 +101,7 @@
     "caseMigration": "Lang Migration",
     "caseSecurities": "Securities AI",
     "contactTitle": "Contact",
+    "joinLabel": "Join us",
     "wechatHint": "Scan to add on WeChat",
     "wechatAria": "EasyZ WeChat QR"
   },
@@ -302,5 +303,25 @@
       "body": "Write to us — research, design, delivery, three stages all in-house.",
       "cta": "Start a conversation"
     }
+  },
+  "join": {
+    "meta": {
+      "title": "Join us · EasyZ",
+      "description": "We hire long-termists with real AI interest who'd go to the front line — engineers, researchers, FDE. Students welcome. Email 18782630574@163.com."
+    },
+    "eyebrowZh": "Join us",
+    "titleLine1": "Looking for",
+    "titleLine2": "long-termist builders.",
+    "intro": "We're a small research team in Shenyang, building AI for complex business.\nWe're hiring long-term — students welcome, if you want to walk this road with us.",
+    "traitsTitle": "Who we look for",
+    "traits": [
+      "Long-term mindset. No trend-chasing — patient enough to grow with the client.",
+      "Truly interested in AI — not as a tool, but as a new way of seeing complex problems.",
+      "Comfortable on the front line — going to client sites to talk, build, and dig into the details. Engineer, researcher, FDE — any of these.",
+      "Students are welcome — what matters isn't your résumé, it's whether you want to walk this road with us."
+    ],
+    "contactTitle": "If you want in, write to us",
+    "email": "18782630574@163.com",
+    "back": "Back to home"
   }
 }

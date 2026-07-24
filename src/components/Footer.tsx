@@ -46,6 +46,13 @@ export default function Footer() {
             <p className="max-w-sm font-serif italic text-[20px] leading-[1.4] text-canvas/90 sm:text-[22px]">
               {t('quote')}
             </p>
+            <Link
+              href={`/${locale}/join`}
+              className="mt-7 inline-flex min-h-[44px] items-center gap-2 text-[14px] text-canvas transition-opacity hover:opacity-80"
+            >
+              {t('joinLabel')}
+              <span aria-hidden>→</span>
+            </Link>
           </div>
 
           {/* Cases column */}
