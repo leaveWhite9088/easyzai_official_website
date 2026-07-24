@@ -11,11 +11,15 @@
 
 | 资产 | 文件 | 用途 |
 |---|---|---|
-| 首页 | `home.html` | v0.3 已锁 |
+| 首页 | `home.html` | v0.5 已锁（04 段 = 线上零售 AI 提效 case 预览 + 45%+ metric） |
 | 关于页 | `about.html` | v0.1 已锁 |
+| 实践页 | `practice.html` | v0.2 已锁 |
+| 思考页（列表） | `thinking.html` | **v0.4 已锁**（最终版：820px 窄列、报纸头、inline meta） |
+| 思考详情 | `thinking-detail.html` | v0.1 已锁（50vh 顶部概念图） |
 | Hero 视频 | `hero-4.mp4` | 首页 Hero（大理石墙面 dolly，6s 1080P） |
-| 概念图 | `concept-cyanotype-3.png` | 首页 Specimen section（蓝晒 sparse branch，2K） |
-| 大理石纹理 | `marble-texture.png` | 关于页 03 段背景（2K，86% 纸色蒙版压住） |
+| 概念图 | `concept-cyanotype-3.png` | 首页 + 思考方法论类（蓝晒 sparse branch，2K） |
+| 大理石纹理 | `marble-texture.png` | 关于页 + 实践 + 思考案例复盘类 + 思考详情（2K） |
+| 建筑结构图 | `thinking-arch.png` | 思考技术观点类（2K） |
 | 合作伙伴 1 | `partner-1.png` | 云汉孵化中心（**原色呈现**） |
 | 合作伙伴 2 | `partner-2.png` | 智猩猩（**原色呈现**） |
 | 合作伙伴 3 | `partner-3.png` | 连尚集团（**原色呈现**） |

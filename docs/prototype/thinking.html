@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyZ · 思考 v0.4</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper:    '#F2F1ED',
+            surface:  '#F6F5F1',
+            canvas:   '#FAF9F5',
+            ink:      '#16161A',
+            'ink-2':  '#52525B',
+            'ink-3':  '#A1A1AA',
+            rule:     '#D9D6CE',
+            'rule-2': '#E5E2D8',
+            cyan:     '#1B3A5F',
+            'cyan-d': '#13243C',
+          },
+          fontFamily: {
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono:  ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          maxWidth: {
+            read:  '720px',
+            page:  '1360px',
+            wide:  '1480px',
+            think: '820px',
+          },
+          letterSpacing: {
+            'label': '0.18em',
+            'micro': '0.12em',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-feature-settings: 'ss01', 'cv11'; }
+    ::selection { background: #16161A; color: #FAF9F5; }
+
+    /* 每篇文章：窄列 + 上 hairline + py-10 */
+    .essay {
+      padding-top: clamp(36px, 5vw, 56px);
+      padding-bottom: clamp(36px, 5vw, 56px);
+      border-top: 1px solid #D9D6CE;
+    }
+    .essay:last-of-type { border-bottom: 1px solid #D9D6CE; }
+
+    .essay-title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 400;
+      color: #16161A;
+      line-height: 1.22;
+      letter-spacing: -0.005em;
+      font-size: clamp(24px, 2.6vw, 32px);
+      transition: color 320ms ease;
+    }
+    .essay-row:hover .essay-title { color: #1B3A5F; }
+    .essay-row:hover .essay-arrow { transform: translateX(6px); color: #1B3A5F; }
+    .essay-arrow { transition: transform 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 320ms ease; }
+
+    .cat-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid #D9D6CE;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: #52525B;
+    }
+
+    .lang-link { font-family: 'JetBrains Mono', monospace; transition: color 200ms; }
+    .lang-link:hover { color: #16161A; }
+  </style>
+</head>
+
+<body class="bg-canvas text-ink font-sans">
+
+  <header class="fixed top-0 inset-x-0 z-50 mix-blend-difference text-canvas">
+    <div class="max-w-wide mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
+      <a href="#" class="font-mono text-[12px] tracking-[0.22em] uppercase">EASYZ</a>
+      <nav class="hidden sm:flex items-center gap-9 text-[12px] font-mono tracking-[0.18em] uppercase">
+        <a href="#" class="hover:opacity-70 transition-opacity">About</a>
+        <a href="#" class="hover:opacity-70 transition-opacity">Practice</a>
+        <a href="#" class="text-canvas">Thinking</a>
+        <span class="opacity-40">|</span>
+        <a href="#" class="opacity-60 hover:opacity-100 transition-opacity">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-24 sm:pt-32 pb-12">
+    <div class="max-w-think mx-auto px-6 sm:px-10">
+
+      <!-- 短 intro -->
+      <p class="font-serif italic text-ink-2 leading-[1.4] tracking-[-0.005em] mb-2 max-w-[640px]"
+         style="font-size: clamp(19px, 2vw, 22px);">
+        想清楚的事，写下来。
+      </p>
+      <div class="font-mono text-[10px] tracking-label uppercase text-ink-3 mb-10 sm:mb-14">
+        方法论 / 案例复盘 / 技术观点
+      </div>
+
+      <!-- Article 01 -->
+      <a href="thinking-detail.html" class="essay-row block group">
+        <article class="essay">
+          <div class="flex items-baseline gap-3 mb-5">
+            <span class="font-serif text-ink text-[28px] sm:text-[34px] leading-none tracking-[-0.01em]">01</span>
+            <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">·</span>
+            <time class="font-mono text-[11px] tracking-label uppercase text-ink-3">2026.04.15</time>
+            <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">·</span>
+            <span class="cat-tag">方法论</span>
+          </div>
+          <h2 class="essay-title">在接 AI 项目前，我们用 5 个问题决定要不要接</h2>
+          <p class="mt-4 text-ink-2 text-[15px] leading-[1.7]">
+            不是所有问题都适合用 AI 解决。我们建立了一套筛选机制，在项目启动前就用 5 个问题判断——这个活值不值得接、能不能做好。
+          </p>
+          <div class="mt-6 inline-flex items-center gap-1.5 text-[12px] text-ink-2 font-mono tracking-label uppercase essay-arrow">
+            <span>阅读全文</span>
+            <span class="text-[15px]">→</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- Article 02 -->
+      <a href="thinking-detail.html" class="essay-row block group">
+        <article class="essay">
+          <div class="flex items-baseline gap-3 mb-5">
+            <span class="font-serif text-ink text-[28px] sm:text-[34px] leading-none tracking-[-0.01em]">02</span>
+            <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">·</span>
+            <time class="font-mono text-[11px] tracking-label uppercase text-ink-3">2026.03.28</time>
+            <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">·</span>
+            <span class="cat-tag">案例复盘</span>
+          </div>
+          <h2 class="essay-title">非侵入式改造一个证券中台：三个 AI 场景怎么落地、为什么这样切</h2>
+          <p class="mt-4 text-ink-2 text-[15px] leading-[1.7]">
+            证券行业系统改造最怕的就是推倒重来。我们用非侵入式方案，在现有中台上叠加三个 AI 场景——每个场景的切入点和取舍逻辑都不一样。
+          </p>
+          <div class="mt-6 inline-flex items-center gap-1.5 text-[12px] text-ink-2 font-mono tracking-label uppercase essay-arrow">
+            <span>阅读全文</span>
+            <span class="text-[15px]">→</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- Article 03 -->
+      <a href="thinking-detail.html" class="essay-row block group">
+        <article class="essay">
+          <div class="flex items-baseline gap-3 mb-5">
+            <span class="font-serif text-ink text-[28px] sm:text-[34px] leading-none tracking-[-0.01em]">03</span>
+            <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">·</span>
+            <time class="font-mono text-[11px] tracking-label uppercase text-ink-3">2026.03.10</time>
+            <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">·</span>
+            <span class="cat-tag">技术观点</span>
+          </div>
+          <h2 class="essay-title">为什么我们不无脑用 Dify / LangChain</h2>
+          <p class="mt-4 text-ink-2 text-[15px] leading-[1.7]">
+            工具只是手段，不是目的。当我们面对一个具体问题时，会先问：这个框架的抽象层次是否匹配我们的场景？它的预设是否会成为未来的约束？
+          </p>
+          <div class="mt-6 inline-flex items-center gap-1.5 text-[12px] text-ink-2 font-mono tracking-label uppercase essay-arrow">
+            <span>阅读全文</span>
+            <span class="text-[15px]">→</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- 底部：查看全部 -->
+      <div class="mt-8 flex items-center justify-between font-mono text-[10px] tracking-label uppercase text-ink-3">
+        <span>3 essays</span>
+        <a href="#" class="hover:text-ink-2 transition-colors">RSS feed →</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-paper border-t border-rule">
+    <div class="max-w-wide mx-auto px-6 sm:px-10 py-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+      <div>
+        <div class="font-mono text-[11px] tracking-label uppercase text-ink-2">EASYZ</div>
+        <div class="mt-2 font-serif italic text-ink-3 text-[13px]">研究型 AI 落地团队</div>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 font-mono text-[11px] tracking-label uppercase text-ink-3">
+        <div class="flex items-center gap-3">
+          <a href="#" class="lang-link hover:text-ink">EN</a>
+          <span class="text-ink-3/40">·</span>
+          <a href="#" class="lang-link text-ink">中</a>
+        </div>
+        <a href="mailto:hi@easyzai.top" class="lang-link hover:text-ink">hi@easyzai.top</a>
+        <span>© 2026</span>
+      </div>
+    </div>
+    <div class="max-w-wide mx-auto px-6 sm:px-10 pb-8">
+      <div class="font-mono text-[10px] tracking-micro uppercase text-ink-3/70">
+        Set in Inter &amp; Source Serif 4 · Web design Mavis &amp; team · Thinking prototype v0.4
+      </div>
+    </div>
+  </footer>
+
+  <aside class="fixed bottom-3 right-3 z-50 text-[10px] font-mono text-ink-3 bg-canvas/80 backdrop-blur px-2 py-1 rounded">
+    thinking v0.4 prototype
+  </aside>
+</body>
+</html>
