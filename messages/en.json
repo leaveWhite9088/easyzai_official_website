@@ -447,5 +447,52 @@
       "body": "If you're staring at an AI-shaped problem no standard solution can crack, write to us.",
       "cta": "Start a conversation"
     }
+  },
+  "about": {
+    "meta": {
+      "title": "About · EasyZ",
+      "description": "EasyZ is a small research-driven team that ships AI into complex business workflows. Three principles: go deep on non-standard work, dig for the efficiency gains clients haven't spotted yet, and embed into the workflow so it feels like nothing."
+    },
+    "intro": {
+      "eyebrowZh": "Intro",
+      "title1": "EasyZ is a small research-driven team,",
+      "title2Prefix": "shipping ",
+      "title2Highlight": "AI",
+      "title2Suffix": " for complex, real-world business.",
+      "body": "Problem research, solution design, engineering delivery — three stages, all in-house.<br />We don't take standard requests; only work that standard solutions can't crack."
+    },
+    "principles": {
+      "eyebrowZh": "Principles",
+      "count": "Three principles · how we work",
+      "items": [
+        {
+          "num": "01",
+          "main": "We treat every non-standard problem as research — and go deep.",
+          "sub": "The work others can't crack, we pick up."
+        },
+        {
+          "num": "02",
+          "main": "We dig for the efficiency gains the client hasn't noticed yet.",
+          "sub": "Not waiting for the brief — going to find them."
+        },
+        {
+          "num": "03",
+          "main": "We embed into the workflow, invisibly.",
+          "sub": "Doing the work for them, in the background."
+        }
+      ]
+    },
+    "howWeWork": {
+      "eyebrowZh": "How we work",
+      "body1": "Our work begins with a problem. The client brings a scenario, and we start by understanding it —<br />not \"what do you want to use AI for\" but \"in this scenario, what can / can't AI actually do\".",
+      "body2": "Once we understand, we decide whether to take it on. If yes, we move through research, design, and delivery: research produces a methodology doc, design produces a technical spec and system design, delivery writes the code, runs the tests, and wires it into the client's real system.",
+      "body3": "Every stage has a concrete deliverable. No PPT.",
+      "link": "See how this plays out in practice"
+    },
+    "partners": {
+      "eyebrowZh": "Co-explorers",
+      "body": "Organizations we've explored AI implementation with, side by side.",
+      "count": "3 partners · since 2023"
+    }
   }
 }
