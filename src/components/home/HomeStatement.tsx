@@ -22,7 +22,9 @@ export default function HomeStatement() {
               className="font-serif font-light text-ink leading-[1.18] tracking-[-0.005em]"
               style={{ fontSize: 'clamp(28px, 4.4vw, 56px)' }}
             >
-              {t('title')}
+              {t('titleLine1')}
+              <br />
+              {t('titleLine2')}
             </h2>
 
             <div className="mt-12 max-w-read">
