@@ -19,6 +19,8 @@ const articles = [
 const cases = [
   'programming-language-migration',
   'securities-ai-platform',
+  'laser-equipment-ai-customer-service',
+  'outbound-lead-automation',
 ]
 const pages = ['', 'about', 'practice', 'thinking']
 
