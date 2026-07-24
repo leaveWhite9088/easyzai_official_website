@@ -1,5 +1,7 @@
-// 02 / 原则 — 3 principles, hairline-separated rows. Mono numbering, no
-// serif here (the page already used its one in AboutHeader).
+// 02 / 原则 — 4 principles, hairline-separated rows. Mono numbering, no
+// serif here (the page already used its one in AboutHeader). Sub lines are
+// ink-3 so the main assertion (ink) reads as the rule and the gloss (ink-3)
+// reads as commentary.
 'use client'
 
 import { useTranslations } from 'next-intl'
@@ -41,7 +43,7 @@ export default function AboutPrinciples() {
                     <p className="text-ink text-[16px] sm:text-[18px] leading-[1.45]">
                       {p.main}
                     </p>
-                    <p className="mt-2 text-ink-2 text-[13px] leading-[1.6]">
+                    <p className="mt-2 text-ink-3 text-[13px] leading-[1.6]">
                       {p.sub}
                     </p>
                   </div>
