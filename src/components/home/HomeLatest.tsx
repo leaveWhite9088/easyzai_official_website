@@ -42,9 +42,11 @@ export default function HomeLatest() {
 
             {/* Case title — serif (roman), the section's single serif use.
                 Roman not italic so the title reads as the page's editorial
-                anchor, not a callout. */}
+                anchor, not a callout. Two lines: hook + detail. */}
             <h3 className="font-serif font-light text-ink leading-[1.18] tracking-[-0.01em] text-[clamp(28px,3.8vw,44px)]">
-              {t('title')}
+              {t('titleLine1')}
+              <br />
+              {t('titleLine2')}
             </h3>
 
             {/* 45%+ metric callout — sans medium anchor, sans-mono label. */}
