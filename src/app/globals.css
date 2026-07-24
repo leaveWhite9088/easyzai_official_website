@@ -95,6 +95,18 @@
   word-break: normal;
 }
 
+/* Table scroller — used by case-detail Markdown. Thin horizontal
+   scrollbar so the affordance "this scrolls" is visible on touch devices
+   that don't show overlay scrollbars. */
+.article-table-scroller {
+  scrollbar-width: thin;
+}
+.article-table-scroller::-webkit-scrollbar { height: 5px; }
+.article-table-scroller::-webkit-scrollbar-thumb {
+  background: rgb(var(--c-border));
+  border-radius: 999px;
+}
+
 /* ---------------------------------------------------------------------------
  * Shared section grid (home / about / practice share one rhythm).
  *   .site-section    — hairline top, generous vertical breathing room

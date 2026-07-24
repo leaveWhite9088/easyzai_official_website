@@ -1025,7 +1025,10 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
           <span className="font-mono text-xs text-accent tracking-wide">
             {data.industry[locale as 'zh' | 'en']}
           </span>
-          <h1 className="break-words text-[2rem] sm:text-3xl lg:text-4xl font-medium text-text-primary mt-3 mb-6 leading-tight">
+          <h1
+            className="break-words font-medium text-text-primary mt-3 mb-6 leading-[1.15] tracking-[-0.01em]"
+            style={{ fontSize: 'clamp(28px, 5.5vw, 48px)' }}
+          >
             {data.title[locale as 'zh' | 'en']}
           </h1>
           <div className="flex flex-wrap items-baseline gap-3">
@@ -1042,7 +1045,11 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.16, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="article-prose prose prose-invert max-w-none min-w-0"
+          // `prose prose-invert` were @tailwindcss/typography classes that
+          // never resolved in this project (no plugin installed) — stripped.
+          // `min-w-0` prevents the inner markdown content from forcing the
+          // grid cell to overflow on narrow phones.
+          className="article-prose max-w-none min-w-0"
         >
           <Markdown
             components={{
@@ -1100,8 +1107,11 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
                 <hr className="border-rule my-8" />
               ),
               table: ({ children }) => (
-                <div className="max-w-full overflow-x-auto mb-6">
-                  <table className="min-w-[560px] w-full border-collapse">
+                // Mobile: table extends past the right edge with horizontal
+                // scroll (the right-edge fade in CSS hints "more →"). Tightened
+                // min-w from 560 → 420 so the scroll range is reasonable.
+                <div className="article-table-scroller mb-6 overflow-x-auto">
+                  <table className="w-full min-w-[420px] border-collapse">
                     {children}
                   </table>
                 </div>
