@@ -27,7 +27,7 @@ export default function HomeLatest() {
         <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10">
           {/* Left: section eyebrow (em-dash + 04 / latest + 最新在做的) */}
           <div className="col-span-12 md:col-span-3">
-            <SectionEyebrow number="04" name="latest" zh={t('eyebrowZh')} />
+            <SectionEyebrow number="04" name="latest" zh={t('eyebrowZh')} zhSize="large" />
           </div>
 
           <div className="col-span-12 md:col-span-9 mt-10 md:mt-0 max-w-read">

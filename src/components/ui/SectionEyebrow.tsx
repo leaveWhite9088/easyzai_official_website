@@ -6,10 +6,12 @@ export default function SectionEyebrow({
   number,
   name,
   zh,
+  zhSize = 'small',
 }: {
   number: string
   name: string
   zh?: string
+  zhSize?: 'small' | 'large'
 }) {
   return (
     <div>
@@ -30,7 +32,13 @@ export default function SectionEyebrow({
         </span>
       </div>
       {zh ? (
-        <div className="mt-6 font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3">
+        <div
+          className={
+            zhSize === 'large'
+              ? 'mt-7 font-sans text-[18px] sm:text-[20px] tracking-[0.04em] text-ink-2'
+              : 'mt-6 font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3'
+          }
+        >
           {zh}
         </div>
       ) : null}
