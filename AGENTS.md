@@ -108,6 +108,7 @@ npm run dev:clean
 
 - **Skill 只放一处**：`.agents/skills/` 是唯一存放点。**不要**生成 `.claude/`、`agent/` 等 agent 专用 symlink 目录，也不要提交 `skills-lock.json`。
 - **不创建临时分支**：所有改动直接 commit 到 `main`，不需要 `feature/xxx` 或 `redesign/xxx` 之类的"准备分支"。
+  - **例外**：本次官网 redesign 期间（2026-07-23 起）的工作统一在 `redesign-0723` 分支进行，不直接 commit 到 main；完成并验收后合并回 main。
 - **工具/缓存产物一律 gitignore**：`out/`、`.next/`、`.playwright-mcp/`、`.impeccable/`、`.dev*.log`、`.tsbuildinfo` 等。
 
 ## Windows 环境差异（PowerShell）
