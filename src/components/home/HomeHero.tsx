@@ -77,21 +77,17 @@ export default function HomeHero() {
           </h1>
         </motion.div>
 
-        {/* Bottom: English tagline + scroll cue */}
+        {/* Bottom: English tagline only — scroll cue removed. */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.36 }}
-          className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex items-end justify-between"
+          className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex items-end"
         >
           <div className="max-w-[420px]">
             <p className="font-serif italic text-ink-2 text-[15px] sm:text-[17px] leading-[1.55]">
               {t('tagline')}
             </p>
-          </div>
-          <div className="hidden sm:flex flex-col items-center gap-2 text-ink-3 font-mono text-[10px] tracking-[0.18em] uppercase">
-            <span>scroll</span>
-            <span className="h-10 w-px bg-ink-3/60" />
           </div>
         </motion.div>
       </div>
