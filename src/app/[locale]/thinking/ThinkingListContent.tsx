@@ -85,12 +85,9 @@ export default function ThinkingListContent() {
           {/* Close the list with a hairline */}
           <div className="border-b border-rule" />
 
-          {/* Bottom: count + RSS */}
-          <div className="mt-8 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-ink-3">
-            <span>{t('countTag')}</span>
-            <a href="/zh/rss.xml" className="transition-colors hover:text-ink-2">
-              {t('rssLink')} →
-            </a>
+          {/* Bottom: count tag only — RSS link removed (was a dead link). */}
+          <div className="mt-8 font-mono text-[10px] tracking-[0.18em] uppercase text-ink-3">
+            {t('countTag')}
           </div>
         </div>
       </div>
