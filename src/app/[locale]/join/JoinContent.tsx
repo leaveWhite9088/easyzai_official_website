@@ -27,10 +27,10 @@ export default function JoinContent() {
     <main className="min-h-screen bg-canvas">
       <Navbar />
 
-      {/* Top hero image — 50vh full-bleed, like the thinking-detail
-          concept image. Same height contract (50vh, min 360px) so the
-          two detail types share a visual rhythm. */}
-      <section className="w-full bg-canvas" style={{ height: '50vh', minHeight: '360px' }}>
+      {/* Top hero image — bumped from 50vh to 70vh to expose more of
+          the workspace photo. minHeight 480 so small viewports still
+          show a meaningful chunk. */}
+      <section className="w-full bg-canvas" style={{ height: '70vh', minHeight: '480px' }}>
         <Image
           src="/assets/joinus.jpg"
           alt={t('eyebrowZh')}
