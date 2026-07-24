@@ -40,8 +40,10 @@ export default function HomeLatest() {
               <span className="text-cyan">{t('status')}</span>
             </div>
 
-            {/* Case title — serif italic, the section's single serif use. */}
-            <h3 className="font-serif italic font-light text-ink leading-[1.18] tracking-[-0.01em] text-[clamp(28px,3.8vw,44px)]">
+            {/* Case title — serif (roman), the section's single serif use.
+                Roman not italic so the title reads as the page's editorial
+                anchor, not a callout. */}
+            <h3 className="font-serif font-light text-ink leading-[1.18] tracking-[-0.01em] text-[clamp(28px,3.8vw,44px)]">
               {t('title')}
             </h3>
 
