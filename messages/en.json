@@ -270,12 +270,12 @@
       "items": [
         {
           "num": "01",
-          "title": "Cross-language code migration",
+          "title": "AI code migration & knowledge engineering",
           "desc": "Moving libraries from other languages into a new one. Single libraries: weeks → hours. Large legacy migrations run the same way, in batch."
         },
         {
           "num": "02",
-          "title": "Layering AI onto legacy systems",
+          "title": "AI transformation of enterprise systems",
           "desc": "ERP, CRM, mid-office — keep the engine untouched. We drop in smart authorization, smart content, and report Q&A. Zero-downtime go-live."
         },
         {
