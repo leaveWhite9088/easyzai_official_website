@@ -1,6 +1,10 @@
 // 04 / LATEST — the one case the home page shows. Practitioner first: real work
 // (45%+ metric) over abstract intro. Reader can drill into Practice for the
 // full archive.
+//
+// Typography: serif italic carries the case title (single serif on this
+// section), metric block stays sans-medium as the visual anchor, body and
+// meta stay prose. mono is reserved for labels / scopes.
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import SectionEyebrow from '@/components/ui/SectionEyebrow'
@@ -10,56 +14,62 @@ export default function HomeLatest() {
   const locale = useLocale()
 
   return (
-    <section id="04" className="bg-paper border-t border-rule py-[clamp(80px,12vw,160px)]">
+    <section
+      id="04"
+      className="bg-paper border-t border-rule py-[clamp(72px,10vw,128px)]"
+    >
       <div className="mx-auto max-w-wide px-6 sm:px-10">
         <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10">
+          {/* Left: section eyebrow (hairline + 04 / latest + 最新在做的) */}
           <div className="col-span-12 md:col-span-3">
             <SectionEyebrow number="04" name="latest" zh={t('eyebrowZh')} />
           </div>
 
           <div className="col-span-12 md:col-span-9 mt-10 md:mt-0 max-w-read">
-            {/* Case meta line */}
-            <div className="mb-6 flex flex-wrap items-baseline gap-3 font-mono text-[11px] tracking-[0.18em] uppercase">
-              <span className="text-ink-3">CASE</span>
+            {/* Case meta line — mono, single row of uppercase tags. */}
+            <div className="mb-8 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[11px] tracking-[0.18em] uppercase">
+              <span className="text-ink-3">{t('industryLabel')}</span>
               <span className="text-ink-3/40">·</span>
               <span className="text-ink-3">{t('industry')}</span>
               <span className="text-ink-3/40">·</span>
               <span className="text-cyan">{t('status')}</span>
             </div>
 
-            {/* Case title — sans, keeps the "one serif per page" budget */}
+            {/* Case title — serif italic, the section's single serif use. */}
             <h3
-              className="text-ink font-medium leading-[1.18] tracking-[-0.005em] mb-8"
-              style={{ fontSize: 'clamp(26px, 3.4vw, 38px)' }}
+              className="font-serif italic font-light text-ink leading-[1.18] tracking-[-0.01em] text-[clamp(28px,3.8vw,44px)]"
             >
               {t('title')}
             </h3>
 
-            {/* 45%+ metric callout */}
-            <div className="mb-10 flex items-baseline gap-4">
+            {/* 45%+ metric callout — sans medium anchor, sans-mono label. */}
+            <div className="mt-12 mb-12 flex items-baseline gap-5 border-t border-rule pt-10">
               <span
-                className="text-ink font-medium leading-none tracking-[-0.02em]"
-                style={{ fontSize: 'clamp(48px, 6vw, 72px)' }}
+                className="text-ink font-medium leading-none tracking-[-0.02em] text-[clamp(56px,7vw,84px)]"
               >
                 {t('metric')}
               </span>
-              <div className="pb-1 font-mono text-[10px] tracking-[0.18em] uppercase text-ink-2 leading-[1.5]">
+              <div className="pb-1 font-mono text-[10px] tracking-[0.18em] uppercase text-ink-2 leading-[1.6]">
                 {t('metricLabel1')}
                 <br />
                 {t('metricLabel2')}
               </div>
             </div>
 
-            <p className="text-ink-2 text-[15px] sm:text-[16px] leading-[1.7]">
+            {/* Body — single column, JSX split (no innerHTML strings). */}
+            <p className="text-ink-2 text-[15px] sm:text-[16px] leading-[1.75]">
               {t('body1')}
             </p>
-            <p
-              className="mt-4 text-ink-2 text-[15px] sm:text-[16px] leading-[1.7]"
-              dangerouslySetInnerHTML={{ __html: t('body2') }}
-            />
+            <p className="mt-5 text-ink-2 text-[15px] sm:text-[16px] leading-[1.75]">
+              {t('body2Prefix')}
+              <span className="text-ink">{t('body2Highlight')}</span>
+              {t('body2Suffix')}
+            </p>
 
-            {/* Scope meta */}
-            <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] tracking-[0.18em] uppercase">
+            {/* Scope meta + status — single hairline-bounded row. */}
+            <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-rule pt-6 font-mono text-[11px] tracking-[0.18em] uppercase">
+              <span className="text-ink-3">{t('scopeLabel')}</span>
+              <span className="text-ink-3/40">·</span>
               <span className="text-ink-3">{t('scope1')}</span>
               <span className="text-ink-3/40">·</span>
               <span className="text-ink-3">{t('scope2')}</span>
@@ -71,9 +81,12 @@ export default function HomeLatest() {
             <div className="mt-10">
               <Link
                 href={`/${locale}/practice`}
-                className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2 hover:text-ink transition-colors"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2 transition-colors hover:text-ink"
               >
-                {t('link')} <span className="text-[14px]">→</span>
+                {t('link')}
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
               </Link>
             </div>
           </div>

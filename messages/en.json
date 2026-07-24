@@ -180,6 +180,7 @@
     },
     "latest": {
       "eyebrowZh": "Latest in progress",
+      "industryLabel": "Industry",
       "industry": "Online retail / Cross-border e-commerce",
       "status": "In progress",
       "title": "Online-retail AI efficiency: connecting catalog, procurement, ops",
@@ -187,7 +188,10 @@
       "metricLabel1": "Potential gain",
       "metricLabel2": "POTENTIAL",
       "body1": "The client runs three SaaS systems (Taobao Merchant, Meituan Merchant, in-house ERP). Operations staff copy-paste data between platforms all day.",
-      "body2": "Our work: automate that repetitive labor — <span class=\"text-ink\">covering catalog, procurement, and operations</span> — to reduce rework and break data silos.",
+      "body2Prefix": "Our work: automate that repetitive labor — ",
+      "body2Highlight": "covering catalog, procurement, and operations",
+      "body2Suffix": " — to reduce rework and break data silos.",
+      "scopeLabel": "Scope",
       "scope1": "3 segments",
       "scope2": "Multi-SaaS integration",
       "link": "See all practice"

@@ -190,6 +190,7 @@
     },
     "latest": {
       "eyebrowZh": "最新在做的",
+      "industryLabel": "Industry",
       "industry": "线上零售 / 跨境电商",
       "status": "进行中",
       "title": "线上零售 AI 提效：打通商品 / 采购 / 运营 三段",
@@ -197,7 +198,10 @@
       "metricLabel1": "可提效空间",
       "metricLabel2": "POTENTIAL",
       "body1": "客户有 3 套 SaaS 系统（淘宝商家端、美团商家端、自建 ERP），运营每天花大量时间在多个平台间搬运数据、复制粘贴。",
-      "body2": "我们做的是：把这些重复劳动自动化，<span class=\"text-ink\">覆盖商品 / 采购 / 运营 三段</span>——减少重复工作，打通数据孤岛。",
+      "body2Prefix": "我们做的是：把这些重复劳动自动化，",
+      "body2Highlight": "覆盖商品 / 采购 / 运营 三段",
+      "body2Suffix": "——减少重复工作，打通数据孤岛。",
+      "scopeLabel": "Scope",
       "scope1": "3 段",
       "scope2": "多 SaaS 集成",
       "link": "查看全部实践"
