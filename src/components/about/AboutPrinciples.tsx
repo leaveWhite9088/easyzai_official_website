@@ -34,7 +34,7 @@ export default function AboutPrinciples() {
               {items.map((p) => (
                 <div
                   key={p.num}
-                  className="grid grid-cols-[36px_1fr] items-start gap-4 border-t border-rule py-7 last:border-b last:border-rule"
+                  className="grid grid-cols-[36px_1fr] items-start gap-4 border-t border-rule py-5 last:border-b last:border-rule"
                 >
                   <span className="pt-1.5 font-mono text-[11px] text-ink-3 tracking-[0.1em]">
                     {p.num}
@@ -43,7 +43,7 @@ export default function AboutPrinciples() {
                     <p className="text-ink text-[16px] sm:text-[18px] leading-[1.45]">
                       {p.main}
                     </p>
-                    <p className="mt-2 text-ink-2 text-[13px] leading-[1.6]">
+                    <p className="mt-1.5 text-ink-2 text-[13px] leading-[1.6]">
                       {p.sub}
                     </p>
                   </div>
