@@ -21,9 +21,9 @@ export default function Navbar() {
 
   const items = [
     { href: `/${locale}`, label: t('home') },
+    { href: `/${locale}/about`, label: t('about') },
     { href: `/${locale}/practice`, label: t('cases') },
     { href: `/${locale}/thinking`, label: t('thinking') },
-    { href: `/${locale}/about`, label: t('about') },
   ]
 
   return (
