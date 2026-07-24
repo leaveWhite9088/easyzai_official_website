@@ -20,6 +20,10 @@ export default function ThinkingListContent() {
 
       <div className="pt-24 pb-12 sm:pt-32">
         <div className="mx-auto max-w-think px-6 sm:px-10">
+          {/* Single h1 for SEO — the visible intro is a serif italic p, the
+              page title is exposed via the nav (which is already a 4-page
+              structure). Visually hidden keeps the editorial intro clean. */}
+          <h1 className="sr-only">{t('title')}</h1>
           {/* 短 serif italic intro — the one serif on the thinking list page */}
           <p
             className="mb-2 max-w-[640px] font-serif italic leading-[1.4] tracking-[-0.005em] text-ink-2"

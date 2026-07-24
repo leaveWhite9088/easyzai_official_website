@@ -690,7 +690,7 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-10 border-b border-border-subtle pb-10 sm:mb-12 sm:pb-12"
+          className="mb-10 border-b border-rule pb-10 sm:mb-12 sm:pb-12"
         >
           <span className="font-mono text-xs text-accent tracking-wide">
             {data.industry[locale as 'zh' | 'en']}
@@ -767,7 +767,7 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
                 </blockquote>
               ),
               hr: () => (
-                <hr className="border-border-subtle my-8" />
+                <hr className="border-rule my-8" />
               ),
               table: ({ children }) => (
                 <div className="max-w-full overflow-x-auto mb-6">
@@ -777,12 +777,12 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
                 </div>
               ),
               th: ({ children }) => (
-                <th className="text-left py-3 px-4 border-b border-border-subtle text-text-primary font-medium">
+                <th className="text-left py-3 px-4 border-b border-rule text-text-primary font-medium">
                   {children}
                 </th>
               ),
               td: ({ children }) => (
-                <td className="py-3 px-4 border-b border-border-subtle text-text-secondary">
+                <td className="py-3 px-4 border-b border-rule text-text-secondary">
                   {children}
                 </td>
               ),
