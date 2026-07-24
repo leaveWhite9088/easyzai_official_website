@@ -108,14 +108,12 @@ npm run dev:clean
 
 - **Skill 只放一处**：`.agents/skills/` 是唯一存放点。**不要**生成 `.claude/`、`agent/` 等 agent 专用 symlink 目录，也不要提交 `skills-lock.json`。
 - **不创建临时分支**：所有改动直接 commit 到 `main`，不需要 `feature/xxx` 或 `redesign/xxx` 之类的"准备分支"。
-  - **例外**：本次官网 redesign 期间（2026-07-23 起）的工作统一在 `redesign-0723` 分支进行，不直接 commit 到 main；完成并验收后合并回 main。
 - **工具/缓存产物一律 gitignore**：`out/`、`.next/`、`.playwright-mcp/`、`.impeccable/`、`.dev*.log`、`.tsbuildinfo` 等。
 
-## 当前 redesign 实施状态 (2026-07-24)
+## 当前 redesign 实施状态 (2026-07-25)
 
-- **实施版本**：v2.1.0（Home / About / Practice / Thinking + 4 case / 3 thinking 详情 + join 全部上线）
-- **分支**：`redesign-0723`
-- **next 任务**：用户验收后合并回 main（届时把 `npm run dev:clean` 里的 `rm -rf` 改回 PowerShell 等价命令，并清理 docs/prototype/ 与 .gitignore 的例外）
+- **实施版本**：v2.1.0（Home / About / Practice / Thinking + 4 case / 3 thinking 详情 + join 全部上线，已合并到 main）
+- **状态**：已合并并发布，`redesign-0723` 分支已删除；今后所有改动仍在 main 上推。
 - **未做**：case 详情页视觉升级（保留旧设计但颜色已自动适配 paper + cyan）；用户预告「可能会叫你把所有的详细页都做出来」—— 单独再做
 
 ## Windows 环境差异（PowerShell）
