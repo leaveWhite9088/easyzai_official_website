@@ -22,7 +22,7 @@ export default function AboutPrinciples() {
       <div className="mx-auto max-w-page px-6 sm:px-10">
         <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10">
           <div className="col-span-12 md:col-span-3">
-            <SectionEyebrow number="02" name="principles" zh={t('eyebrowZh')} />
+            <SectionEyebrow number="02" name="principles" zh={t('eyebrowZh')} zhSize="large" />
           </div>
 
           <div className="col-span-12 md:col-span-9 mt-10 md:mt-0 max-w-read">
