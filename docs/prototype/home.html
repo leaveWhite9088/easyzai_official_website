@@ -103,15 +103,7 @@
       position: absolute; left: 0; right: 0; height: 1px; background: #E5E2D8;
     }
 
-    /* 思考行 hover */
-    .think-row .num,
-    .think-row .arrow,
-    .think-row .title,
-    .think-row .date { transition: color 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .think-row:hover .title { color: #1B3A5F; }
-    .think-row:hover .num   { color: #1B3A5F; }
-    .think-row:hover .arrow { transform: translateX(8px); color: #1B3A5F; }
-    .think-row:hover .rule-col { background: #1B3A5F; }
+    /* 思考行 hover 已移除（04 段改为 case 预览） */
 
     /* 概念图 figure 框 */
     .specimen-frame {
@@ -323,7 +315,7 @@
   </section>
 
   <!-- ──────────────────────────────────────────── -->
-  <!-- 04 / THINKING                                 -->
+  <!-- 04 / LATEST · 最新在做的                        -->
   <!-- ──────────────────────────────────────────── -->
   <section id="04" class="sec bg-paper sec-rule">
     <div class="max-w-wide mx-auto px-6 sm:px-10">
@@ -331,101 +323,67 @@
       <div class="grid grid-cols-12 gap-x-6 sm:gap-x-10">
         <div class="col-span-12 md:col-span-3">
           <div class="sec-label">
-            <span>04</span><span>/</span><span>thinking</span>
+            <span>04</span><span>/</span><span>latest</span>
           </div>
           <div class="mt-6 font-mono text-[11px] tracking-micro uppercase text-ink-3">
-            思考
+            最新在做的
           </div>
         </div>
 
-        <div class="col-span-12 md:col-span-9 mt-10 md:mt-0">
+        <div class="col-span-12 md:col-span-9 mt-10 md:mt-0 max-w-read">
 
-          <div class="flex items-baseline justify-between mb-12">
-            <h3 class="font-serif text-ink text-[24px] sm:text-[28px] tracking-[-0.005em]">
-              Latest
-            </h3>
-            <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">
-              2026 — Q3
-            </span>
+          <!-- Case meta 行 -->
+          <div class="flex flex-wrap items-baseline gap-3 mb-6 font-mono text-[11px] tracking-label uppercase">
+            <span class="text-ink-3">CASE</span>
+            <span class="text-ink-3/40">·</span>
+            <span class="text-ink-3">线上零售 / 跨境电商</span>
+            <span class="text-ink-3/40">·</span>
+            <span class="text-cyan">进行中</span>
           </div>
 
-          <ul class="border-t border-rule">
-            <li class="think-row border-b border-rule relative">
-              <a href="#" class="block py-9 sm:py-11 px-1 grid grid-cols-12 gap-4 sm:gap-8">
-                <!-- 左侧序号 -->
-                <div class="col-span-2 sm:col-span-1 font-mono text-[12px] text-ink-3 pt-1 num">01</div>
-                <!-- 标题 + 摘要 -->
-                <div class="col-span-9 sm:col-span-9">
-                  <div class="flex items-baseline gap-3 mb-3">
-                    <span class="font-mono text-[11px] tracking-label uppercase text-ink-3 date">2026.07.18</span>
-                    <span class="text-ink-3/50 text-[10px]">·</span>
-                    <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">Research</span>
-                  </div>
-                  <h4 class="title font-serif text-[20px] sm:text-[24px] text-ink leading-[1.3] font-normal">
-                    从一个券商案例看 AI 落地的"非标"边界
-                  </h4>
-                  <p class="mt-3 text-ink-2 text-[14px] sm:text-[15px] leading-[1.6] max-w-read">
-                    当业务规则跨过 50 条、自定义字段超过 200 个，通用方案的"优雅"开始让位于"能跑"。
-                  </p>
-                </div>
-                <!-- 箭头 -->
-                <div class="col-span-1 text-right text-ink-3 text-[18px] pt-1 arrow">→</div>
-              </a>
-              <!-- 左侧细线，hover 时变蓝 -->
-              <span class="rule-col absolute left-[-1px] top-0 bottom-0 w-[1px] bg-transparent transition-colors"></span>
-            </li>
+          <!-- Case 标题（sans，不破 hero "serif 只用 1 处" 的规则） -->
+          <h3 class="text-ink font-medium leading-[1.18] tracking-[-0.005em] mb-8"
+              style="font-size: clamp(26px, 3.4vw, 38px);">
+            线上零售 AI 提效：<br />
+            打通商品 / 采购 / 运营 三段
+          </h3>
 
-            <li class="think-row border-b border-rule relative">
-              <a href="#" class="block py-9 sm:py-11 px-1 grid grid-cols-12 gap-4 sm:gap-8">
-                <div class="col-span-2 sm:col-span-1 font-mono text-[12px] text-ink-3 pt-1 num">02</div>
-                <div class="col-span-9 sm:col-span-9">
-                  <div class="flex items-baseline gap-3 mb-3">
-                    <span class="font-mono text-[11px] tracking-label uppercase text-ink-3 date">2026.06.02</span>
-                    <span class="text-ink-3/50 text-[10px]">·</span>
-                    <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">Method</span>
-                  </div>
-                  <h4 class="title font-serif text-[20px] sm:text-[24px] text-ink leading-[1.3] font-normal">
-                    我们如何判断一个需求"值得接"
-                  </h4>
-                  <p class="mt-3 text-ink-2 text-[14px] sm:text-[15px] leading-[1.6] max-w-read">
-                    不是所有 AI 需求都值得做。研究型团队要会拒绝——这比会接更难。
-                  </p>
-                </div>
-                <div class="col-span-1 text-right text-ink-3 text-[18px] pt-1 arrow">→</div>
-              </a>
-              <span class="rule-col absolute left-[-1px] top-0 bottom-0 w-[1px] bg-transparent transition-colors"></span>
-            </li>
-
-            <li class="think-row border-b border-rule relative">
-              <a href="#" class="block py-9 sm:py-11 px-1 grid grid-cols-12 gap-4 sm:gap-8">
-                <div class="col-span-2 sm:col-span-1 font-mono text-[12px] text-ink-3 pt-1 num">03</div>
-                <div class="col-span-9 sm:col-span-9">
-                  <div class="flex items-baseline gap-3 mb-3">
-                    <span class="font-mono text-[11px] tracking-label uppercase text-ink-3 date">2026.04.21</span>
-                    <span class="text-ink-3/50 text-[10px]">·</span>
-                    <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">Engineering</span>
-                  </div>
-                  <h4 class="title font-serif text-[20px] sm:text-[24px] text-ink leading-[1.3] font-normal">
-                    工程交付的最后一公里：模型怎么"接进"老系统
-                  </h4>
-                  <p class="mt-3 text-ink-2 text-[14px] sm:text-[15px] leading-[1.6] max-w-read">
-                    90% 的项目死在"接进老系统"。研究做得再漂亮，过不了这一关就是 demo。
-                  </p>
-                </div>
-                <div class="col-span-1 text-right text-ink-3 text-[18px] pt-1 arrow">→</div>
-              </a>
-              <span class="rule-col absolute left-[-1px] top-0 bottom-0 w-[1px] bg-transparent transition-colors"></span>
-            </li>
-          </ul>
-
-          <div class="mt-12 flex items-center justify-between">
-            <a href="#" class="font-mono text-[11px] tracking-label uppercase text-ink-2 hover:text-ink transition-colors inline-flex items-center gap-2">
-              view all thinking <span class="text-[14px]">→</span>
-            </a>
-            <div class="font-mono text-[11px] tracking-label uppercase text-ink-3">
-              Total · 12 essays
+          <!-- Metric callout：45%+ 已梳理可提效空间 -->
+          <div class="flex items-baseline gap-4 mb-10">
+            <span class="text-ink font-medium leading-none tracking-[-0.02em]"
+                  style="font-size: clamp(48px, 6vw, 72px);">
+              45%+
+            </span>
+            <div class="font-mono text-[10px] tracking-label uppercase text-ink-2 leading-[1.5] pb-1">
+              可提效空间<br/>
+              POTENTIAL
             </div>
           </div>
+
+          <!-- 描述 -->
+          <p class="text-ink-2 text-[15px] sm:text-[16px] leading-[1.7]">
+            客户有 3 套 SaaS 系统（淘宝商家端、美团商家端、自建 ERP），运营每天花大量时间在多个平台间搬运数据、复制粘贴。
+          </p>
+          <p class="mt-4 text-ink-2 text-[15px] sm:text-[16px] leading-[1.7]">
+            我们做的是：把这些重复劳动自动化，<span class="text-ink">覆盖商品 / 采购 / 运营 三段</span>——减少重复工作，打通数据孤岛。
+          </p>
+
+          <!-- 范围 meta -->
+          <div class="mt-10 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] tracking-label uppercase">
+            <span class="text-ink-3">3 段</span>
+            <span class="text-ink-3/40">·</span>
+            <span class="text-ink-3">多 SaaS 集成</span>
+            <span class="text-ink-3/40">·</span>
+            <span class="text-cyan">进行中</span>
+          </div>
+
+          <!-- 链接到 Practice -->
+          <div class="mt-10">
+            <a href="practice.html" class="font-mono text-[11px] tracking-label uppercase text-ink-2 hover:text-ink transition-colors inline-flex items-center gap-2">
+              查看全部实践 <span class="text-[14px]">→</span>
+            </a>
+          </div>
+
         </div>
       </div>
     </div>
