@@ -270,23 +270,23 @@
       "items": [
         {
           "num": "01",
-          "title": "AI code migration & knowledge engineering",
-          "desc": "Automatic cross-language library rewriting — papers + RAG + Agent."
+          "title": "Cross-language code migration",
+          "desc": "Moving libraries from other languages into a new one. Single libraries: weeks → hours. Large legacy migrations run the same way, in batch."
         },
         {
           "num": "02",
-          "title": "AI transformation of enterprise systems",
-          "desc": "Non-intrusive AI layers on top of legacy systems, no rip-and-replace."
+          "title": "Layering AI onto legacy systems",
+          "desc": "ERP, CRM, mid-office — keep the engine untouched. We drop in smart authorization, smart content, and report Q&A. Zero-downtime go-live."
         },
         {
           "num": "03",
-          "title": "RAG / Agent system building",
-          "desc": "Private knowledge base integration, multi-turn dialogue, automated workflows."
+          "title": "Private knowledge base & Agent workflows",
+          "desc": "Equipment manuals, contract clauses, product FAQs — all directly queryable. Multi-turn Agents chain approvals, diagnostics, and dispatch."
         },
         {
           "num": "04",
           "title": "End-to-end delivery for non-standard work",
-          "desc": "Problem research, solution design, engineering delivery — three stages, all in-house."
+          "desc": "Overseas lead gen, retail efficiency, factory scheduling — for chains no off-the-shelf stack can handle, we research, design, and deliver."
         }
       ]
     },
