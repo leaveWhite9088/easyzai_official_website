@@ -673,11 +673,19 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
   const t = useTranslations('caseDetail')
   const data = caseData[slug]
 
+  // Anchor back to the matching case row in the Practice list. If the slug
+  // isn't in the index yet (case-3 / case-4 not yet implemented), fall back
+  // to /practice as a plain list link.
+  const detailSlugs = ['programming-language-migration', 'securities-ai-platform']
+  const caseIndex = detailSlugs.indexOf(slug)
+  const backHref =
+    caseIndex >= 0 ? `/${locale}/practice#case-${caseIndex + 1}` : `/${locale}/practice`
+
   return (
     <article className="relative isolate overflow-hidden pt-24 pb-20 sm:pb-28 lg:pb-32">
       <div className="subpage-mobile-static relative z-10 max-w-read mx-auto px-5 sm:px-6 lg:px-8">
         <motion.a
-          href={`/${locale}#cases`}
+          href={backHref}
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           className="group inline-flex min-h-[44px] items-center gap-2 text-text-tertiary hover:text-text-primary transition-colors text-sm mb-10 sm:mb-12"

@@ -50,8 +50,9 @@ export default function PracticeCases() {
                 return (
                   <Link
                     key={c.title}
+                    id={`case-${i + 1}`}
                     href={href}
-                    className="group block border-t border-rule transition-colors duration-300 hover:bg-bg-elevated/40"
+                    className="group block border-t border-rule transition-colors duration-300 hover:bg-bg-elevated/40 scroll-mt-24"
                   >
                     <div className="grid grid-cols-12 items-baseline gap-4 py-6 sm:gap-6 sm:py-7">
                       <div className="col-span-3 sm:col-span-2">
