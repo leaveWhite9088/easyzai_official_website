@@ -220,7 +220,7 @@
     },
     "principles": {
       "eyebrowZh": "Principles",
-      "count": "Three principles · how we work",
+      "count": "Four principles · how we work",
       "items": [
         {
           "num": "01",
@@ -229,13 +229,18 @@
         },
         {
           "num": "02",
-          "main": "We dig for the efficiency gains the client hasn't noticed yet.",
+          "main": "We dig for the efficiency gains the client hasn't spotted yet.",
           "sub": "Not waiting for the brief — going to find them."
         },
         {
           "num": "03",
           "main": "We embed into the workflow, invisibly.",
           "sub": "Doing the work for them, in the background."
+        },
+        {
+          "num": "04",
+          "main": "We reach for AI only when we need it — and lean when we do.",
+          "sub": "Cut cost. Save tokens."
         }
       ]
     },
