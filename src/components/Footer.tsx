@@ -38,13 +38,9 @@ export default function Footer() {
         {/* Top row: brand + tagline */}
         <div className="grid grid-cols-12 gap-x-6 gap-y-10 sm:gap-x-10">
           <div className="col-span-12 md:col-span-5">
-            <div className="mb-5 flex items-center gap-3">
+            <div className="mb-5">
               <span className="font-mono text-[12px] tracking-[0.22em] uppercase text-canvas">
-                EASYZ
-              </span>
-              <span className="h-px w-6 bg-canvas/40" />
-              <span className="font-serif italic text-[13px] text-canvas/70">
-                {t('companyEn').split(' ').slice(0, 1).join(' ')} {t('companyEn').split(' ')[1]}
+                {t('brandLabel')}
               </span>
             </div>
             <p className="max-w-sm font-serif italic text-[20px] leading-[1.4] text-canvas/90 sm:text-[22px]">
