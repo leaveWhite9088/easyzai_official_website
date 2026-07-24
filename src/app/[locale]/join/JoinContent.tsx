@@ -27,10 +27,10 @@ export default function JoinContent() {
     <main className="min-h-screen bg-canvas">
       <Navbar />
 
-      {/* Top hero image — bumped from 50vh to 70vh to expose more of
-          the workspace photo. minHeight 480 so small viewports still
-          show a meaningful chunk. */}
-      <section className="w-full bg-canvas" style={{ height: '70vh', minHeight: '480px' }}>
+      {/* Top hero image — bumped again (50 → 70 → 85vh) so the workspace
+          photo carries the page. minHeight 560 keeps small viewports
+          meaningful. */}
+      <section className="w-full bg-canvas" style={{ height: '85vh', minHeight: '560px' }}>
         <Image
           src="/assets/joinus.jpg"
           alt={t('eyebrowZh')}
