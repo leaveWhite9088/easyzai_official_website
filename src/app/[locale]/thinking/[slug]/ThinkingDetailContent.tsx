@@ -5,7 +5,6 @@ import Markdown from 'react-markdown'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import SubpageAtmosphere from '@/components/SubpageAtmosphere'
 import type { Article } from '@/types/content'
 
 export default function ThinkingDetailContent({ locale, slug }: { locale: string; slug: string }) {
@@ -16,7 +15,6 @@ export default function ThinkingDetailContent({ locale, slug }: { locale: string
   if (!article) {
     return (
       <main className="relative isolate min-h-screen overflow-hidden bg-bg-base">
-        <SubpageAtmosphere />
         <Navbar />
         <article className="pt-32 pb-24">
           <div className="max-w-3xl mx-auto px-6 lg:px-10">
@@ -35,7 +33,6 @@ export default function ThinkingDetailContent({ locale, slug }: { locale: string
 
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-bg-base">
-      <SubpageAtmosphere />
       <Navbar />
       <article className="subpage-mobile-static relative z-10 pt-24 pb-20 sm:pt-32 sm:pb-24">
         <div className="max-w-[51.84rem] mx-auto px-5 sm:px-6 lg:px-8">

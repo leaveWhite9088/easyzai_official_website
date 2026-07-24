@@ -3,7 +3,6 @@
 import { useTranslations } from 'next-intl'
 import Markdown from 'react-markdown'
 import { motion } from 'framer-motion'
-import SubpageAtmosphere from '@/components/SubpageAtmosphere'
 
 const caseData: Record<string, any> = {
   'programming-language-migration': {
@@ -676,8 +675,7 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
 
   return (
     <article className="relative isolate overflow-hidden pt-24 pb-20 sm:pb-28 lg:pb-32">
-      <SubpageAtmosphere />
-      <div className="subpage-mobile-static relative z-10 max-w-[51.84rem] mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="subpage-mobile-static relative z-10 max-w-read mx-auto px-5 sm:px-6 lg:px-8">
         <motion.a
           href={`/${locale}#cases`}
           initial={{ opacity: 0, x: -10 }}

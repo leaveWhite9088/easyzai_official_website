@@ -5,9 +5,7 @@ import { MotionConfig } from 'framer-motion'
 import { Inter, JetBrains_Mono, Source_Serif_4 } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { locales } from '@/i18n'
-import ThemeProvider from '@/components/theme/ThemeProvider'
 import PageTransition from '@/components/PageTransition'
-import { THEME_INIT_SCRIPT } from '@/components/theme/theme-script'
 import '../globals.css'
 
 // Self-hosted via next/font: build-time download, auto-subset, no render-blocking
@@ -89,16 +87,12 @@ export default async function LocaleLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerif.variable}`}
     >
       <head>
-        {/* Apply the stored theme before first paint — prevents theme flash. */}
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <ThemeProvider>
-            <MotionConfig reducedMotion="user">
-              <PageTransition>{children}</PageTransition>
-            </MotionConfig>
-          </ThemeProvider>
+          <MotionConfig reducedMotion="user">
+            <PageTransition>{children}</PageTransition>
+          </MotionConfig>
         </NextIntlClientProvider>
       </body>
     </html>
