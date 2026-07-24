@@ -37,6 +37,12 @@ module.exports = {
 
         // "ink" — foreground extreme, used by ink/5 / ink/10 opacity utilities.
         'ink': 'rgb(var(--c-ink) / <alpha-value>)',
+
+        // Ink shades — secondary / tertiary gray text, body & meta lines. Same
+        // values as `--c-text-secondary` / `--c-text-tertiary` (see globals.css)
+        // and the design token table in docs/prototype-assets.md.
+        'ink-2': 'rgb(var(--c-text-secondary) / <alpha-value>)',
+        'ink-3': 'rgb(var(--c-text-tertiary) / <alpha-value>)',
       },
       boxShadow: {
         'card': 'var(--shadow-card)',
