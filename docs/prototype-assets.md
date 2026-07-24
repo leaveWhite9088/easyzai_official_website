@@ -1,7 +1,11 @@
 # 原型资源清单 · Prototype Assets
 
-> 状态：v0.3 (Home) / v0.1 (About) 已锁 · 2026-07-24
+> 状态：**v1.0 已实施上线**（redesign-0723 分支，2026-07-24）
 > 用途：实施时直接参照（不记录备选 / 切换方法 / 详细 prompt）
+>
+> docs/prototype/ 下的原型 HTML 仍保留作为设计存档；
+> 实际产物的 Next.js 实现已合并到 src/components/{home,about,practice}/ 目录 + thinking 列表/详情 + Footer 组件。
+> 资源在实施时已统一迁到 public/assets/ 下，URL 与原型 HTML 中一致。
 
 ---
 
