@@ -70,14 +70,6 @@ export default function Footer() {
                   {t('caseSecurities')}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={`/${locale}/practice`}
-                  className="inline-flex min-h-[44px] items-center text-[14px] text-canvas/85 transition-colors hover:text-canvas"
-                >
-                  {t('contactTitle')}
-                </Link>
-              </li>
             </ul>
           </div>
 
