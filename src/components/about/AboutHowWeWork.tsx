@@ -35,14 +35,14 @@ export default function AboutHowWeWork() {
 
           <div className="col-span-12 md:col-span-9 mt-10 md:mt-0 max-w-read">
             <p
-              className="text-ink-3 text-[16px] sm:text-[17px] leading-[1.75]"
+              className="text-ink-2 text-[16px] sm:text-[17px] leading-[1.75]"
               dangerouslySetInnerHTML={{ __html: t('body1') }}
             />
             <p
-              className="mt-7 text-ink-3 text-[15px] sm:text-[16px] leading-[1.75]"
+              className="mt-7 text-ink-2 text-[15px] sm:text-[16px] leading-[1.75]"
               dangerouslySetInnerHTML={{ __html: t('body2') }}
             />
-            <p className="mt-7 text-ink-3 text-[15px] sm:text-[16px] leading-[1.75]">
+            <p className="mt-7 text-ink-2 text-[15px] sm:text-[16px] leading-[1.75]">
               {t('body3')}
             </p>
 

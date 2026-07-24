@@ -43,7 +43,7 @@ export default function AboutPrinciples() {
                     <p className="text-ink text-[16px] sm:text-[18px] leading-[1.45]">
                       {p.main}
                     </p>
-                    <p className="mt-2 text-ink-3 text-[13px] leading-[1.6]">
+                    <p className="mt-2 text-ink-2 text-[13px] leading-[1.6]">
                       {p.sub}
                     </p>
                   </div>
