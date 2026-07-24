@@ -410,5 +410,52 @@
     "researchLabel": "研究过程",
     "solutionLabel": "最终方案",
     "resultLabel": "效果数据"
+  },
+  "home": {
+    "intro": {
+      "index": "首页 · MMXXVI",
+      "titleLine1": "研究型 AI",
+      "titleLine2": "落地团队",
+      "tagline": "We study where AI meets complex, non-standard business — research, design, and deliver."
+    },
+    "statement": {
+      "eyebrowZh": "我们是谁",
+      "title": "我们研究 AI 落地，<br />专啃非标复杂场景。",
+      "body1": "EasyZ 是一支小型研究型团队。我们不接所有 AI 需求——<br />只做那些「标准方案解决不了、非标到需要重新研究」的问题。",
+      "body2": "全链路交付：问题研究 · 方案设计 · 工程落地。",
+      "estLabel": "Est.",
+      "estValue": "2023",
+      "teamLabel": "Team",
+      "teamValue": "Researchers · 5",
+      "baseLabel": "Base",
+      "baseValue": "Shanghai"
+    },
+    "specimen": {
+      "eyebrowZh": "标本 01",
+      "imageAlt": "蓝晒植物标本 — EasyZ Specimen No. 01",
+      "caption1": "Specimen No. 01 — Cyanotype, Pinus",
+      "caption2": "蓝晒 2026"
+    },
+    "latest": {
+      "eyebrowZh": "最新在做的",
+      "industry": "线上零售 / 跨境电商",
+      "status": "进行中",
+      "title": "线上零售 AI 提效：打通商品 / 采购 / 运营 三段",
+      "metric": "45%+",
+      "metricLabel1": "可提效空间",
+      "metricLabel2": "POTENTIAL",
+      "body1": "客户有 3 套 SaaS 系统（淘宝商家端、美团商家端、自建 ERP），运营每天花大量时间在多个平台间搬运数据、复制粘贴。",
+      "body2": "我们做的是：把这些重复劳动自动化，<span class=\"text-ink\">覆盖商品 / 采购 / 运营 三段</span>——减少重复工作，打通数据孤岛。",
+      "scope1": "3 段",
+      "scope2": "多 SaaS 集成",
+      "link": "查看全部实践"
+    },
+    "contact": {
+      "eyebrowZh": "开始沟通",
+      "title1": "Bring us",
+      "title2": "a hard problem.",
+      "body": "如果你手上有一个 AI 想啃、但标准方案啃不动的场景，写信告诉我们。",
+      "cta": "开始沟通"
+    }
   }
 }

@@ -400,5 +400,52 @@
     "researchLabel": "Research Process",
     "solutionLabel": "Final Solution",
     "resultLabel": "Results"
+  },
+  "home": {
+    "intro": {
+      "index": "Index · MMXXVI",
+      "titleLine1": "Research-driven",
+      "titleLine2": "AI implementation.",
+      "tagline": "We study where AI meets complex, non-standard business — research, design, and deliver."
+    },
+    "statement": {
+      "eyebrowZh": "Who we are",
+      "title": "We research AI implementation —<br />built for non-standard, complex work.",
+      "body1": "EasyZ is a small research-driven team. We don't take every AI request —<br />only problems that standard solutions can't handle and that need fresh research.",
+      "body2": "Full-stack delivery: problem research · solution design · engineering implementation.",
+      "estLabel": "Est.",
+      "estValue": "2023",
+      "teamLabel": "Team",
+      "teamValue": "Researchers · 5",
+      "baseLabel": "Base",
+      "baseValue": "Shanghai"
+    },
+    "specimen": {
+      "eyebrowZh": "Specimen 01",
+      "imageAlt": "Cyanotype plant specimen — EasyZ Specimen No. 01",
+      "caption1": "Specimen No. 01 — Cyanotype, Pinus",
+      "caption2": "Cyanotype 2026"
+    },
+    "latest": {
+      "eyebrowZh": "Latest in progress",
+      "industry": "Online retail / Cross-border e-commerce",
+      "status": "In progress",
+      "title": "Online-retail AI efficiency: connecting catalog, procurement, ops",
+      "metric": "45%+",
+      "metricLabel1": "Potential gain",
+      "metricLabel2": "POTENTIAL",
+      "body1": "The client runs three SaaS systems (Taobao Merchant, Meituan Merchant, in-house ERP). Operations staff copy-paste data between platforms all day.",
+      "body2": "Our work: automate that repetitive labor — <span class=\"text-ink\">covering catalog, procurement, and operations</span> — to reduce rework and break data silos.",
+      "scope1": "3 segments",
+      "scope2": "Multi-SaaS integration",
+      "link": "See all practice"
+    },
+    "contact": {
+      "eyebrowZh": "Start a conversation",
+      "title1": "Bring us",
+      "title2": "a hard problem.",
+      "body": "If you're staring at an AI-shaped problem no standard solution can crack, write to us.",
+      "cta": "Start a conversation"
+    }
   }
 }
