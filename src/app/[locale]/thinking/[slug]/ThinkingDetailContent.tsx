@@ -142,10 +142,28 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
                     {children}
                   </blockquote>
                 ),
-                code: ({ children }) => (
-                  <code className="rounded bg-bg-elevated px-1.5 py-0.5 font-mono text-[14px] text-cyan">
+                code: (props: any) => {
+                  // Inline `code` keeps the colored chip style. Block code
+                  // (inside <pre>) gets a plain monospace pass-through — the
+                  // outer <pre> below carries the visual styling.
+                  const { inline, className, children } = props
+                  if (inline) {
+                    return (
+                      <code className="rounded bg-bg-elevated px-1.5 py-0.5 font-mono text-[14px] text-cyan">
+                        {children}
+                      </code>
+                    )
+                  }
+                  return (
+                    <code className={className}>
+                      {children}
+                    </code>
+                  )
+                },
+                pre: ({ children }) => (
+                  <pre className="my-7 overflow-x-auto rounded-md border border-rule bg-bg-elevated p-5 font-mono text-[14px] leading-[1.7] text-ink">
                     {children}
-                  </code>
+                  </pre>
                 ),
               }}
             >
