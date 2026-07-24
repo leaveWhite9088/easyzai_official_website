@@ -834,7 +834,7 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
   // Anchor back to the matching case row in the Practice list. If the slug
   // isn't in the index yet (case-3 / case-4 not yet implemented), fall back
   // to /practice as a plain list link.
-  const detailSlugs = ['programming-language-migration', 'securities-ai-platform']
+  const detailSlugs = ['programming-language-migration', 'securities-ai-platform', 'laser-equipment-ai-customer-service']
   const caseIndex = detailSlugs.indexOf(slug)
   const backHref =
     caseIndex >= 0 ? `/${locale}/practice#case-${caseIndex + 1}` : `/${locale}/practice`
