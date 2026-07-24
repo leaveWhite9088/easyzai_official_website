@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: '404 · EasyZ 易智',
+  title: '404 · EasyZ AI',
   robots: { index: false },
 }
 
-// Root not-found renders outside the [locale] segment, so the root layout
-// (which only passes children through) doesn't provide html/body — this page
-// supplies its own. Kept bilingual and self-contained (no i18n/font deps).
+// Root fallback — only hit if [locale] segment is bypassed (rare, e.g. raw
+// "/non-existent-path" without a locale prefix). The locale-aware editorial
+// 404 lives at app/[locale]/not-found.tsx and is the one users actually see.
 export default function NotFound() {
   return (
     <html lang="zh">
@@ -15,52 +15,69 @@ export default function NotFound() {
         style={{
           margin: 0,
           minHeight: '100vh',
-          backgroundColor: '#0C0C0F',
-          backgroundImage:
-            'radial-gradient(circle at 50% 12%, rgba(190,154,99,0.14), transparent 38%), linear-gradient(rgba(247,243,235,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(247,243,235,0.022) 1px, transparent 1px)',
-          backgroundSize: 'auto, 52px 52px, 52px 52px',
-          color: '#F0F0F5',
+          backgroundColor: '#FAF9F5',
+          color: '#16161A',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           fontFamily:
-            "'Source Han Sans', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif",
+            "'Source Han Serif SC', 'Noto Serif CJK SC', 'Songti SC', SimSun, '宋体', Georgia, serif",
           WebkitFontSmoothing: 'antialiased',
         }}
       >
-        <div style={{ textAlign: 'center', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 560 }}>
           <div
             style={{
-              fontFamily: 'monospace',
-              fontSize: 64,
-              fontWeight: 500,
+              fontFamily:
+                "'Source Serif 4', 'Source Han Serif SC', Georgia, serif",
+              fontStyle: 'italic',
+              fontSize: 96,
+              fontWeight: 300,
               letterSpacing: '-0.02em',
-              color: '#BE9A63',
+              color: '#16161A',
+              lineHeight: 1,
             }}
           >
             404
           </div>
-          <p style={{ fontSize: 17, color: '#F0F0F5', margin: '20px 0 6px' }}>
-            页面未找到
+          <p
+            style={{
+              fontFamily:
+                "'Source Serif 4', 'Source Han Serif SC', Georgia, serif",
+              fontSize: 22,
+              color: '#16161A',
+              margin: '24px 0 6px',
+            }}
+          >
+            这页没找到。
           </p>
-          <p style={{ fontSize: 14, color: '#9A9AAA', margin: '0 0 32px' }}>
-            The page you’re looking for doesn’t exist.
+          <p
+            style={{
+              fontSize: 15,
+              color: '#52525A',
+              margin: '0 0 32px',
+              lineHeight: 1.7,
+            }}
+          >
+            The page you're looking for doesn't exist — or moved.
           </p>
           <a
             href="/zh"
             style={{
               display: 'inline-block',
-              padding: '12px 28px',
-              fontSize: 14,
-              fontWeight: 500,
-              color: '#F0F0F5',
+              padding: '14px 32px',
+              fontFamily:
+                "ui-monospace, 'JetBrains Mono', monospace",
+              fontSize: 12,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: '#16161A',
               textDecoration: 'none',
-              borderRadius: 8,
-              border: '1px solid rgba(255,255,255,0.15)',
-              background: 'rgba(255,255,255,0.07)',
+              border: '1px solid #16161A',
+              background: 'transparent',
             }}
           >
-            返回首页 · Back to home
+            返回首页 · Home
           </a>
         </div>
       </body>
