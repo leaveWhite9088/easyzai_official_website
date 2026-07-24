@@ -19,7 +19,11 @@ import {
 } from '@/lib/structured-data'
 
 export function generateStaticParams() {
-  const slugs = ['programming-language-migration', 'securities-ai-platform']
+  const slugs = [
+    'programming-language-migration',
+    'securities-ai-platform',
+    'laser-equipment-ai-customer-service',
+  ]
   const params: { locale: string; slug: string }[] = []
   for (const locale of locales) {
     for (const slug of slugs) {
@@ -61,7 +65,11 @@ export default async function CaseDetailPage({ params }: { params: { locale: str
   const { locale, slug } = params
   setRequestLocale(locale)
 
-  const slugs = ['programming-language-migration', 'securities-ai-platform']
+  const slugs = [
+    'programming-language-migration',
+    'securities-ai-platform',
+    'laser-equipment-ai-customer-service',
+  ]
   if (!slugs.includes(slug)) notFound()
 
   const c = caseMeta[slug]

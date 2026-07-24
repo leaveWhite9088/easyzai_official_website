@@ -495,15 +495,15 @@ The specific approach:
 3. **Roll out gradually.** Launch one scenario first, stabilize it, then launch the second, and finally the third. Each scenario is independent and doesn't affect the others.
 
 **Benefits of this approach:**
-- Zero changes to the existing system, keeping risk under control
-- Independent AI service deployment, keeping performance under control
-- Independent scenario rollouts, keeping the timeline under control
+- Zero changes to the existing system, risk under control
+- Independent AI service deployment, performance under control
+- Independent scenario rollouts, timeline under control
 
 ---
 
 ## Three Scenarios
 
-We chose three scenarios as entry points, each with its own logic.
+We chose three scenarios to切入, each with different logic.
 
 ### Scenario 1: Smart Authorization
 
@@ -664,8 +664,166 @@ This project taught us several things:
 2. **Scenario selection matters.** Not all scenarios are suitable for AI. We need to choose scenarios with strong pain points, sufficient data, and enough room for error.
 3. **Toolization is key.** Encapsulating AI capabilities as tools enables reuse, scalability, and maintainability.
 
-If you have a legacy system you'd like to add AI capabilities to, feel free to reach out.`
-    }
+If you have a legacy system you'd like to add AI capabilities to, feel free to reach out.`,
+    },
+  },
+  'laser-equipment-ai-customer-service': {
+    industry: { zh: '工业 / 智能制造', en: 'Industrial / Smart Manufacturing' },
+    title: { zh: '激光加工设备企业智能客服', en: 'AI Customer Service for a Laser-Equipment Maker' },
+    coreMetric: '75%+',
+    coreMetricLabel: { zh: '客户问题综合解决率', en: 'Customer question resolution rate' },
+    content: {
+      zh: `## 背景
+
+这是一家做激光加工设备的企业，单台设备价格不菲。他们的客户群——主要是制造业产线负责人和采购——问的不是「你的产品多少钱」，而是「我这个工件用你们 3000W 光纤激光器切，切不锈钢 3mm 厚度时，切割速度、辅助气体压力、最佳焦点位置怎么配比」。
+
+**这类问题有两个特点：**
+
+1. **高度专业。** 客户需要的是贴合自己工件、产线、设备状态的答案，而不是通识科普。
+2. **错不起。** 设备贵，单次试错成本高。客户宁可 AI 答「不会」，也不愿被错答误导。
+
+他们有大量产品技术书、内部技术文档——既有大段说明，也有大量图纸（光路图、切割参数表、结构爆炸图等）。
+
+**目标：让 AI 在客户问问题时给出一份既专业、又「宁可不说也不能错」的回答。**
+
+---
+
+## 为什么这件事难
+
+一般的 RAG 在文本上是好用的，但激光加工这个场景有两个特殊挑战：
+
+1. **图比文多。** 产品技术书的很多关键信息在图纸里——光路结构、切割参数表、安装尺寸……光靠文字检索几乎取不到关键证据。
+2. **错答代价高。** 普通消费客服答错可以道个歉，激光参数答错一次可能要客户切坏一批工件，返工 + 废料 + 停机，损失远大于一次客服对话。
+
+所以我们要做两件事：**让 AI 能「看懂图」，让 AI「不会就说不会」。**
+
+---
+
+## 方案
+
+### 多模态看图：Qwen2.5-VL 系列 + 微调
+
+我们接入的是千问 **Qwen2.5-VL 系列多模态模型（约 32B 量级）**——一个 ViT 视觉编码器 + Qwen LLM 主干，能同时接收图和文本。我们针对他们的产品技术书做了**轻量微调**，让它更擅长识读激光设备里这几类图纸：
+
+- 切割参数表（功率、气压、速度、焦点位置）
+- 光路结构图（光斑大小、镜片位置）
+- 设备结构爆炸图（部件命名、装配关系）
+
+微调用他们历史技术档案 + 工程师标注的少量样本（小几百到一千条问答对）做监督微调，把识图错误率压下来。
+
+### 文本检索：标准 RAG
+
+图纸以外的长文档——产品手册、维护指南、工艺 SOP——走标准 RAG 流程：分块、向量化、语义检索。文本和图纸的检索结果统一送进同一个问答模块做最终整合。
+
+### 「宁可不说也不能错」
+
+这是这套客服**真正困难的部分**。我们做了三层兜底：
+
+1. **规则层。** 系统提示词硬约束——只允许基于检索到的文档回答，未检索到的不许编造。
+2. **置信度层。** 多模态模型给每个回答输出置信度，低于阈值自动走 fallback。
+3. **兜底层。** 触发 fallback 时直接回退到一句固定回复：「这个暂时我不确定，建议您联系我们的技术支持工程师。」 并把这条会话推送给人工。
+
+三层兜底之后，AI 在它**确实知道**的领域里准确率能稳到 **90%+，贴近 95%**；遇到它不会的，会主动退回「我不确定」——这正是客户期待的边界感。
+
+综合下来：**客户问题被 AI 一次性解决的比例在 75%+。**
+
+---
+
+## 接入
+
+最终交付不是一个独立的云端工具，而是**嵌进客户自己的入口**：
+
+1. **网页端客服。** 客户官网右下角悬浮客服，直接接入。
+2. **自有小程序。** 客户自己的小程序里也接入了同一套问答接口。
+
+两边共用同一套 AI 后端和知识库，更新一次两边同步生效。
+
+---
+
+## 写在最后
+
+这事做下来最深的体会是：**B 端很多场景里，「会拒答」比「能答」更重要。**
+
+通用消费级 AI 训练的目标是「尽量答、答得自然」。但 B 端客户买的是一份「我交给你的活儿能不能放心」——这套 AI 客服能让客户放心，不是因为它什么都能答，而是因为它**知道什么时候该闭嘴**。
+
+把这件事抽象成一条原则：**能不用 AI 就不用，用了也省着。** 项目能跑下来靠的不只是模型，而是规则、阈值和兜底。
+`,
+      en: `## Background
+
+A laser-equipment maker — single machines run into serious money. Their buyers are manufacturing line managers and procurement teams, and the questions they ask aren't "what does your product cost." They're "I'm cutting 3mm stainless with your 3000W fiber laser — what's the right speed, assist-gas pressure, and focal position for this job?"
+
+**Two traits of these questions:**
+
+1. **Highly technical.** Clients need answers tailored to their workpiece, line, and equipment — not generic explanations.
+2. **Costly mistakes.** Machines are expensive; one bad parameter recommendation can ruin a batch, force rework, and cost far more than a single support ticket.
+
+They had a deep archive of product technical documentation — long-form manuals plus a lot of diagrams (optical-path diagrams, cutting-parameter tables, exploded structural drawings).
+
+**Goal:** an AI support agent that's both deeply technical **and** disciplined enough to say "I don't know" rather than guess wrong.
+
+---
+
+## Why This Was Hard
+
+Standard RAG handles text well, but laser manufacturing has two extra challenges:
+
+1. **Diagrams carry the data.** Many key facts live inside drawings — optical layouts, parameter tables, dimensional specs — that text-only retrieval can't reach.
+2. **Wrong answers are expensive.** A consumer support bot can apologize. A wrong parameter recommendation can cost a client an entire batch.
+
+We had to do two things: **let the AI see the diagrams**, and **let the AI stay quiet when it shouldn't answer.**
+
+---
+
+## Approach
+
+### Multimodal diagrams: Qwen2.5-VL + fine-tuning
+
+We deployed the **Qwen2.5-VL multimodal model (~32B)** — a ViT vision encoder + Qwen LLM backbone that accepts images and text together. We fine-tuned it lightly on the client's own archives:
+
+- Cutting parameter tables (power, gas pressure, speed, focal position)
+- Optical path diagrams (spot size, lens placement)
+- Exploded structural drawings (part names, assembly relations)
+
+We used their historical docs plus a few hundred to ~1000 engineer-labeled Q&A pairs as supervised fine-tune data — enough to bring diagram-recognition error down to usable levels.
+
+### Text retrieval: standard RAG
+
+For the long-form docs (manuals, maintenance guides, process SOPs), we ran standard RAG — chunking, vector indexing, semantic retrieval. Text and diagram evidence are merged in the same answer module.
+
+### "Better silent than wrong"
+
+This was the **hardest part** of the build. We layered three fallbacks:
+
+1. **Prompt rules.** Hard constraints: only answer based on retrieved evidence; never invent.
+2. **Confidence thresholding.** The multimodal model emits a confidence with each answer — low confidence triggers fallback.
+3. **Hard fallback reply.** "I'm not certain about this — please contact our support engineer." And the thread is forwarded to a human.
+
+After the three layers, the AI is **90%+ accurate** on the cases it should answer — **closer to 95%** — and stays silent when it shouldn't speak. That's exactly the boundary the client wants.
+
+**Net result: 75%+ of customer questions are resolved by AI without a human in the loop.**
+
+---
+
+## Channels
+
+The deliverable wasn't a separate cloud tool — it was **embedded into the client's own entry points**:
+
+1. **Web widget.** A floating chat icon in the bottom-right of their website.
+2. **Their own mini-program.** The same Q&A API, embedded in their WeChat mini-program.
+
+Both consume the same AI backend and knowledge base — update once, both stay in sync.
+
+---
+
+## Final Thoughts
+
+The deepest lesson from this build: **in many B-side scenarios, "knowing when to stay silent" matters more than "being able to answer."**
+
+General-purpose consumer AI is trained to "answer fully and naturally." But B-side clients buy a guarantee: "can I trust this with my work?" — and that trust comes less from coverage than from **knowing when to shut up.**
+
+It's the same principle as our project rule: **don't reach for AI when rules will do — and keep it lean when you do.** What makes the system safe isn't the model. It's the rules, the thresholds, and the fallbacks.
+`,
+    },
   },
 }
 

@@ -13,11 +13,14 @@ export default function PracticeCases() {
   const cases = caseT.raw('items') as CaseItem[]
   const locale = useLocale()
 
-  // Detail pages currently exist for the first two cases; the rest link to
-  // a placeholder that the user can flesh out later.
+  // Detail pages exist for cases 1-3; case-4 (出海) is still placeholder.
   const detailSlug: Record<string, string> = {
-    'programming-language-migration': 'programming-language-migration',
-    'securities-ai-platform': 'securities-ai-platform',
+    '编程语言生态库迁移工具': 'programming-language-migration',
+    'Programming Language Ecosystem Migration': 'programming-language-migration',
+    '证券中台管理系统 AI 化改造': 'securities-ai-platform',
+    'Securities Mid-Office AI Transformation': 'securities-ai-platform',
+    '激光加工设备企业智能客服': 'laser-equipment-ai-customer-service',
+    'AI Customer Service for a Laser-Equipment Maker': 'laser-equipment-ai-customer-service',
   }
 
   return (
