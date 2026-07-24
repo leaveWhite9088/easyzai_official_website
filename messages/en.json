@@ -164,7 +164,7 @@
       "eyebrowZh": "Who we are",
       "titleLine1": "We research AI implementation.",
       "titleLine2": "Non-standard work. Cost down, margin up.",
-      "body1": "EasyZ AI is a small research-driven team. We build AI around your business —<br />to cut cost, to lift margin.",
+      "body1": "EasyZ AI, research-driven team. We build AI around your business —<br />to cut cost, to lift margin.",
       "body2": "Full-stack delivery: problem research · solution design · engineering implementation.",
       "estLabel": "Est.",
       "estValue": "2025",
@@ -200,9 +200,9 @@
     },
     "contact": {
       "eyebrowZh": "Start a conversation",
-      "title1": "What's your industry?",
-      "title2": "Trying to cut cost?",
-      "body": "Write to us — research, design, delivery, three stages all in-house.",
+      "title1": "Bring your problem.",
+      "title2": "We land the AI.",
+      "body": "If you've got a workflow you want AI in — or you're not sure how to actually cut cost in your business — let's research it together.",
       "cta": "Start a conversation"
     }
   },
@@ -213,7 +213,7 @@
     },
     "intro": {
       "eyebrowZh": "Intro",
-      "titleLine1": "EasyZ is a research-driven team,",
+      "titleLine1": "EasyZ, a research-driven team,",
       "titleLine2": "shipping AI for complex, real-world business,",
       "titleLine3": "cutting cost, lifting margin.",
       "body": "Problem research, solution design, engineering delivery — three stages, all in-house.<br />We go deep on standard work — and deeper on non-standard."
@@ -297,8 +297,8 @@
     },
     "next": {
       "eyebrowZh": "Next",
-      "title1": "What's your industry?",
-      "title2": "Trying to cut cost?",
+      "title1": "What's your industry,",
+      "title2": "we'll cut cost for you.",
       "body": "Write to us — research, design, delivery, three stages all in-house.",
       "cta": "Start a conversation"
     }
