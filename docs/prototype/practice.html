@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyZ · 实践 v0.1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper:    '#F2F1ED',
+            surface:  '#F6F5F1',
+            canvas:   '#FAF9F5',
+            ink:      '#16161A',
+            'ink-2':  '#52525B',
+            'ink-3':  '#A1A1AA',
+            rule:     '#D9D6CE',
+            'rule-2': '#E5E2D8',
+            cyan:     '#1B3A5F',
+            'cyan-d': '#13243C',
+          },
+          fontFamily: {
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono:  ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          maxWidth: {
+            read:  '720px',
+            page:  '1360px',
+            wide:  '1480px',
+          },
+          letterSpacing: {
+            'label': '0.18em',
+            'micro': '0.12em',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-feature-settings: 'ss01', 'cv11'; }
+    ::selection { background: #16161A; color: #FAF9F5; }
+
+    .sec { padding-top: clamp(72px, 9vw, 128px); padding-bottom: clamp(72px, 9vw, 128px); }
+    .sec-rule { border-top: 1px solid #D9D6CE; }
+
+    .sec-label {
+      display: flex; align-items: center; gap: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; line-height: 1;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #52525B;
+    }
+    .sec-label::before {
+      content: ''; display: block; width: 28px; height: 1px; background: #A1A1AA;
+    }
+
+    .marble-bg {
+      position: relative;
+      background-color: #F2F1ED;
+      background-image: url('marble-texture.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .marble-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(246, 245, 241, 0.86);
+      pointer-events: none;
+    }
+    .marble-bg > * { position: relative; z-index: 1; }
+
+    /* 案例行：紧凑列表式 */
+    .case-row {
+      border-top: 1px solid #D9D6CE;
+      transition: background-color 280ms ease;
+    }
+    .case-row:hover { background-color: rgba(244, 242, 238, 0.5); }
+    .case-row:hover .case-arrow { transform: translateX(6px); color: #1B3A5F; }
+    .case-row:hover .case-metric { color: #1B3A5F; }
+    .case-row:hover .case-title { color: #1B3A5F; }
+
+    .case-metric {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      color: #16161A;
+      transition: color 320ms ease;
+    }
+
+    .case-title {
+      transition: color 320ms ease;
+    }
+
+    .case-arrow {
+      transition: transform 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 320ms ease;
+    }
+
+    .cta-link {
+      display: inline-block;
+      padding: 18px 36px;
+      border: 1px solid #16161A;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #16161A;
+      transition: background-color 280ms ease, color 280ms ease;
+    }
+    .cta-link:hover { background: #16161A; color: #FAF9F5; }
+
+    .lang-link { font-family: 'JetBrains Mono', monospace; transition: color 200ms; }
+    .lang-link:hover { color: #16161A; }
+  </style>
+</head>
+
+<body class="bg-canvas text-ink font-sans">
+
+  <!-- ──────────────────────────────────────────── -->
+  <!-- 顶部 Nav                                      -->
+  <!-- ──────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 mix-blend-difference text-canvas">
+    <div class="max-w-wide mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
+      <a href="#" class="font-mono text-[12px] tracking-[0.22em] uppercase">EASYZ</a>
+      <nav class="hidden sm:flex items-center gap-9 text-[12px] font-mono tracking-[0.18em] uppercase">
+        <a href="#" class="hover:opacity-70 transition-opacity">About</a>
+        <a href="#" class="text-canvas">Practice</a>
+        <a href="#" class="hover:opacity-70 transition-opacity">Thinking</a>
+        <span class="opacity-40">|</span>
+        <a href="#" class="opacity-60 hover:opacity-100 transition-opacity">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ──────────────────────────────────────────── -->
+  <!-- 01 / 能力图谱 (大理石背景)                    -->
+  <!-- ──────────────────────────────────────────── -->
+  <section id="01" class="sec marble-bg sec-rule">
+    <div class="max-w-page mx-auto px-6 sm:px-10">
+      <div class="grid grid-cols-12 gap-x-6 sm:gap-x-10">
+        <div class="col-span-12 md:col-span-3">
+          <div class="sec-label">
+            <span>01</span><span>/</span><span>capabilities</span>
+          </div>
+          <div class="mt-6 font-mono text-[11px] tracking-micro uppercase text-ink-3">
+            能力图谱
+          </div>
+        </div>
+
+        <div class="col-span-12 md:col-span-9 mt-10 md:mt-0">
+          <h1 class="font-serif font-light text-ink leading-[1.1] tracking-[-0.005em] max-w-[840px]"
+              style="font-size: clamp(30px, 4.4vw, 54px);">
+            啃过的东西，<br class="hidden sm:block" />
+            <span class="text-ink-2">列在这里。</span>
+          </h1>
+
+          <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10 max-w-[920px]">
+            <div>
+              <div class="font-mono text-[11px] tracking-label uppercase text-ink-3">01</div>
+              <h3 class="mt-3 text-ink text-[18px] sm:text-[19px] font-medium leading-[1.4]">AI 代码迁移与知识工程</h3>
+              <p class="mt-2 text-ink-2 text-[14px] leading-[1.6]">从一种语言到另一种语言的库自动重写，参考论文 + RAG + Agent 组合。</p>
+            </div>
+            <div>
+              <div class="font-mono text-[11px] tracking-label uppercase text-ink-3">02</div>
+              <h3 class="mt-3 text-ink text-[18px] sm:text-[19px] font-medium leading-[1.4]">企业系统 AI 化改造</h3>
+              <p class="mt-2 text-ink-2 text-[14px] leading-[1.6]">在不改原系统的前提下，非侵入式叠加 AI 场景。</p>
+            </div>
+            <div>
+              <div class="font-mono text-[11px] tracking-label uppercase text-ink-3">03</div>
+              <h3 class="mt-3 text-ink text-[18px] sm:text-[19px] font-medium leading-[1.4]">RAG / Agent 系统搭建</h3>
+              <p class="mt-2 text-ink-2 text-[14px] leading-[1.6]">私有知识库接入、多轮对话、自动化工作流。</p>
+            </div>
+            <div>
+              <div class="font-mono text-[11px] tracking-label uppercase text-ink-3">04</div>
+              <h3 class="mt-3 text-ink text-[18px] sm:text-[19px] font-medium leading-[1.4]">非标场景的端到端交付</h3>
+              <p class="mt-2 text-ink-2 text-[14px] leading-[1.6]">问题研究、方案设计、工程交付，三段全做。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────── -->
+  <!-- 02 / 案例 (主菜)                              -->
+  <!-- ──────────────────────────────────────────── -->
+  <section id="02" class="sec bg-canvas sec-rule">
+    <div class="max-w-page mx-auto px-6 sm:px-10">
+      <div class="grid grid-cols-12 gap-x-6 sm:gap-x-10">
+        <div class="col-span-12 md:col-span-3">
+          <div class="sec-label">
+            <span>02</span><span>/</span><span>case studies</span>
+          </div>
+          <div class="mt-6 font-mono text-[11px] tracking-micro uppercase text-ink-3">
+            案例
+          </div>
+        </div>
+
+        <div class="col-span-12 md:col-span-9 mt-10 md:mt-0">
+          <div class="flex items-baseline justify-between mb-8">
+            <h2 class="text-ink text-[26px] sm:text-[32px] font-medium leading-[1.2] tracking-[-0.005em]">
+              代表案例
+            </h2>
+            <span class="font-mono text-[11px] tracking-label uppercase text-ink-3">
+              4 · 2023 — now
+            </span>
+          </div>
+
+          <p class="text-ink-2 text-[14px] sm:text-[15px] leading-[1.7] max-w-read mb-6">
+            以下案例均已脱敏，数据来自真实交付。点进 detail 看完整研究过程与改造细节。
+          </p>
+
+          <div>
+
+            <!-- Case 01 -->
+            <a href="/zh/cases/programming-language-migration" class="case-row group block">
+              <div class="grid grid-cols-12 gap-4 sm:gap-6 items-baseline py-6 sm:py-7">
+                <div class="col-span-3 sm:col-span-2">
+                  <div class="font-mono text-[10px] tracking-label uppercase text-ink-3">CASE 01</div>
+                  <div class="case-metric mt-1 leading-none" style="font-size: 28px;">80%+</div>
+                  <div class="font-mono text-[9px] tracking-label uppercase text-ink-3 mt-1.5">科技 / 开发者工具</div>
+                </div>
+                <div class="col-span-8 sm:col-span-9">
+                  <h3 class="case-title text-ink text-[17px] sm:text-[19px] font-medium leading-[1.3]">编程语言生态库迁移工具</h3>
+                  <p class="mt-1.5 text-ink-2 text-[13px] sm:text-[14px] leading-[1.6]">为华为仓颉做跨语言库自动迁移，RAG + Agent，自动化率 80%+</p>
+                </div>
+                <div class="col-span-1 text-right text-ink-3 text-[16px] pt-1 case-arrow">→</div>
+              </div>
+            </a>
+
+            <!-- Case 02 -->
+            <a href="/zh/cases/securities-ai-platform" class="case-row group block">
+              <div class="grid grid-cols-12 gap-4 sm:gap-6 items-baseline py-6 sm:py-7">
+                <div class="col-span-3 sm:col-span-2">
+                  <div class="font-mono text-[10px] tracking-label uppercase text-ink-3">CASE 02</div>
+                  <div class="case-metric mt-1 leading-none" style="font-size: 28px;">70%+</div>
+                  <div class="font-mono text-[9px] tracking-label uppercase text-ink-3 mt-1.5">金融科技</div>
+                </div>
+                <div class="col-span-8 sm:col-span-9">
+                  <h3 class="case-title text-ink text-[17px] sm:text-[19px] font-medium leading-[1.3]">证券中台管理系统 AI 化改造</h3>
+                  <p class="mt-1.5 text-ink-2 text-[13px] sm:text-[14px] leading-[1.6]">非侵入式叠加 3 个 AI 场景（智能授权 / 推文 / 整合），审批周期 -70%+</p>
+                </div>
+                <div class="col-span-1 text-right text-ink-3 text-[16px] pt-1 case-arrow">→</div>
+              </div>
+            </a>
+
+            <!-- Case 03 -->
+            <a href="#" class="case-row group block">
+              <div class="grid grid-cols-12 gap-4 sm:gap-6 items-baseline py-6 sm:py-7">
+                <div class="col-span-3 sm:col-span-2">
+                  <div class="font-mono text-[10px] tracking-label uppercase text-ink-3">CASE 03</div>
+                  <div class="case-metric mt-1 leading-none" style="font-size: 28px;">75%+</div>
+                  <div class="font-mono text-[9px] tracking-label uppercase text-ink-3 mt-1.5">制造业</div>
+                </div>
+                <div class="col-span-8 sm:col-span-9">
+                  <h3 class="case-title text-ink text-[17px] sm:text-[19px] font-medium leading-[1.3]">激光加工设备企业智能客服</h3>
+                  <p class="mt-1.5 text-ink-2 text-[13px] sm:text-[14px] leading-[1.6]">30+ 产品文档入库 + 私有 LLM，7×24 自动响应选型/故障问题</p>
+                </div>
+                <div class="col-span-1 text-right text-ink-3 text-[16px] pt-1 case-arrow">→</div>
+              </div>
+            </a>
+
+            <!-- Case 04 -->
+            <a href="#" class="case-row group block border-b border-rule">
+              <div class="grid grid-cols-12 gap-4 sm:gap-6 items-baseline py-6 sm:py-7">
+                <div class="col-span-3 sm:col-span-2">
+                  <div class="font-mono text-[10px] tracking-label uppercase text-ink-3">CASE 04</div>
+                  <div class="case-metric mt-1 leading-none" style="font-size: 28px;">3x+</div>
+                  <div class="font-mono text-[9px] tracking-label uppercase text-ink-3 mt-1.5">外贸 / 跨境电商</div>
+                </div>
+                <div class="col-span-8 sm:col-span-9">
+                  <h3 class="case-title text-ink text-[17px] sm:text-[19px] font-medium leading-[1.3]">出海企业海外获客自动化系统</h3>
+                  <p class="mt-1.5 text-ink-2 text-[13px] sm:text-[14px] leading-[1.6]">端到端：目标客户识别 → 个性化开发信 → 自动触达 → 线索跟进</p>
+                </div>
+                <div class="col-span-1 text-right text-ink-3 text-[16px] pt-1 case-arrow">→</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────── -->
+  <!-- 03 / 收尾                                     -->
+  <!-- ──────────────────────────────────────────── -->
+  <section id="03" class="sec bg-paper sec-rule">
+    <div class="max-w-page mx-auto px-6 sm:px-10">
+      <div class="grid grid-cols-12 gap-x-6 sm:gap-x-10">
+        <div class="col-span-12 md:col-span-3">
+          <div class="sec-label">
+            <span>03</span><span>/</span><span>next</span>
+          </div>
+          <div class="mt-6 font-mono text-[11px] tracking-micro uppercase text-ink-3">
+            收尾
+          </div>
+        </div>
+
+        <div class="col-span-12 md:col-span-9 mt-10 md:mt-0 max-w-read">
+          <h2 class="font-serif font-light text-ink leading-[1.1] tracking-[-0.01em]"
+              style="font-size: clamp(32px, 4.6vw, 56px);">
+            你手上有什么<br />
+            <span class="text-ink-2">啃不动的非标？</span>
+          </h2>
+
+          <p class="mt-10 text-ink-2 text-[15px] sm:text-[16px] leading-[1.7]">
+            写信告诉我们。研究、方案、交付，三段全做。
+          </p>
+
+          <div class="mt-12 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
+            <a href="mailto:hi@easyzai.top" class="cta-link">开始沟通</a>
+            <a href="mailto:hi@easyzai.top" class="font-mono text-[13px] tracking-label text-ink-2 hover:text-ink transition-colors">
+              hi@easyzai.top
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────── -->
+  <!-- Footer                                        -->
+  <!-- ──────────────────────────────────────────── -->
+  <footer class="bg-paper border-t border-rule">
+    <div class="max-w-wide mx-auto px-6 sm:px-10 py-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+      <div>
+        <div class="font-mono text-[11px] tracking-label uppercase text-ink-2">EASYZ</div>
+        <div class="mt-2 font-serif italic text-ink-3 text-[13px]">研究型 AI 落地团队</div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 font-mono text-[11px] tracking-label uppercase text-ink-3">
+        <div class="flex items-center gap-3">
+          <a href="#" class="lang-link hover:text-ink">EN</a>
+          <span class="text-ink-3/40">·</span>
+          <a href="#" class="lang-link text-ink">中</a>
+        </div>
+        <a href="mailto:hi@easyzai.top" class="lang-link hover:text-ink">hi@easyzai.top</a>
+        <span>© 2026</span>
+      </div>
+    </div>
+    <div class="max-w-wide mx-auto px-6 sm:px-10 pb-8">
+      <div class="font-mono text-[10px] tracking-micro uppercase text-ink-3/70">
+        Set in Inter &amp; Source Serif 4 · Web design Mavis &amp; team · Practice prototype v0.1
+      </div>
+    </div>
+  </footer>
+
+  <aside class="fixed bottom-3 right-3 z-50 text-[10px] font-mono text-ink-3 bg-canvas/80 backdrop-blur px-2 py-1 rounded">
+    practice v0.1 prototype
+  </aside>
+</body>
+</html>
