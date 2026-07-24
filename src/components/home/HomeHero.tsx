@@ -15,18 +15,28 @@ export default function HomeHero() {
       className="relative overflow-hidden bg-canvas"
       style={{ minHeight: '100svh' }}
     >
-      {/* Hero video — 大理石 dolly (AI-generated, 6s loop) */}
+      {/* Hero video — 大理石 dolly (AI-generated, 6s loop).
+          Hidden on mobile: autoplay burns data + battery for a 6s loop
+          that mobile users may not even watch. Mobile gets the paper
+          texture fallback below. */}
       <video
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 hidden h-full w-full object-cover md:block"
         autoPlay
         muted
         loop
         playsInline
-        preload="auto"
-        poster="/assets/hero-4.mp4"
+        preload="metadata"
       >
         <source src="/assets/hero-4.mp4" type="video/mp4" />
       </video>
+
+      {/* Mobile background — paper texture (hero-light-texture in globals.css)
+          so the hero still has material weight without the video. Sits
+          behind the white veil above, identical feel to desktop. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 hero-light-texture md:hidden"
+      />
 
       {/* White veil — guarantees text contrast against the marble texture */}
       <div
