@@ -15,8 +15,23 @@ export default function JoinContent() {
   const benefits = t.raw('benefits') as string[]
 
   return (
-    <section className="bg-canvas border-t border-rule py-[clamp(72px,9vw,128px)]">
-      <div className="mx-auto max-w-page px-6 sm:px-10">
+    <section className="relative overflow-hidden bg-canvas border-t border-rule py-[clamp(72px,9vw,128px)]">
+      {/* Right-half desktop photo (decorative, hidden mobile). Low opacity
+          keeps content on the left half fully readable while adding a warm,
+          lived-in frame for "where the work happens". */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-1/2 overflow-hidden md:block"
+      >
+        <img
+          src="/assets/joinus.jpg"
+          alt=""
+          loading="lazy"
+          className="h-full w-full object-cover opacity-[0.22]"
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-page px-6 sm:px-10">
         <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10">
           {/* Left: large eyebrow — pair with the section's narrow body. */}
           <div className="col-span-12 md:col-span-3">
