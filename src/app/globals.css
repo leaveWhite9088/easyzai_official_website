@@ -171,7 +171,14 @@
 
   /* Centered statement serif (one per page). */
   .serif-display {
-    font-family: var(--font-serif), 'Source Serif 4', 'Source Han Serif SC', Georgia, serif;
+    font-family:
+      var(--font-serif),
+      'Source Serif 4',
+      'Source Han Serif SC', 'Source Han Serif CN',
+      'Noto Serif CJK SC', 'Noto Serif SC',
+      'Songti SC', 'STSongti-SC-Regular', 'STSong',
+      SimSun, '宋体',
+      Georgia, serif;
     font-weight: 400;
     font-style: italic;
     line-height: 1.32;

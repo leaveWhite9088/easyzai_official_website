@@ -42,8 +42,20 @@ module.exports = {
         'card': 'var(--shadow-card)',
       },
       fontFamily: {
+        // Note: Source Serif 4 is Latin-only. The fallback chain below lists
+        // the highest-install-rate Chinese serif faces first so the browser
+        // picks a serif (not a sans) when it can't find Latin glyphs. Without
+        // this, the browser's system-font chain can hit 黑体 before 宋体.
         'sans':  ['var(--font-sans)',  'Source Han Sans', 'PingFang SC', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        'serif': ['var(--font-serif)', '"Source Serif 4"', '"Source Han Serif SC"', 'Georgia', 'serif'],
+        'serif': [
+          'var(--font-serif)',
+          '"Source Serif 4"',
+          '"Source Han Serif SC"', '"Source Han Serif CN"',
+          '"Noto Serif CJK SC"', '"Noto Serif SC"',
+          '"Songti SC"', '"STSongti-SC-Regular"', '"STSong"',
+          'SimSun', '"宋体"',
+          'Georgia', 'serif',
+        ],
         'mono':  ['var(--font-mono)',  'JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       fontSize: {

@@ -15,12 +15,24 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 // Source Serif 4 — editorial "one serif per page" rhythm. Variable font for
 // fine weight control; the redesigned home / about / practice / thinking each
 // use it in exactly one place.
+//
+// `fallback` (next/font option) points the metric-override @font-face at
+// real Chinese serif system faces. Without this, next/font defaults the
+// override to `local("Times New Roman")`, which on Windows trips the
+// browser's system-font chain into 黑体 instead of 宋体 for CJK glyphs.
 const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
   variable: '--font-serif',
   display: 'swap',
   weight: ['300', '400', '500'],
   style: ['normal', 'italic'],
+  fallback: [
+    '"Source Han Serif SC"',
+    '"Noto Serif CJK SC"',
+    'Songti SC',
+    'STSong',
+    'SimSun',
+  ],
 })
 
 export function generateStaticParams() {

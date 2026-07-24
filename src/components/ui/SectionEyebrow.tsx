@@ -14,7 +14,9 @@ export default function SectionEyebrow({
   return (
     <div>
       <div className="flex items-center gap-3.5">
-        <span aria-hidden className="block h-px w-7 bg-ink-3" />
+        {/* Section-prefix hairline: 32px × 1.5px in ink-2 — visible but
+            still quiet, sets the editorial rhythm against the page rule. */}
+        <span aria-hidden className="block h-[1.5px] w-8 bg-ink-2" />
         <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2">
           <span className="text-ink">{number}</span>
           <span className="mx-1.5 text-ink-3">/</span>
