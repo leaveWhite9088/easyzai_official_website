@@ -20,8 +20,11 @@ export default function HomeSpecimen() {
     >
       {/* Background bleed — same cyanotype scaled past viewport, washed with
           multiply so the willow branches feel absorbed into the paper. The
-          right-edge fade keeps it from feeling like a pasted image. */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+          right-edge fade keeps it from feeling like a pasted image.
+          Hidden on mobile: a full-bleed willow image behind the figure
+          reads as visual noise on narrow screens — the figure itself is
+          enough. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <Image
           src={SPECIMEN}
           alt=""

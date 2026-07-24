@@ -27,10 +27,10 @@ export default function JoinContent() {
     <main className="min-h-screen bg-canvas">
       <Navbar />
 
-      {/* Top hero image — dialed back: 85 → 78vh, minHeight 520.
-          (Trajectory: 50 → 70 → 85 → 78. User wanted bigger than 50vh,
-          then more, then a touch less — landing here.) */}
-      <section className="w-full bg-canvas" style={{ height: '78vh', minHeight: '520px' }}>
+      {/* Top hero image — desktop 78vh (dialed back: 85 → 78). On mobile
+          we cap at 56vh / 340px so the long-article body still gets the
+          first fold on small phones. (Trajectory: 50 → 70 → 85 → 78.) */}
+      <section className="w-full bg-canvas h-[56vh] min-h-[340px] sm:h-[78vh] sm:min-h-[520px]">
         <Image
           src="/assets/joinus.jpg"
           alt={t('eyebrowZh')}

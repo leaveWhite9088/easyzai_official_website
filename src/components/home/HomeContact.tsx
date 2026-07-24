@@ -41,7 +41,7 @@ export default function HomeContact() {
               </a>
               <a
                 href="mailto:18781630574@163.com"
-                className="font-mono text-[13px] tracking-[0.18em] text-ink-2 hover:text-ink transition-colors"
+                className="break-all font-mono text-[13px] tracking-[0.18em] text-ink-2 hover:text-ink transition-colors"
               >
                 18781630574@163.com
               </a>

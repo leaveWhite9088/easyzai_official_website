@@ -59,8 +59,11 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
     <main className="min-h-screen bg-canvas">
       <Navbar />
 
-      {/* Top concept image — 50vh, category-driven */}
-      <section className="w-full bg-canvas" style={{ height: '50vh', minHeight: '360px' }}>
+      {/* Top concept image — 40vh on mobile (with a 240px floor), 50vh on
+          sm+. The concept image is a visual tone-setter, not the page's
+          payload; on phones, dedicating half the viewport to it eats the
+          first fold. */}
+      <section className="w-full bg-canvas h-[40vh] min-h-[240px] sm:h-[50vh] sm:min-h-[360px]">
         <Image
           src={conceptImage}
           alt={`${td('imageAltPrefix')} · ${article.category}`}
