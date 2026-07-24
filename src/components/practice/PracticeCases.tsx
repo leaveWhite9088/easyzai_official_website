@@ -19,7 +19,7 @@ export default function PracticeCases() {
     'programming-language-migration',
     'securities-ai-platform',
     'laser-equipment-ai-customer-service',
-    undefined, // case-4 出海 — 待用户给内容后补
+    'outbound-lead-automation',
   ] as const
 
   return (

@@ -825,6 +825,170 @@ It's the same principle as our project rule: **don't reach for AI when rules wil
 `,
     },
   },
+  'outbound-lead-automation': {
+    industry: { zh: '外贸 / 跨境电商', en: 'Cross-border / Export' },
+    title: { zh: '出海企业海外获客自动化系统', en: 'Overseas Lead-Gen Automation for an Exporter' },
+    coreMetric: '3x+',
+    coreMetricLabel: { zh: '客户开发效率提升', en: 'Outreach efficiency lift' },
+    content: {
+      zh: `## 背景
+
+2026 年一二月份，新年期间，我们接的一个小项目。客户是一家做劳保手套的厂子老板。他本来就有海外业务——但海外获客一直让他头疼。
+
+他不是不懂产品，是**不懂海外客户**。不知道怎么找到国外的潜在买家，不知道怎么跟他们开口说话，也不知道怎么判断对方到底需不需要他的货。
+
+他找到我们的时候，需求很具体：
+
+> **「帮我自动找到可能需要劳保手套的海外客户，把信息整理好发我手机上让我看一眼，确认完你再发邮件。」**
+
+我们把这个活儿拆成了三个连续的环节来做。
+
+---
+
+## 三步把"找客户"自动化
+
+### 第一步：找公司
+
+通过 **Google Maps API**，按行业 + 地区关键词检索潜在买家实体公司。每检索一次拿回一批带公司名、地址、行业、电话、网址的原始记录。
+
+### 第二步：判断"是不是潜在客户"
+
+拿到这批公司信息，自动去查他们的——有没有相关采购需求记录、官网在卖什么产品、规模大概多大、地理分布合不合理——判断这家公司**有没有可能需要劳保手套**。
+
+这一步要做大量的 HTTP 抓取 + 内容解析 + 业务推理。如果不做这一步就开始群发，邮件基本石沉大海。
+
+### 第三步：写开发信
+
+通过了第二步过滤的客户，进入邮件写作环节。每封邮件**结合这家公司的具体情况写**——你们做什么、规模多大、为什么可能需要劳保手套、我们的产品在什么价位、能解决什么问题。
+
+> 这里有个小插曲：客户**一开始不知道外国人做生意是用邮件的**。是我们调研做出来之后告诉他："对，他们就是用邮件，邮件是主战场。"——所以整套邮件系统也是我们帮他一起搭的。
+
+### 三块要齐全
+
+整套系统由三块拼起来：**找客 → 分析 → 发邮件**，一块都不能漏。
+
+省掉任何一块自动化都做不出来——没有第一步就没有线索池；没有第二步就是群发垃圾；没有第三步就是「你好我们公司做手套」那种没人回的硬广。
+
+---
+
+## 怎么让他"在手机上就能用"
+
+写好邮件不算完。这位老板日常工作不在办公室，他需要一个能**在手机上直接看、改、再发**的入口。
+
+新年期间正好赶上了一个工具火起来：**OpenClaw**。当时我们第一时间接到他的**飞书**里，整套获客流程搬到了飞书侧。
+
+通过飞书推过来的卡片，他能在手机上看到：
+
+1. 今天这一批检索到几家潜在客户
+2. 每家客户的简要画像 + 邮件草稿
+3. 一键「发 / 改 / 跳过」
+
+**人工审批点**嵌在工作流的中间——AI 自动找、自动分析、自动草稿，但**发出去之前**他要肉眼过一眼。等于把「AI 替他找活儿、他自己判方向」这条流程跑通了。
+
+---
+
+## 效果
+
+上线之后这位老板跟我们说了一句让我们挺得意的话：
+
+> 「以前自己一天能写十来封都不知道发给谁，现在一天一百封，有将近十个回我。」
+
+- **人工时期：** 一天 ≈ 10 封，回 < 5 封
+- **AI 自动化后：** 一天 100 封，回 10 封+
+
+**单条回复成本几乎砍到 1/10，效率翻了近 10 倍。**
+
+这件事也印证了我们做 B 端自动化的一条原则：**找到客户永远是第一步、也是最贵的一步**。自动化的价值不在于"省个发送邮件的几秒钟"，而在于把"找到谁、写得准"这两个最贵的环节都自动化了。
+
+---
+
+## 写在最后
+
+项目不算大，但有几个我们比较得意的点：
+
+1. **小项目也能用 AI 跑出真价值。** 老板一个人 + 一套自动化系统，海外获客效率翻了 10 倍。AI 不一定是要做"大项目"才能见效的。
+2. **人工审批点是这种自动化的关键。** 不是每封邮件都该自动发。让老板过一眼，AI 替他找活儿、他自己判方向——这条流程跑得通。
+3. **新工具要敢用。** OpenClaw 当时刚火起来一周，我们第一时间接进去——等于把"最新工具"顺接到了客户的日常工作流。客户体感是"用着就是最新的"，技术债和工具债都不积累。
+`,
+      en: `## Background
+
+In early 2026 — over Chinese New Year — we took on a small project. The client: a factory owner who makes work gloves. He already had overseas business, but overseas lead generation was his bottleneck.
+
+It wasn't the product he didn't understand — it was **the overseas buyer**. He didn't know how to find them, how to talk to them, or how to tell if they actually needed his gloves.
+
+When he called us, his brief was very concrete:
+
+> **"Find overseas customers who might need work gloves. Send me the list on my phone so I can scan it. Once I confirm, send the emails."**
+
+We split this into three sequential steps.
+
+---
+
+## Three Steps to Automate "Finding Customers"
+
+### Step 1: Find companies
+
+We used the **Google Maps API**, querying by industry + geography keywords to retrieve potential buyer companies. Each query returned a batch of raw records: company name, address, industry, phone, website.
+
+### Step 2: Judge "are they a likely customer"
+
+For each company, we automatically scanned: are there signs of relevant procurement, what does their website sell, how big are they, does the geography make sense — to judge **whether this company might actually need work gloves**.
+
+This step is heavy HTTP scraping + content parsing + business reasoning. Skip it and any mail goes straight to spam.
+
+### Step 3: Write the outreach
+
+Customers passing step 2 entered the email-writing stage. Every email is **written around that specific company** — what they do, how big they are, why they might need work gloves, what our price point looks like, what problem we solve.
+
+> One small detail: the client **didn't initially know that overseas business runs on email**. We did the research, then told him: "Yes, email is the main battlefield." So we also helped him set up the email system from scratch.
+
+### All three pieces matter
+
+The system has three parts: **find → qualify → email**. Skip any one and the automation falls apart — no step 1, no pipeline; no step 2, you spam; no step 3, you send "Hi, we make gloves" into the void.
+
+---
+
+## How He Reviews It All on His Phone
+
+Writing the email is half the work. The owner isn't at his desk all day — he needs a way to **scan, edit, and approve on his phone**.
+
+Around New Year, a new tool had just gone viral: **OpenClaw**. We integrated it immediately, hooking the whole pipeline into his **Feishu** (the Lark-based team chat).
+
+Through Feishu cards pushed to his phone, he could see:
+
+1. How many potential customers were surfaced today
+2. Each company's snapshot + the email draft
+3. One-tap **Send / Edit / Skip**
+
+The **human approval gate** sits right in the middle of the workflow — AI does the finding, qualifying, and drafting, but **before anything goes out, he eyeballs it**. Effectively: AI does the hunting, he decides the direction.
+
+---
+
+## Results
+
+After launch, the owner told us something we were pretty pleased about:
+
+> "Before, I could write ten emails a day and not know who I was sending them to. Now I send a hundred a day and get about ten replies."
+
+- **Manual era:** ~10 emails/day, < 5 replies
+- **AI automation:** 100 emails/day, ~10 replies
+
+**Cost-per-reply dropped to roughly 1/10. Outreach throughput lifted ~10×.**
+
+This project also validated one of our B-side automation principles: **finding the customer is always step one — and always the most expensive step.** The value of automation isn't "saving the few seconds of clicking send" — it's automating the two most expensive steps: who to contact and what to say.
+
+---
+
+## Final Thoughts
+
+The project isn't big, but a few things came out of it that we're proud of:
+
+1. **Small projects can still drive real AI value.** One owner + one automation stack = 10× outreach. AI doesn't need a giant project to deliver.
+2. **The human approval gate is the key.** Not every email should auto-send. He eyeballed it; AI hunted, he decided direction. The workflow holds.
+3. **Use new tools early.** OpenClaw had been live about a week when we plugged it in. The client gets to feel "I'm using the newest stuff," and we don't accumulate tool or tech debt.
+`,
+    },
+  },
 }
 
 export default function CaseContent({ locale, slug }: { locale: string; slug: string }) {

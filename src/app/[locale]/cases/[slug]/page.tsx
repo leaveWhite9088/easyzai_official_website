@@ -23,6 +23,7 @@ export function generateStaticParams() {
     'programming-language-migration',
     'securities-ai-platform',
     'laser-equipment-ai-customer-service',
+    'outbound-lead-automation',
   ]
   const params: { locale: string; slug: string }[] = []
   for (const locale of locales) {
