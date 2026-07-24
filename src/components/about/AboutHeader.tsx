@@ -17,13 +17,13 @@ export default function AboutHeader() {
           <div className="col-span-12 md:col-span-9 mt-10 md:mt-0">
             <h1
               className="max-w-[920px] font-serif font-light text-ink leading-[1.15] tracking-[-0.005em]"
-              style={{ fontSize: 'clamp(26px, 3.8vw, 46px)' }}
+              style={{ fontSize: 'clamp(28px, 4.2vw, 52px)' }}
             >
-              {t('title1')}
+              {t('titleLine1')}
               <br />
-              {t('title2Prefix')}
-              <span className="text-ink-2">{t('title2Highlight')}</span>
-              {t('title2Suffix')}
+              {t('titleLine2')}
+              <br />
+              {t('titleLine3')}
             </h1>
             <p
               className="mt-10 max-w-read text-ink-2 text-[15px] sm:text-[16px] leading-[1.7]"
