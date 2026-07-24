@@ -11,77 +11,10 @@
   },
   "nav": {
     "home": "首页",
-    "services": "服务",
     "cases": "案例",
     "about": "关于",
     "thinking": "思考",
-    "contact": "联系我们",
-    "demo": "在线体验",
-    "cta": "开始沟通",
-    "themeToggle": "切换浅色 / 深色主题"
-  },
-  "hero": {
-    "eyebrow": "易智AI · 复杂场景 AI 落地",
-    "title": "难解的问题，研究着做",
-    "subtitle": "来自顶尖院校的研究型小团队",
-    "ctaPrimary": "看代表案例",
-    "ctaSecondary": "聊聊你的问题"
-  },
-  "trustBar": {
-    "eyebrow": "我们只做一件事",
-    "text": "把 AI 落进真实的业务里。非标场景、复杂数据、不确定的技术路线——这才是我们擅长的。"
-  },
-  "services": {
-    "problemsTitle": "你来找我们，是因为这类问题",
-    "methodTitle": "我们怎么做",
-    "problems": [
-      {
-        "number": "01",
-        "title": "你的业务流程非标，套不进任何标准 SaaS",
-        "desc": "市面上的 SaaS 都是为通用场景设计的，你的业务有独特的审批流、数据逻辑、合规要求——套用标准产品等于削足适履。"
-      },
-      {
-        "number": "02",
-        "title": "你的数据结构复杂，通用模型理解不准",
-        "desc": "产品手册、技术文档、内部知识库……格式混乱、专业术语多，直接接入大模型效果惨不忍睹，需要专门的知识工程。"
-      },
-      {
-        "number": "03",
-        "title": "你想用 AI，但不知道哪个环节用、效果能不能保证",
-        "desc": "听了很多 AI 案例，但回到自己业务里，不知道哪里该用 Agent、哪里该用 RAG、哪里根本不该用 AI。"
-      },
-      {
-        "number": "04",
-        "title": "你试过别的方案，但效果没达到预期",
-        "desc": "之前做过尝试，但准确率上不去、成本下不来、维护困难——需要一个能从底层重新思考的团队。"
-      }
-    ],
-    "steps": [
-      {
-        "number": "01",
-        "title": "理解问题",
-        "desc": "不是接需求文档，是和你一起搞清楚问题边界",
-        "detail": "我们不接过来就开工。先花时间和你一起把问题拆开：真正要解决的是什么、边界在哪、什么算成功。很多项目失败不是技术不行，是一开始就没搞清楚要什么。这一步我们宁可慢，也要对齐。"
-      },
-      {
-        "number": "02",
-        "title": "方案研究",
-        "desc": "评估技术路线、做小规模验证，不拍脑袋",
-        "detail": "确定方向后，我们会评估几条技术路线，用小规模数据做验证，而不是拍脑袋选一个就上。哪里该用 Agent、哪里该用 RAG、哪里根本不该用 AI——用实验数据说话，把风险提前暴露。"
-      },
-      {
-        "number": "03",
-        "title": "工程交付",
-        "desc": "交付能跑的系统，不是 PPT",
-        "detail": "研究结论要变成能在你业务里跑起来的系统。我们做工程化落地：可部署、可维护、有日志、有兜底机制。交付的是能上线的东西，不是一份演示 PPT 或者一个跑不稳的原型。"
-      },
-      {
-        "number": "04",
-        "title": "持续迭代",
-        "desc": "跑起来之后才是真正考验，我们陪着调",
-        "detail": "系统跑起来才是真正考验的开始。真实数据会暴露预想不到的问题，效果需要持续调优。我们不做完就走，会陪着一起看数据、改策略、迭代到达标为止。"
-      }
-    ]
+    "cta": "开始沟通"
   },
   "cases": {
     "title": "代表案例",
@@ -101,7 +34,13 @@
           "编译通过率 85%+，多轮自检后自动修正",
           "已成功迁移数十个项目，获社区贡献奖"
         ],
-        "tags": ["RAG Pipeline", "代码解析AST", "编译器集成", "自检Agent", "论文方法复现"]
+        "tags": [
+          "RAG Pipeline",
+          "代码解析AST",
+          "编译器集成",
+          "自检Agent",
+          "论文方法复现"
+        ]
       },
       {
         "industry": "金融科技",
@@ -114,7 +53,12 @@
           "业务问题查询：从平均 30 分钟缩短至 1 分钟内",
           "三场景模块化交付，可按需独立上线"
         ],
-        "tags": ["Multi-source RAG", "LLM内容生成", "权限规则引擎", "私有化部署"]
+        "tags": [
+          "Multi-source RAG",
+          "LLM内容生成",
+          "权限规则引擎",
+          "私有化部署"
+        ]
       },
       {
         "industry": "制造业",
@@ -127,7 +71,12 @@
           "7×24 小时自动响应，无人值守持续运行",
           "多轮对话支持复杂问题逐步排查"
         ],
-        "tags": ["RAG", "私有化LLM", "工单系统集成", "多轮对话Agent"]
+        "tags": [
+          "RAG",
+          "私有化LLM",
+          "工单系统集成",
+          "多轮对话Agent"
+        ]
       },
       {
         "industry": "外贸 / 跨境电商",
@@ -140,224 +89,14 @@
           "多语言开发信生成，适配不同区域市场",
           "与现有 CRM 系统无缝集成"
         ],
-        "tags": ["OpenClaw", "多语言LLM", "自动化Workflow", "CRM系统集成"]
+        "tags": [
+          "OpenClaw",
+          "多语言LLM",
+          "自动化Workflow",
+          "CRM系统集成"
+        ]
       }
     ]
-  },
-  "partners": {
-    "title": "特别合作伙伴",
-    "subtitle": "与我们一起探索 AI 落地的同行者。"
-  },
-  "demo": {
-    "title": "上手点一点，看它怎么工作",
-    "subtitle": "四个产品能力的交互演示，均从真实案例简化。纯前端脚本模拟，展示能力形态，不接真实模型。",
-    "tab_migration": "代码迁移",
-    "tab_chat": "智能授权",
-    "tab_support": "智能客服",
-    "tab_outreach": "出海获客",
-    "migration": {
-      "sourceLabel": "源语言（Python）",
-      "targetLabel": "目标语言（仓颉）",
-      "targetPlaceholder": "点击「开始迁移」，看源代码自动重写为目标语言…",
-      "run": "开始迁移 →",
-      "running": "迁移中…",
-      "reset": "再来一次",
-      "caseCta": "查看完整案例 →",
-      "success": "编译通过 · 2 轮自检收敛 · 库级自动化率 80%+",
-      "stages": ["解析 AST", "RAG 检索范式", "生成目标代码", "编译自检"],
-      "stageDetails": [
-        "识别 1 个函数 · 3 处列表推导 · 2 处递归调用",
-        "命中仓颉文档：Array.filter · 泛型语法 · 递归范式",
-        "逐行生成目标代码…",
-        "多轮编译自检…"
-      ],
-      "compile": {
-        "round1": "第 1 轮：发现 2 处类型不匹配（Int64 泛型推断）",
-        "fixing": "依据编译器反馈自动修正…",
-        "round2": "第 2 轮：✓ 全部通过"
-      }
-    },
-    "chat": {
-      "assistant": "证券中台助手",
-      "hint": "点一个问题试试：",
-      "empty": "左侧选一个问题，看助手怎么一步步理解意图、提取参数、执行操作。",
-      "caseCta": "查看完整案例 →",
-      "items": [
-        {
-          "q": "给实习生开放产品 A 的查看权限",
-          "steps": ["解析指令语义 · 判定为权限变更操作", "提取参数：角色 / 权限动作 / 资源对象", "查询「实习生」角色现有权限基线", "风险校验：查看类权限 · 低风险 · 需二次确认"],
-          "fields": [
-            { "k": "角色", "v": "实习生 · 12 人" },
-            { "k": "权限", "v": "查看（只读）" },
-            { "k": "资源", "v": "产品 A" }
-          ],
-          "a": "已定位到「实习生」角色，当前 12 名成员。本次将新增：\n· 产品 A —— 查看权限（只读，不含导出）\n\n该角色现有 3 项查看权限，新增后无越权冲突。这是一次低风险变更，确认后立即对全部 12 名成员生效。",
-          "confirm": {
-            "label": "确认执行",
-            "cancel": "取消",
-            "done": "✓ 已执行：产品 A 查看权限已授予「实习生」角色（12 名成员）· 变更单号 CHG-20260702-041 · 已写入操作审计日志"
-          },
-          "followups": ["查看该角色完整权限", "撤销此次变更", "导出变更记录"]
-        },
-        {
-          "q": "把理财产品 B 的信息整合一下",
-          "steps": ["解析指令 · 判定为信息聚合查询", "RAG 检索：向量库命中 5 个文档片段", "跨文档抽取：风险 / 收益 / 适当性", "结构化汇总 · 标注数据来源"],
-          "sources": ["产品说明书 PDF", "风险评级表", "近一年净值", "适当性管理办法"],
-          "a": "已从 5 份文档整合「理财产品 B」关键信息：\n· 风险评级：R2（中低风险）\n· 业绩比较基准：3.8%–4.5%（年化）\n· 近一年净值增长：4.82%\n· 起购金额：1 万元\n· 适当性要求：稳健型及以上\n\n注：净值数据截至上一交易日，收益不构成保本承诺。",
-          "followups": ["生成客户版一页纸", "对比理财产品 C", "查看历史净值曲线"]
-        },
-        {
-          "q": "帮我写一段产品 C 的推荐话术",
-          "steps": ["解析指令 · 判定为话术生成", "调取产品 C 卖点与合规口径", "匹配目标客户画像：稳健型", "生成话术 · 过合规敏感词校验"],
-          "a": "推荐话术（稳健型客户 · 已过合规校验）：\n\n「这款产品胜在稳。过去 10 年每年都保持正收益，波动小、体验稳。它更适合不想承担太大回撤、又希望资产稳步增长的你。\n\n（合规提示：过往业绩不代表未来表现，产品不保本，请以说明书为准。）」",
-          "followups": ["换成进取型话术", "缩短到 50 字", "生成朋友圈版本"]
-        }
-      ]
-    },
-    "support": {
-      "assistant": "激光设备智能客服",
-      "hint": "点一个问题试试：",
-      "empty": "选一个问题，看客服怎么从产品文档里检索、定位、给出可执行方案。",
-      "caseCta": "",
-      "items": [
-        {
-          "q": "切不锈钢总有毛刺，参数怎么调？",
-          "steps": ["识别意图 · 判定为切割工艺故障", "RAG 检索：命中 3 份工艺文档", "按「不锈钢 + 毛刺」定位相关参数", "按影响程度排序 · 生成排查方案"],
-          "sources": ["切割工艺手册 v3.2 §4.2", "常见问题 FAQ Q17", "不锈钢切割参数表"],
-          "a": "不锈钢切割毛刺，按以下优先级排查（附推荐值）：\n\n① 辅助气体压力不足（最常见）\n → 氮气提高到 1.2–1.5 MPa，纯度 ≥99.999%\n② 焦点位置偏高\n → 焦点下移 0.5–1.0 mm，约取板厚的 -1/3 处\n③ 切割速度过快\n → 3mm 板降速至 2.4–2.8 m/min\n④ 喷嘴磨损或同轴度偏移\n → 检查喷嘴口径、重新对中\n\n建议先调 ①，多数情况可解决约 80% 的毛刺问题。",
-          "followups": ["3mm 板完整参数表", "换切碳钢的参数", "预约工程师上门"]
-        },
-        {
-          "q": "切 3mm 铝板，选哪个功率型号？",
-          "steps": ["识别意图 · 判定为设备选型", "RAG 检索：命中选型指南", "按「材料=铝 · 厚度=3mm」匹配", "综合切速 / 成本 / 余量推荐"],
-          "sources": ["产品选型指南 v2.1", "铝材加工参数表"],
-          "a": "切 3mm 铝板，推荐 2000W 光纤激光切割机（如 LC-2000）：\n\n· 铝对光反射率高，需 ≥1500W 才能稳定起切\n· 2000W 切 3mm 铝：切速约 6–8 m/min，切面光洁\n· 预算敏感可选 1500W，切速降至 4–5 m/min，够用\n· 若后续要切 5–6mm 铝，建议直接上 3000W 留余量\n\n配置建议：搭配高纯氮气 + 抗反射镜片保护。",
-          "followups": ["2000W 与 3000W 报价对比", "切铝耗材清单", "预约切割打样"]
-        },
-        {
-          "q": "设备报警 E-042 是什么意思？",
-          "steps": ["识别意图 · 判定为报警代码查询", "RAG 检索：命中报警代码表", "定位 E-042 条目", "给出成因 + 分步处理"],
-          "sources": ["报警代码手册 · E 系列"],
-          "a": "E-042 = 冷却水流量异常（水冷系统保护性停机）。\n\n按顺序排查：\n1. 查看水箱水位 —— 低于下限会触发（最常见）\n   → 补充去离子水至标线\n2. 检查进出水管 —— 是否折弯 / 异物堵塞\n3. 确认水泵运转 —— 听声音、看压力表 ≥0.3 MPa\n4. 清洗水路过滤网 —— 长期使用易结垢\n\n处理后按「复位」键清除报警。若反复出现，多为水泵老化，需报修。",
-          "followups": ["E 系列报警全表", "水冷保养周期", "报修工单入口"]
-        }
-      ]
-    },
-    "outreach": {
-      "hint": "选一个目标市场：",
-      "empty": "选一个目标客户画像，看系统怎么识别决策人、抓取情报、生成个性化开发信。",
-      "doneNote": "多语言版本已生成 · 已排入自动触达队列",
-      "genLabel": "生成个性化开发信…",
-      "contactLabel": "决策人",
-      "intelLabel": "情报源",
-      "langLabel": "语言版本",
-      "stages": ["识别决策人", "抓取公司情报", "生成开发信", "多语言适配"],
-      "targets": [
-        {
-          "label": "工业自动化 · 模块供应商",
-          "region": "Germany · DACH",
-          "contact": "CTO · Markus Weber",
-          "intel": ["LinkedIn 履历", "官网技术博客", "行业展会名录"],
-          "langs": "EN · DE",
-          "subject": "Cutting your CNC integration lead time by ~40%",
-          "lines": [
-            "Hi Markus,",
-            "",
-            "Noticed Weidmann supplies automation modules across the DACH manufacturing sector — and that integration timelines are where most of your customers stall.",
-            "",
-            "We've helped similar suppliers cut CNC integration lead time by ~40% with a lightweight AI layer that sits on top of the existing stack — no rip-and-replace.",
-            "",
-            "Worth a 20-min call next week?",
-            "",
-            "— The EasyZ Team"
-          ]
-        },
-        {
-          "label": "医疗器械 · 中型 OEM",
-          "region": "United States · MedTech",
-          "contact": "质量副总 · Dr. Elena Reyes",
-          "intel": ["FDA 注册库", "官网产品线", "近期融资新闻"],
-          "langs": "EN",
-          "subject": "A faster path to 510(k)-ready documentation",
-          "lines": [
-            "Hi Dr. Reyes,",
-            "",
-            "Saw that Nimbus Medical is scaling its device line — documentation overhead tends to become the bottleneck right around this stage.",
-            "",
-            "We build AI workflows that keep 510(k) documentation audit-ready as your specs evolve, so compliance stops slowing releases.",
-            "",
-            "Happy to share a 2-page teardown of how it'd map to your process.",
-            "",
-            "— The EasyZ Team"
-          ]
-        },
-        {
-          "label": "消费电子 · 代工厂",
-          "region": "Southeast Asia · EMS",
-          "contact": "运营总监 · Wei Tan",
-          "intel": ["LinkedIn 履历", "阿里国际站", "产能公示"],
-          "langs": "EN · 中文",
-          "subject": "Turning your RFQ backlog into same-day quotes",
-          "lines": [
-            "Hi Wei,",
-            "",
-            "EMS teams like yours often lose deals to slow RFQ turnaround — buyers move on before the quote lands.",
-            "",
-            "Our AI quoting assistant reads incoming RFQs, matches them to your capability sheet, and drafts a same-day quote for your team to approve.",
-            "",
-            "Can I send a short demo tailored to your product mix?",
-            "",
-            "— The EasyZ Team"
-          ]
-        }
-      ]
-    }
-  },
-  "whyUs": {
-    "whoTitle": "我们是谁",
-    "whoText": "来自顶尖院校的研究型小团队，核心成员均具备深厚的学术研究背景与工程实践能力。扁平协作，每个人都直接面对问题——没有层层转述，没有信息损耗。",
-    "compareTitle": "大团队通常卡在这",
-    "compareSubtitle": "我们怎么不卡",
-    "compareLeftLabel": "大团队",
-    "compareRightLabel": "我们",
-    "compareRows": [
-      {
-        "problem": "PM 转述需求，工程师二次理解",
-        "solution": "业务、研究、开发同一群人，需求直达"
-      },
-      {
-        "problem": "改需求要重走立项流程",
-        "solution": "当面拍板，当天调整"
-      },
-      {
-        "problem": "决策要等周会、等汇报",
-        "solution": "没有汇报对象，决策即时"
-      },
-      {
-        "problem": "知识在 PM 脑子里，工程师做执行",
-        "solution": "每个人都在解题，全员理解上下文"
-      }
-    ],
-    "commitmentTitle": "我们的承诺",
-    "commitmentIntro": "为了确保每个项目都获得足够的研究投入和工程深度，我们主动约束接单量：",
-    "commitments": [
-      "同时并行项目 ≤ 3",
-      "年承接项目 ≤ 8",
-      "接单前先做能力评估，不在能力外接活"
-    ],
-    "techStackLabel": "技术栈",
-    "techStack": "RAG · Dify · 私有化 LLM · n8n · LangChain · Docker · PostgreSQL · Redis · Python · TypeScript"
-  },
-  "cta": {
-    "title": "聊聊你的难题",
-    "subtitle": "告诉我们你的问题，我们来看怎么解。",
-    "button": "开始沟通",
-    "emailLabel": "或邮件联系我们",
-    "copyEmail": "复制",
-    "emailCopied": "已复制",
-    "reassurance": "通常 24 小时内回复，首次沟通不收费",
-    "qrHint": "扫码添加微信",
-    "qrClose": "关闭"
   },
   "footer": {
     "companyCn": "沈阳易智软件信息技术服务有限公司",

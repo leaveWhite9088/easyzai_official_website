@@ -11,77 +11,10 @@
   },
   "nav": {
     "home": "Home",
-    "services": "Services",
     "cases": "Cases",
     "about": "About",
     "thinking": "Thinking",
-    "contact": "Contact",
-    "demo": "Live Demo",
-    "cta": "Start a Conversation",
-    "themeToggle": "Toggle light / dark theme"
-  },
-  "hero": {
-    "eyebrow": "EasyZ · AI Implementation for Complex Scenarios",
-    "title": "Hard Problems, Researched Solutions",
-    "subtitle": "A Research-Driven Team from Top Universities",
-    "ctaPrimary": "See Our Work",
-    "ctaSecondary": "Talk About Your Problem"
-  },
-  "trustBar": {
-    "eyebrow": "We do one thing",
-    "text": "Bring AI into real business. Non-standard scenarios, complex data, uncertain technical paths — that's exactly what we're built for."
-  },
-  "services": {
-    "problemsTitle": "You Come to Us Because of Problems Like These",
-    "methodTitle": "How We Work",
-    "problems": [
-      {
-        "number": "01",
-        "title": "Your business processes don't fit any standard SaaS",
-        "desc": "Off-the-shelf SaaS is designed for generic scenarios. Your business has unique approval flows, data logic, and compliance requirements — forcing standard products onto them is like fitting square pegs in round holes."
-      },
-      {
-        "number": "02",
-        "title": "Your data is too complex for generic models",
-        "desc": "Product manuals, technical docs, internal knowledge bases... messy formats, domain-specific jargon. Plugging them straight into an LLM gives terrible results — it requires dedicated knowledge engineering."
-      },
-      {
-        "number": "03",
-        "title": "You want to use AI but don't know where or if it'll work",
-        "desc": "You've heard plenty of AI success stories, but back in your own business, you can't tell where Agents make sense, where RAG fits, and where AI shouldn't be used at all."
-      },
-      {
-        "number": "04",
-        "title": "You've tried other solutions but results fell short",
-        "desc": "You've attempted solutions before, but accuracy didn't improve, costs didn't drop, and maintenance became a nightmare — you need a team that can rethink from first principles."
-      }
-    ],
-    "steps": [
-      {
-        "number": "01",
-        "title": "Understand the Problem",
-        "desc": "We don't take requirement documents — we work with you to define the problem boundary",
-        "detail": "We don't start coding on day one. First we take the problem apart with you: what actually needs solving, where the boundaries are, what counts as success. Most projects fail not because the tech is hard, but because no one nailed down what was wanted. We'd rather be slow here and stay aligned."
-      },
-      {
-        "number": "02",
-        "title": "Research Solutions",
-        "desc": "Evaluate technical approaches, run small-scale validations — no guessing",
-        "detail": "Once the direction is set, we evaluate several technical paths and validate them on small-scale data instead of betting on a guess. Where an Agent fits, where RAG fits, where AI shouldn't be used at all — decided by experiment data, surfacing risk early."
-      },
-      {
-        "number": "03",
-        "title": "Engineer & Deliver",
-        "desc": "Deliver running systems, not PowerPoints",
-        "detail": "Research findings have to become a system that runs inside your business. We do real engineering: deployable, maintainable, logged, with fallback mechanisms. What we deliver ships — not a demo deck or a flaky prototype."
-      },
-      {
-        "number": "04",
-        "title": "Iterate Continuously",
-        "desc": "Going live is when the real test begins — we stick around to tune it",
-        "detail": "The real test starts once the system is live. Real data exposes problems you couldn't foresee, and quality needs ongoing tuning. We don't ship and vanish — we stay to watch the data, adjust strategy, and iterate until it hits the bar."
-      }
-    ]
+    "cta": "Start a Conversation"
   },
   "cases": {
     "title": "Selected Cases",
@@ -101,7 +34,13 @@
           "Compilation pass rate 85%+, auto-corrected after multi-round self-checks",
           "Full language documentation indexed, version updates auto-synced"
         ],
-        "tags": ["RAG Pipeline", "AST Parsing", "Compiler Integration", "Self-Check Agent", "Multi-Round Iteration"]
+        "tags": [
+          "RAG Pipeline",
+          "AST Parsing",
+          "Compiler Integration",
+          "Self-Check Agent",
+          "Multi-Round Iteration"
+        ]
       },
       {
         "industry": "FinTech",
@@ -114,7 +53,12 @@
           "Business query resolution: from avg. 30 minutes to under 1 minute",
           "Three scenarios delivered modularly, can go live independently"
         ],
-        "tags": ["Multi-source RAG", "LLM Content Gen", "Permission Rule Engine", "Private Deployment"]
+        "tags": [
+          "Multi-source RAG",
+          "LLM Content Gen",
+          "Permission Rule Engine",
+          "Private Deployment"
+        ]
       },
       {
         "industry": "Manufacturing",
@@ -122,7 +66,12 @@
         "desc": "Connected 30+ product documents, 24/7 auto-response for procurement and troubleshooting queries.",
         "coreMetric": "75%+",
         "coreMetricLabel": "Auto-Resolution Rate",
-        "tags": ["RAG", "Private LLM", "Ticket System Integration", "Multi-Turn Agent"]
+        "tags": [
+          "RAG",
+          "Private LLM",
+          "Ticket System Integration",
+          "Multi-Turn Agent"
+        ]
       },
       {
         "industry": "Cross-border E-commerce",
@@ -130,224 +79,14 @@
         "desc": "End-to-end coverage: target customer identification, personalized outreach, automated touch and lead follow-up.",
         "coreMetric": "3x+",
         "coreMetricLabel": "Efficiency Improvement",
-        "tags": ["OpenClaw", "Multilingual LLM", "Automation Workflow", "CRM Integration"]
+        "tags": [
+          "OpenClaw",
+          "Multilingual LLM",
+          "Automation Workflow",
+          "CRM Integration"
+        ]
       }
     ]
-  },
-  "partners": {
-    "title": "Partner Organizations",
-    "subtitle": "Organizations exploring AI implementation with us."
-  },
-  "demo": {
-    "title": "Click Around and See How It Works",
-    "subtitle": "Four interactive product demos, each simplified from a real case. Front-end scripted simulation showing the shape of the capability — not backed by a live model.",
-    "tab_migration": "Code Migration",
-    "tab_chat": "Smart Authorization",
-    "tab_support": "Smart Support",
-    "tab_outreach": "Overseas Outreach",
-    "migration": {
-      "sourceLabel": "Source (Python)",
-      "targetLabel": "Target (Cangjie)",
-      "targetPlaceholder": "Click \"Start Migration\" to watch the source rewrite into the target language…",
-      "run": "Start Migration →",
-      "running": "Migrating…",
-      "reset": "Run Again",
-      "caseCta": "See the full case study →",
-      "success": "Compiled · converged in 2 rounds · 80%+ library automation",
-      "stages": ["Parse AST", "RAG Retrieval", "Generate Target", "Compile Self-Check"],
-      "stageDetails": [
-        "1 function · 3 list comprehensions · 2 recursive calls",
-        "Cangjie docs matched: Array.filter · generics · recursion",
-        "Generating target line by line…",
-        "Multi-round compile self-check…"
-      ],
-      "compile": {
-        "round1": "Round 1: 2 type mismatches (Int64 generic inference)",
-        "fixing": "Auto-fixing from compiler feedback…",
-        "round2": "Round 2: ✓ all passed"
-      }
-    },
-    "chat": {
-      "assistant": "Securities Platform Assistant",
-      "hint": "Try one of these:",
-      "empty": "Pick a question on the left to see the assistant recognize intent, extract parameters, and act — step by step.",
-      "caseCta": "See the full case study →",
-      "items": [
-        {
-          "q": "Grant interns view access to Product A",
-          "steps": ["Parse instruction · classified as permission change", "Extract params: role / action / resource", "Query the \"Intern\" role's current baseline", "Risk check: view-only · low risk · needs confirmation"],
-          "fields": [
-            { "k": "Role", "v": "Intern · 12" },
-            { "k": "Access", "v": "View (read-only)" },
-            { "k": "Resource", "v": "Product A" }
-          ],
-          "a": "Found the \"Intern\" role — 12 members. This will add:\n· Product A — View access (read-only, no export)\n\nThe role already has 3 view grants; no privilege conflict. This is a low-risk change and takes effect for all 12 members once confirmed.",
-          "confirm": {
-            "label": "Confirm",
-            "cancel": "Cancel",
-            "done": "✓ Done: Product A view access granted to \"Intern\" (12 members) · Change #CHG-20260702-041 · Written to the audit log"
-          },
-          "followups": ["View full role permissions", "Revert this change", "Export change record"]
-        },
-        {
-          "q": "Consolidate the info on Product B for me",
-          "steps": ["Parse instruction · classified as info aggregation", "RAG: 5 chunks matched in the vector store", "Cross-doc extraction: risk / return / suitability", "Structured summary · with source attribution"],
-          "sources": ["Prospectus PDF", "Risk Rating Sheet", "1-Year NAV", "Suitability Policy"],
-          "a": "Consolidated \"Product B\" from 5 documents:\n· Risk rating: R2 (medium-low)\n· Benchmark: 3.8%–4.5% (annualized)\n· 1-year NAV growth: 4.82%\n· Minimum: ¥10,000\n· Suitability: conservative or above\n\nNote: NAV data is as of the prior trading day; returns are not a guarantee of principal.",
-          "followups": ["Generate a client one-pager", "Compare with Product C", "View NAV history"]
-        },
-        {
-          "q": "Draft a sales pitch for Product C",
-          "steps": ["Parse instruction · classified as pitch generation", "Pull Product C highlights & compliance wording", "Match target profile: conservative", "Generate · pass compliance keyword check"],
-          "a": "Sales pitch (conservative client · compliance-checked):\n\n\"This product wins on stability. Ten straight years of positive returns, low volatility, a steady ride — ideal if you want your assets to grow steadily without taking on much drawdown.\n\n(Disclaimer: past performance does not indicate future results; principal is not guaranteed — refer to the prospectus.)\"",
-          "followups": ["Switch to a growth-oriented pitch", "Trim to 50 words", "Make a social-post version"]
-        }
-      ]
-    },
-    "support": {
-      "assistant": "Laser Equipment Support",
-      "hint": "Try a question:",
-      "empty": "Pick a question to see support retrieve from product docs, pinpoint the cause, and give an actionable fix.",
-      "caseCta": "",
-      "items": [
-        {
-          "q": "Burrs when cutting stainless — how do I tune it?",
-          "steps": ["Identify intent · cutting-process fault", "RAG: 3 process docs matched", "Locate params for \"stainless + burrs\"", "Rank by impact · generate a fix plan"],
-          "sources": ["Cutting Process Manual v3.2 §4.2", "FAQ Q17", "Stainless Parameter Sheet"],
-          "a": "For burrs on stainless, check in this priority order (with recommended values):\n\n① Assist-gas pressure too low (most common)\n → Nitrogen 1.2–1.5 MPa, purity ≥99.999%\n② Focus position too high\n → Drop focus 0.5–1.0 mm, ~ -1/3 of plate thickness\n③ Cutting speed too fast\n → For 3mm, reduce to 2.4–2.8 m/min\n④ Nozzle wear / coaxiality drift\n → Check nozzle bore, re-center\n\nStart with ① — it resolves ~80% of burr cases.",
-          "followups": ["Full 3mm parameter table", "Params for carbon steel", "Book an on-site engineer"]
-        },
-        {
-          "q": "Cutting 3mm aluminum — which power model?",
-          "steps": ["Identify intent · equipment selection", "RAG: selection guide matched", "Match \"material=aluminum · 3mm\"", "Recommend by speed / cost / headroom"],
-          "sources": ["Product Selection Guide v2.1", "Aluminum Parameter Sheet"],
-          "a": "For 3mm aluminum, go with a 2000W fiber laser cutter (e.g. LC-2000):\n\n· Aluminum is highly reflective — needs ≥1500W to start cutting reliably\n· 2000W on 3mm Al: ~6–8 m/min, clean edges\n· On a budget, 1500W works at 4–5 m/min\n· If you'll later cut 5–6mm Al, go straight to 3000W for headroom\n\nSetup tip: pair with high-purity nitrogen + anti-reflection optics.",
-          "followups": ["2000W vs 3000W quote", "Aluminum consumables list", "Book a cutting sample"]
-        },
-        {
-          "q": "What does alarm E-042 mean?",
-          "steps": ["Identify intent · alarm-code lookup", "RAG: alarm code table matched", "Locate the E-042 entry", "Give cause + step-by-step fix"],
-          "sources": ["Alarm Code Manual · E-series"],
-          "a": "E-042 = coolant flow abnormal (water-cooling protective shutdown).\n\nCheck in order:\n1. Tank water level — below minimum triggers it (most common)\n   → Top up with deionized water to the mark\n2. Inspect in/out hoses — kinks or debris blockage\n3. Confirm the pump runs — listen, gauge ≥0.3 MPa\n4. Clean the water-line filter — scales up over time\n\nPress \"Reset\" to clear once fixed. Recurring? Usually pump aging — needs service.",
-          "followups": ["Full E-series alarm table", "Cooling maintenance cycle", "Open a service ticket"]
-        }
-      ]
-    },
-    "outreach": {
-      "hint": "Pick a target market:",
-      "empty": "Pick a target profile to see the system identify the decision-maker, gather intel, and draft a personalized outreach email.",
-      "doneNote": "Localized versions generated · queued for automated outreach",
-      "genLabel": "Drafting a personalized email…",
-      "contactLabel": "Decision-maker",
-      "intelLabel": "Sources",
-      "langLabel": "Versions",
-      "stages": ["Find Decision-Maker", "Gather Intel", "Draft Email", "Localize"],
-      "targets": [
-        {
-          "label": "Industrial Automation · Module Supplier",
-          "region": "Germany · DACH",
-          "contact": "CTO · Markus Weber",
-          "intel": ["LinkedIn profile", "Company tech blog", "Trade-show directory"],
-          "langs": "EN · DE",
-          "subject": "Cutting your CNC integration lead time by ~40%",
-          "lines": [
-            "Hi Markus,",
-            "",
-            "Noticed Weidmann supplies automation modules across the DACH manufacturing sector — and that integration timelines are where most of your customers stall.",
-            "",
-            "We've helped similar suppliers cut CNC integration lead time by ~40% with a lightweight AI layer that sits on top of the existing stack — no rip-and-replace.",
-            "",
-            "Worth a 20-min call next week?",
-            "",
-            "— The EasyZ Team"
-          ]
-        },
-        {
-          "label": "Medical Devices · Mid-size OEM",
-          "region": "United States · MedTech",
-          "contact": "VP Quality · Dr. Elena Reyes",
-          "intel": ["FDA registry", "Product line", "Recent funding news"],
-          "langs": "EN",
-          "subject": "A faster path to 510(k)-ready documentation",
-          "lines": [
-            "Hi Dr. Reyes,",
-            "",
-            "Saw that Nimbus Medical is scaling its device line — documentation overhead tends to become the bottleneck right around this stage.",
-            "",
-            "We build AI workflows that keep 510(k) documentation audit-ready as your specs evolve, so compliance stops slowing releases.",
-            "",
-            "Happy to share a 2-page teardown of how it'd map to your process.",
-            "",
-            "— The EasyZ Team"
-          ]
-        },
-        {
-          "label": "Consumer Electronics · EMS",
-          "region": "Southeast Asia · EMS",
-          "contact": "Ops Director · Wei Tan",
-          "intel": ["LinkedIn profile", "Alibaba.com store", "Capacity disclosure"],
-          "langs": "EN · 中文",
-          "subject": "Turning your RFQ backlog into same-day quotes",
-          "lines": [
-            "Hi Wei,",
-            "",
-            "EMS teams like yours often lose deals to slow RFQ turnaround — buyers move on before the quote lands.",
-            "",
-            "Our AI quoting assistant reads incoming RFQs, matches them to your capability sheet, and drafts a same-day quote for your team to approve.",
-            "",
-            "Can I send a short demo tailored to your product mix?",
-            "",
-            "— The EasyZ Team"
-          ]
-        }
-      ]
-    }
-  },
-  "whyUs": {
-    "whoTitle": "Who We Are",
-    "whoText": "A research-driven team from top universities. Core members have deep academic research backgrounds and engineering delivery capabilities. Flat collaboration — everyone faces the problem directly. No layers, no information loss.",
-    "compareTitle": "Where Big Teams Get Stuck",
-    "compareSubtitle": "How We Don't",
-    "compareLeftLabel": "Big teams",
-    "compareRightLabel": "Us",
-    "compareRows": [
-      {
-        "problem": "PM relays requirements, engineers interpret them second-hand",
-        "solution": "Business, research, and engineering are the same people — direct access"
-      },
-      {
-        "problem": "Changing requirements means restarting the approval process",
-        "solution": "Decisions made face-to-face, adjustments same day"
-      },
-      {
-        "problem": "Decisions wait for weekly meetings, reports, sign-offs",
-        "solution": "No one to report to — decisions are instant"
-      },
-      {
-        "problem": "Knowledge lives in PMs' heads, engineers just execute",
-        "solution": "Everyone solves the problem, everyone understands the context"
-      }
-    ],
-    "commitmentTitle": "Our Commitment",
-    "commitmentIntro": "To ensure every project gets enough research depth and engineering rigor, we actively limit how much we take on:",
-    "commitments": [
-      "Concurrent projects ≤ 3",
-      "Annual projects ≤ 8",
-      "Capability assessment before accepting — we don't take what we can't deliver"
-    ],
-    "techStackLabel": "Tech Stack",
-    "techStack": "RAG · Dify · Private LLM · n8n · LangChain · Docker · PostgreSQL · Redis · Python · TypeScript"
-  },
-  "cta": {
-    "title": "Let's Talk About Your Hard Problem",
-    "subtitle": "Tell us your problem. Let's figure it out.",
-    "button": "Start a Conversation",
-    "emailLabel": "Or email us at",
-    "copyEmail": "Copy",
-    "emailCopied": "Copied",
-    "reassurance": "We usually reply within 24 hours. The first conversation is free.",
-    "qrHint": "Scan to add WeChat",
-    "qrClose": "Close"
   },
   "footer": {
     "companyCn": "沈阳易智软件信息技术服务有限公司",
