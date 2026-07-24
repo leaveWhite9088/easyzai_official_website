@@ -11,7 +11,7 @@
 
 - **每一次改动完成后都必须 `git commit` 并 `git push` 到 `main`**，不允许只改不提交
 - 多个不相关改动按计划拆分为多个语义化提交（fix / feat / docs / refactor），不要混在一个提交里
-- 提交前确保 `npm run typecheck` 通过；涉及结构或样式约定变化时同步更新契约测试
+- 提交前确保 `npm run typecheck` 通过
 
 ## 常见问题：Next.js 热更新缓存损坏
 
@@ -113,7 +113,7 @@ npm run dev:clean
 
 ## 当前 redesign 实施状态 (2026-07-24)
 
-- **实施版本**：v1.0（Home / About / Practice / Thinking 全部上线）
+- **实施版本**：v2.1.0（Home / About / Practice / Thinking + 4 case / 3 thinking 详情 + join 全部上线）
 - **分支**：`redesign-0723`
 - **next 任务**：用户验收后合并回 main（届时把 `npm run dev:clean` 里的 `rm -rf` 改回 PowerShell 等价命令，并清理 docs/prototype/ 与 .gitignore 的例外）
 - **未做**：case 详情页视觉升级（保留旧设计但颜色已自动适配 paper + cyan）；用户预告「可能会叫你把所有的详细页都做出来」—— 单独再做
