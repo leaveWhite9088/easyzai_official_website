@@ -370,7 +370,9 @@
     "casesTitle": "代表案例",
     "caseMigration": "编程语言库迁移",
     "caseSecurities": "证券中台 AI 化",
-    "contactTitle": "联系我们"
+    "contactTitle": "联系我们",
+    "wechatHint": "扫码添加微信",
+    "wechatAria": "EasyZ 微信二维码"
   },
   "thinking": {
     "title": "思考",

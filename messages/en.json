@@ -360,7 +360,9 @@
     "casesTitle": "Cases",
     "caseMigration": "Lang Migration",
     "caseSecurities": "Securities AI",
-    "contactTitle": "Contact"
+    "contactTitle": "Contact",
+    "wechatHint": "Scan to add on WeChat",
+    "wechatAria": "EasyZ WeChat QR"
   },
   "thinking": {
     "title": "Thinking",
