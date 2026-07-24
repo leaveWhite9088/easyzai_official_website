@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { locales } from '@/i18n'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 import JoinContent from './JoinContent'
 import StructuredData from '@/components/StructuredData'
 import { breadcrumbNode, graph, webPageNode } from '@/lib/structured-data'
@@ -56,11 +54,9 @@ export default async function JoinPage({
   ])
 
   return (
-    <main className="min-h-screen">
-      <StructuredData data={jsonLd} />
-      <Navbar />
+    <>
+      {jsonLd && <StructuredData data={jsonLd} />}
       <JoinContent />
-      <Footer />
-    </main>
+    </>
   )
 }
