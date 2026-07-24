@@ -70,6 +70,7 @@ export default async function CaseDetailPage({ params }: { params: { locale: str
     'programming-language-migration',
     'securities-ai-platform',
     'laser-equipment-ai-customer-service',
+    'outbound-lead-automation',
   ]
   if (!slugs.includes(slug)) notFound()
 
