@@ -55,8 +55,10 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Cases column */}
-          <div className="col-span-6 md:col-span-3">
+          {/* Cases column — stacks below the brand on the narrowest phones
+              (<640px) so the contact column (email + 120px QR) can use the
+              full width without crowding. */}
+          <div className="col-span-12 sm:col-span-6 md:col-span-3">
             <h4 className="mb-4 font-mono text-[11px] tracking-[0.18em] uppercase text-canvas/60">
               {t('casesTitle')}
             </h4>
@@ -81,7 +83,7 @@ export default function Footer() {
           </div>
 
           {/* Contact column — email + WeChat QR */}
-          <div className="col-span-6 md:col-span-4">
+          <div className="col-span-12 sm:col-span-6 md:col-span-4">
             <h4 className="mb-4 font-mono text-[11px] tracking-[0.18em] uppercase text-canvas/60">
               {t('contactTitle')}
             </h4>

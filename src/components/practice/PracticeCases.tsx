@@ -62,9 +62,10 @@ export default function PracticeCases() {
                         <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-ink-3">
                           CASE {String(i + 1).padStart(2, '0')}
                         </div>
+                        {/* metric — 24px on the narrowest phones (<380px) so it
+                            fits inside the 25% column without crowding. */}
                         <div
-                          className="mt-1 font-serif font-light text-ink leading-none transition-colors duration-300 group-hover:text-cyan"
-                          style={{ fontSize: '28px' }}
+                          className="mt-1 font-serif font-light text-ink leading-none transition-colors duration-300 group-hover:text-cyan text-[24px] sm:text-[28px]"
                         >
                           {c.coreMetric}
                         </div>
