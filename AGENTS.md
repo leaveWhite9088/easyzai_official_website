@@ -116,6 +116,39 @@ npm run dev:clean
 - **状态**：已合并并发布，`redesign-0723` 分支已删除；今后所有改动仍在 main 上推。
 - **未做**：case 详情页视觉升级（保留旧设计但颜色已自动适配 paper + cyan）；用户预告「可能会叫你把所有的详细页都做出来」—— 单独再做
 
+## 移动端适配规范 (2026-07-25)
+
+基础响应式（grid 12 → 9/3、font clamp、44px 触摸目标、移动端跳过 framer-motion 入场）从 redesign v2.1 就有了。本轮做的补充：
+
+### Hero 视频 — 移动端降级
+- 文件：`src/components/home/HomeHero.tsx`
+- 移动端不渲染 `<video>`（`hidden md:block`），用 `hero-light-texture`（globals.css 已定义）作背景。原因：6s 循环 autoPlay 在 mobile 上烧流量 + 电，且 mobile 视频第一帧容易因为 Safari 节能策略显示成黑屏。
+- desktop `poster="/assets/hero-4.mp4"` 错挂（应是图片，已删除）— 改用 `preload="metadata"` 让浏览器自己取首帧。
+
+### 顶部 hero 图 — mobile 缩短
+- Thinking 详情：`50vh` → mobile `40vh / 240px`、desktop `50vh / 360px`。
+- Join 详情：`78vh` → mobile `56vh / 340px`、desktop `78vh / 520px`。
+- 原因：手机 viewport 高 600-800px，50-78% 都是图片，挤压正文；32-50% 让正文仍能进入 first fold。
+
+### 背景大图 — 移动端隐藏
+- `HomeSpecimen` 背景 cyanotype 大图：mobile `hidden`、desktop 显示。原因：mobile 前景已经是同一张图的特写，背景再叠一份就是视觉噪音。
+
+### Footer — 微信二维码列独占
+- Cases 列、Contact 列：mobile `col-span-12`（独占一列）、`sm:col-span-6`、desktop `col-span-3 / 4`。
+- 原因：120px 微信二维码 + 邮箱在小屏占满 50% 太挤，独占一列后给 contact 完整宽度。
+
+### PracticeCases 列表行
+- Metric 字号 28px → mobile `24px`、sm+ `28px`。
+- 原因：col-span-3 (25%) 在 320 屏 ≈ 80px 宽，28px metric 容易挤。
+
+### CaseContent 详情页
+- `prose prose-invert` 清理（项目没装 `@tailwindcss/typography`，从来没生效）。
+- 表格 `min-w-[560px]` → `min-w-[420px]`，加 `article-table-scroller` CSS（thin 横向 scrollbar 提示可滚）。
+- H1 `text-[2rem] sm:text-3xl lg:text-4xl` 改成 `clamp(28px, 5.5vw, 48px)`：原值在 sm 反而比 base 小，是 bug。
+
+### viewport themeColor
+- `src/app/layout.tsx` 的 `viewport.themeColor` 与 `src/app/manifest.ts` 的 `background_color / theme_color` 都从 `#0C0C0F` 改成 `#F2F1ED`，与 paper 主题对齐。
+
 ## Windows 环境差异（PowerShell）
 
 - 清理 `.next` 缓存用 `mavis-trash .next`，**不要**用 `rm -rf .next`（`package.json` 里的 `dev:clean` 脚本是 bash 写法，在 PowerShell 下不走）。
