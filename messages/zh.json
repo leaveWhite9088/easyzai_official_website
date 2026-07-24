@@ -377,6 +377,17 @@
     "subtitle": "技术观点、方法论与真实踩坑记录",
     "readMore": "阅读全文",
     "notFound": "文章未找到",
+    "eyebrowIntro": "想清楚的事，写下来。",
+    "categoriesTag": "方法论 / 案例复盘 / 技术观点",
+    "countTag": "3 篇",
+    "rssLink": "RSS feed",
+    "detail": {
+      "back": "思考",
+      "imageAltPrefix": "案例配图",
+      "prev": "上一篇",
+      "next": "下一篇",
+      "notFoundTitle": "未找到"
+    },
     "articles": [
       {
         "slug": "ai-project-screening",

@@ -367,6 +367,17 @@
     "subtitle": "Technical perspectives, methodology, and real-world lessons",
     "readMore": "Read Full Article",
     "notFound": "Article not found",
+    "eyebrowIntro": "What we figured out, written down.",
+    "categoriesTag": "Methodology / Case study / Technical perspective",
+    "countTag": "3 essays",
+    "rssLink": "RSS feed",
+    "detail": {
+      "back": "Thinking",
+      "imageAltPrefix": "Article image",
+      "prev": "Previous",
+      "next": "Next",
+      "notFoundTitle": "Not found"
+    },
     "articles": [
       {
         "slug": "ai-project-screening",

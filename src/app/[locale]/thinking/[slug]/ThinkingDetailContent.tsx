@@ -1,27 +1,47 @@
+// Thinking detail — 50vh top concept image + 820px narrow article body.
+// Concept image swaps by category:
+//   methodology      → concept-cyanotype-3.png  (蓝晒)
+//   case study       → marble-texture.png       (大理石)
+//   technical view   → thinking-arch.png        (建筑结构)
 'use client'
 
-import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import Image from 'next/image'
 import Markdown from 'react-markdown'
-import { motion } from 'framer-motion'
+import { useLocale, useTranslations } from 'next-intl'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import type { Article } from '@/types/content'
 
-export default function ThinkingDetailContent({ locale, slug }: { locale: string; slug: string }) {
+// Map a Chinese/English category to the matching concept image.
+function imageForCategory(category: string): string {
+  if (category === '方法论' || category === 'Methodology') return '/assets/concept-cyanotype-3.png'
+  if (category === '案例复盘' || category === 'Case Study' || category === 'Case study') return '/assets/marble-texture.png'
+  // 技术观点 / Technical perspective
+  return '/assets/thinking-arch.png'
+}
+
+export default function ThinkingDetailContent({ slug }: { locale: string; slug: string }) {
   const t = useTranslations('thinking')
+  const td = useTranslations('thinking.detail')
+  const locale = useLocale()
   const articles = t.raw('articles') as Article[]
-  const article = articles.find((a) => a.slug === slug)
+  const index = articles.findIndex((a) => a.slug === slug)
+  const article = articles[index]
 
   if (!article) {
     return (
-      <main className="relative isolate min-h-screen overflow-hidden bg-bg-base">
+      <main className="min-h-screen bg-canvas">
         <Navbar />
         <article className="pt-32 pb-24">
-          <div className="max-w-3xl mx-auto px-6 lg:px-10">
-            <a href={`/${locale}/thinking`} className="inline-flex min-h-[44px] items-center text-text-tertiary hover:text-text-primary transition-colors text-sm mb-12">
+          <div className="mx-auto max-w-think px-6 sm:px-10">
+            <Link
+              href={`/${locale}/thinking`}
+              className="mb-12 inline-flex min-h-[44px] items-center font-mono text-[11px] tracking-[0.18em] uppercase text-ink-2 transition-colors hover:text-ink"
+            >
               ← {t('title')}
-            </a>
-            <h1 className="text-3xl lg:text-4xl font-medium text-text-primary leading-tight">
+            </Link>
+            <h1 className="text-3xl lg:text-4xl font-medium text-text-primary">
               {t('notFound')}
             </h1>
           </div>
@@ -31,103 +51,143 @@ export default function ThinkingDetailContent({ locale, slug }: { locale: string
     )
   }
 
-  return (
-    <main className="relative isolate min-h-screen overflow-hidden bg-bg-base">
-      <Navbar />
-      <article className="subpage-mobile-static relative z-10 pt-24 pb-20 sm:pt-32 sm:pb-24">
-        <div className="max-w-[51.84rem] mx-auto px-5 sm:px-6 lg:px-8">
-          <motion.a
-            href={`/${locale}/thinking`}
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="group inline-flex min-h-[44px] items-center gap-2 text-text-tertiary hover:text-text-primary transition-colors text-sm mb-10 sm:mb-12"
-          >
-            <span className="transition-transform group-hover:-translate-x-1">←</span> {t('title')}
-          </motion.a>
+  const prev = index > 0 ? articles[index - 1] : null
+  const next = index < articles.length - 1 ? articles[index + 1] : null
+  const conceptImage = imageForCategory(article.category)
 
-          <motion.header
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mb-8 border-b border-border-subtle pb-8 sm:mb-10 sm:pb-10"
+  return (
+    <main className="min-h-screen bg-canvas">
+      <Navbar />
+
+      {/* Top concept image — 50vh, category-driven */}
+      <section className="w-full bg-canvas" style={{ height: '50vh', minHeight: '360px' }}>
+        <Image
+          src={conceptImage}
+          alt={`${td('imageAltPrefix')} · ${article.category}`}
+          width={1600}
+          height={900}
+          className="h-full w-full object-cover"
+          priority
+        />
+      </section>
+
+      <article className="pb-24 pt-12 sm:pb-32 sm:pt-16">
+        <div className="mx-auto max-w-think px-6 sm:px-8">
+          {/* Back link */}
+          <Link
+            href={`/${locale}/thinking`}
+            className="group inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.12em] uppercase text-ink-2 transition-colors hover:text-ink"
           >
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="text-sm text-text-tertiary">{article.date}</span>
-              <span className="text-sm px-2 py-0.5 rounded bg-bg-hover text-text-tertiary">{article.category}</span>
+            <span className="inline-block transition-transform group-hover:-translate-x-0.5">←</span>{' '}
+            {t('title')}
+          </Link>
+
+          {/* Header */}
+          <header className="mt-10 sm:mt-12 border-b border-rule pb-8 sm:pb-10">
+            <div className="mb-6 flex flex-wrap items-center gap-3">
+              <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink-3">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span aria-hidden className="h-px w-5 bg-ink-3/40" />
+              <time
+                dateTime={article.date}
+                className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink-3"
+              >
+                {article.date}
+              </time>
+              <span className="inline-block border border-rule px-2 py-0.5 font-mono text-[10px] tracking-[0.12em] text-ink-2">
+                {article.category}
+              </span>
             </div>
-            <h1 className="break-words text-[2rem] sm:text-3xl lg:text-4xl font-medium text-text-primary leading-tight">
+            <h1
+              className="font-serif font-light leading-[1.2] tracking-[-0.005em] text-ink"
+              style={{ fontSize: 'clamp(28px, 4vw, 44px)' }}
+            >
               {article.title}
             </h1>
-          </motion.header>
+          </header>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.16, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="article-prose prose prose-invert max-w-none min-w-0"
-          >
+          {/* Body — markdown */}
+          <div className="article-prose mt-16 max-w-none">
             <Markdown
               components={{
                 h2: ({ children }) => (
-                  <h2 className="text-2xl font-medium text-text-primary mt-12 mb-4">
+                  <h2 className="mt-14 mb-5 font-serif font-normal text-[26px] leading-[1.3] tracking-[-0.005em] text-ink">
                     {children}
                   </h2>
                 ),
                 h3: ({ children }) => (
-                  <h3 className="text-xl font-medium text-text-primary mt-8 mb-3">
+                  <h3 className="mt-9 mb-3 text-[19px] font-medium leading-[1.4] text-ink">
                     {children}
                   </h3>
                 ),
                 p: ({ children }) => (
-                  <p className="text-text-secondary leading-relaxed mb-4">
-                    {children}
-                  </p>
+                  <p className="mb-5 text-[16px] leading-[1.75] text-ink">{children}</p>
                 ),
                 strong: ({ children }) => (
-                  <strong className="text-text-primary font-medium">
-                    {children}
-                  </strong>
+                  <strong className="font-medium text-ink">{children}</strong>
                 ),
                 ul: ({ children }) => (
-                  <ul className="list-disc list-outside pl-5 space-y-2 mb-4 text-text-secondary">
-                    {children}
-                  </ul>
+                  <ul className="mb-5 list-disc pl-[22px] text-ink">{children}</ul>
                 ),
                 ol: ({ children }) => (
-                  <ol className="list-decimal list-outside pl-5 space-y-2 mb-4 text-text-secondary">
-                    {children}
-                  </ol>
+                  <ol className="mb-5 list-decimal pl-[22px] text-ink">{children}</ol>
                 ),
                 li: ({ children }) => (
-                  <li className="leading-relaxed">
-                    {children}
-                  </li>
+                  <li className="mb-2 text-[16px] leading-[1.75]">{children}</li>
                 ),
-                code: ({ children }) => (
-                  <code className="bg-bg-hover px-1.5 py-0.5 rounded text-sm font-mono text-accent">
-                    {children}
-                  </code>
-                ),
-                pre: ({ children }) => (
-                  <pre className="bg-bg-hover p-4 rounded-lg overflow-x-auto mb-4">
-                    {children}
-                  </pre>
-                ),
+                hr: () => <hr className="my-12 border-t border-rule" />,
                 blockquote: ({ children }) => (
-                  <blockquote className="border-l-2 border-accent pl-4 italic text-text-secondary mb-4">
+                  <blockquote className="my-6 border-l-2 border-cyan pl-[18px] italic text-ink-2">
                     {children}
                   </blockquote>
                 ),
-                hr: () => (
-                  <hr className="border-border-subtle my-8" />
+                code: ({ children }) => (
+                  <code className="rounded bg-bg-elevated px-1.5 py-0.5 font-mono text-[14px] text-cyan">
+                    {children}
+                  </code>
                 ),
               }}
             >
               {article.content}
             </Markdown>
-          </motion.div>
+          </div>
+
+          {/* Prev / Next */}
+          <nav className="mt-24 border-t border-rule pt-10">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {prev ? (
+                <Link href={`/${locale}/thinking/${prev.slug}`} className="group">
+                  <div className="mb-2 font-mono text-[10px] tracking-[0.18em] uppercase text-ink-3">
+                    ← {td('prev')}
+                  </div>
+                  <div className="text-[15px] leading-[1.4] text-ink transition-colors sm:text-[16px] group-hover:text-cyan">
+                    {prev.title}
+                  </div>
+                </Link>
+              ) : (
+                <div />
+              )}
+              {next ? (
+                <Link
+                  href={`/${locale}/thinking/${next.slug}`}
+                  className="group sm:text-right"
+                >
+                  <div className="mb-2 font-mono text-[10px] tracking-[0.18em] uppercase text-ink-3">
+                    {td('next')} →
+                  </div>
+                  <div className="text-[15px] leading-[1.4] text-ink transition-colors sm:text-[16px] group-hover:text-cyan">
+                    {next.title}
+                  </div>
+                </Link>
+              ) : (
+                <div />
+              )}
+            </div>
+          </nav>
         </div>
       </article>
+
       <Footer />
     </main>
   )
