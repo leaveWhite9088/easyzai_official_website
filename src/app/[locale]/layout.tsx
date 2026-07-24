@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { MotionConfig } from 'framer-motion'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Source_Serif_4 } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { locales } from '@/i18n'
 import ThemeProvider from '@/components/theme/ThemeProvider'
@@ -14,6 +14,16 @@ import '../globals.css'
 // cross-origin @import. Exposed as CSS variables consumed by tailwind.config.js.
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
+// Source Serif 4 — editorial "one serif per page" rhythm. Variable font for
+// fine weight control; the redesigned home / about / practice / thinking each
+// use it in exactly one place.
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  display: 'swap',
+  weight: ['300', '400', '500'],
+  style: ['normal', 'italic'],
+})
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -76,7 +86,7 @@ export default async function LocaleLayout({
       lang={locale}
       data-theme="dark"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerif.variable}`}
     >
       <head>
         {/* Apply the stored theme before first paint — prevents theme flash. */}

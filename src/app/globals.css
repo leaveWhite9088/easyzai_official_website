@@ -2,45 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fonts are self-hosted via next/font (see [locale]/layout.tsx) — no render-blocking @import. */
+/* Fonts self-hosted via next/font (see [locale]/layout.tsx) — no render-blocking @import. */
 
 /* ---------------------------------------------------------------------------
- * Theme tokens (RGB triplets so Tailwind can apply <alpha-value>).
- * Dark is the brand default; light activates via html[data-theme="light"].
- * A nested [data-theme="dark"] island (e.g. code editor cards) re-applies
- * dark tokens inside the light theme.
+ * Design tokens — single "paper" theme (no light/dark toggle).
+ * 建筑白 #F2F1ED main · 蓝晒蓝 #1B3A5F accent · 大理石 material.
+ * RGB triplets let Tailwind apply <alpha-value> for translucent shades.
+ * The `data-theme` attribute is kept on <html> for back-compat with old
+ * component selectors, but only "paper" values are defined.
  * ------------------------------------------------------------------------ */
 :root,
-[data-theme='dark'] {
-  --c-bg-base: 11 11 10; /* warm charcoal */
-  --c-bg-elevated: 18 18 16;
-  --c-bg-hover: 27 26 23;
-  --c-panel: 9 9 8;
-  --c-text-primary: 242 239 232; /* warm ivory */
-  --c-text-secondary: 162 157 147;
-  --c-text-tertiary: 126 122 114;
-  --c-accent: 190 154 99; /* muted mineral gold */
-  --c-border: 38 37 33;
-  /* "ink" = foreground extreme: white on dark, near-black on light.
-     Replaces raw white/[x] utilities so hairlines/washes flip per theme. */
-  --c-ink: 247 243 235;
-  --c-hero: 5 5 4;
-  --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.7);
-}
-
+[data-theme='dark'],
 [data-theme='light'] {
-  --c-bg-base: 248 247 243;
-  --c-bg-elevated: 253 252 248;
-  --c-bg-hover: 238 235 228;
-  --c-panel: 253 252 248;
-  --c-text-primary: 27 26 23;
-  --c-text-secondary: 76 73 67;
-  --c-text-tertiary: 111 106 97;
-  --c-accent: 132 94 47; /* deep bronze for accessible light-theme contrast */
-  --c-border: 225 222 214;
-  --c-ink: 25 24 21;
-  --c-hero: 243 241 235;
-  --shadow-card: 0 20px 50px -18px rgba(58, 49, 36, 0.15);
+  /* Surfaces */
+  --c-bg-base:     242 241 237;  /* paper — main canvas, "建筑白" */
+  --c-bg-elevated: 246 245 241;  /* surface — cards, popovers */
+  --c-bg-hover:    229 226 216;  /* hover wash */
+  --c-panel:       250 249 245;  /* canvas — lighter inset cards */
+
+  /* Ink (text + UI) */
+  --c-text-primary:   22 22 26;  /* ink — highest contrast */
+  --c-text-secondary: 82 82 91;  /* ink-2 — body text */
+  --c-text-tertiary: 161 161 170; /* ink-3 — captions, meta */
+
+  /* Accent: 蓝晒蓝 — the ONLY color accent. One per page. */
+  --c-accent:  27 58 95;          /* cyan */
+  --c-cyan-d:  19 36 60;          /* cyan-d — footer / hover bg */
+
+  /* Hairline rules */
+  --c-border:  217 214 206;       /* rule (mapped to border-subtle) */
+  --c-rule-2:  229 226 216;       /* rule-2 — softer rules */
+
+  /* "ink" = foreground extreme (for ink/5, ink/10 utilities, etc.). */
+  --c-ink:     22 22 26;
+  --c-hero:    242 241 237;
+
+  --shadow-card: 0 12px 36px -22px rgba(27, 58, 95, 0.18);
 }
 
 @layer base {
@@ -55,41 +52,26 @@
     background-color: rgb(var(--c-bg-base));
     color: rgb(var(--c-text-primary));
     line-height: 1.7;
-    transition: background-color 0.35s ease, color 0.35s ease;
     overflow-wrap: break-word;
   }
 
-  a,
-  button {
-    -webkit-tap-highlight-color: transparent;
-  }
+  a, button { -webkit-tap-highlight-color: transparent; }
 
   ::selection {
-    background: rgb(var(--c-accent) / 0.3);
-    color: rgb(var(--c-text-primary));
+    background: rgb(var(--c-accent) / 0.85);
+    color: rgb(var(--c-bg-base));
   }
 
-  /* Focus ring for keyboard navigation */
   :focus-visible {
     outline: 2px solid rgb(var(--c-accent) / 0.6);
     outline-offset: 2px;
     border-radius: 4px;
   }
+  :focus:not(:focus-visible) { outline: none; }
 
-  /* Remove default focus ring for mouse users */
-  :focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  /* Respect reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
@@ -98,220 +80,132 @@
   }
 }
 
-/* Rich-text content must stay inside narrow mobile viewports. Inline code wraps;
-   fenced code and tables keep their own local horizontal scroller. */
+/* Rich-text content must stay inside narrow mobile viewports. Inline code
+   wraps; fenced code and tables keep their own local horizontal scroller. */
 .article-prose :not(pre) > code {
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
-
 .article-prose pre,
-.article-prose table {
-  max-width: 100%;
-}
-
+.article-prose table { max-width: 100%; }
 .article-prose pre code {
   white-space: pre;
   overflow-wrap: normal;
   word-break: normal;
 }
 
-/* Secondary pages reuse the homepage's restrained dark surfaces: nearly flat,
-   separated by hairlines, with one quiet lift on interactive cards. */
-/* One framing system for every homepage chapter. Center alignment is reserved
-   for the opening statement and closing CTA; information chapters share a
-   single left reading axis. */
+/* ---------------------------------------------------------------------------
+ * Shared section grid (home / about / practice share one rhythm).
+ *   .site-section    — hairline top, generous vertical breathing room
+ *   .site-container  — page-width gutter container
+ *   .site-section-header — left-aligned header used by every chapter
+ * Center alignment is reserved for the opening statement and closing CTA.
+ * ------------------------------------------------------------------------ */
 .site-section {
   position: relative;
   padding-block: clamp(5rem, 9vw, 9rem);
   border-top: 1px solid rgb(var(--c-border) / 0.78);
   scroll-margin-top: 4rem;
 }
-
 .site-container {
   width: 100%;
   max-width: 72rem;
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
-
 .site-section-header {
   max-width: 46rem;
   margin-bottom: clamp(2.75rem, 5vw, 5rem);
 }
-
 .site-section-header-center {
   margin-inline: auto;
   text-align: center;
 }
 
-/* Statement / TrustBar texture — breaks the flat dark field behind the brand
-   statement without competing with the text. */
+/* Subtle paper texture: barely-there dotted lines. Gives the surface a
+   material feel without competing with foreground content. */
 .statement-texture {
   background-image:
-    radial-gradient(circle at 20% 30%, rgb(var(--c-accent) / 0.06), transparent 32rem),
-    radial-gradient(circle at 80% 70%, rgb(var(--c-accent) / 0.04), transparent 28rem),
-    radial-gradient(circle at 50% 50%, rgb(var(--c-ink) / 0.035), transparent 45rem),
-    repeating-linear-gradient(112deg, rgb(var(--c-ink) / 0.03) 0 1px, transparent 1px 7px);
+    radial-gradient(circle at 20% 30%, rgb(var(--c-accent) / 0.04), transparent 32rem),
+    radial-gradient(circle at 80% 70%, rgb(var(--c-accent) / 0.025), transparent 28rem),
+    repeating-linear-gradient(112deg, rgb(var(--c-ink) / 0.018) 0 1px, transparent 1px 7px);
 }
 
-[data-theme='light'] .statement-texture {
-  background-image:
-    radial-gradient(circle at 20% 30%, rgb(var(--c-accent) / 0.045), transparent 32rem),
-    radial-gradient(circle at 80% 70%, rgb(93 82 63 / 0.03), transparent 28rem),
-    radial-gradient(circle at 50% 50%, rgb(var(--c-ink) / 0.025), transparent 45rem),
-    repeating-linear-gradient(112deg, rgb(56 49 39 / 0.012) 0 1px, transparent 1px 7px);
-}
-
-/* Light mode is warm paper, not sterile white. The texture is deliberately
-   below normal perception and only gives large empty fields a material feel. */
-[data-theme='light'] .site-section {
-  background-image:
-    radial-gradient(circle at 14% 18%, rgb(var(--c-accent) / 0.025), transparent 31rem),
-    radial-gradient(circle at 86% 74%, rgb(93 82 63 / 0.022), transparent 28rem),
-    repeating-linear-gradient(112deg, rgb(56 49 39 / 0.012) 0 1px, transparent 1px 5px);
-}
-
+/* Hero opening texture (paper). Used by the redesigned home hero. */
 .hero-light-texture {
-  opacity: 0;
   background:
-    radial-gradient(circle at 52% 44%, rgb(var(--c-accent) / 0.09), transparent 31%),
-    linear-gradient(122deg, transparent 16%, rgb(var(--c-ink) / 0.045) 16.1%, transparent 16.35% 66%, rgb(var(--c-accent) / 0.065) 66.1%, transparent 66.35%),
-    repeating-linear-gradient(108deg, rgb(var(--c-ink) / 0.012) 0 1px, transparent 1px 6px);
-  transition: opacity 420ms ease;
+    radial-gradient(circle at 52% 44%, rgb(var(--c-accent) / 0.06), transparent 31%),
+    repeating-linear-gradient(108deg, rgb(var(--c-ink) / 0.018) 0 1px, transparent 1px 6px);
 }
 
-.hero-static-texture {
-  opacity: 0.78;
-  background:
-    radial-gradient(circle at 52% 42%, rgb(var(--c-ink) / 0.055), transparent 33%),
-    linear-gradient(122deg, transparent 20%, rgb(var(--c-ink) / 0.035) 20.1%, transparent 20.35% 72%, rgb(var(--c-accent) / 0.05) 72.1%, transparent 72.35%);
-}
+/* Dark-mode-only references are kept as no-ops so old callers don't crash. */
+.hero-static-texture { display: none; }
+.hero-dark-beams { display: none; }
 
-[data-theme='light'] .hero-static-texture {
-  opacity: 0;
-}
-
-[data-theme='light'] .hero-light-texture {
-  opacity: 1;
-}
-
-[data-theme='light'] .hero-dark-beams {
-  opacity: 0;
-  visibility: hidden;
-}
-
-[data-theme='light'] .hero-divider {
-  background: linear-gradient(90deg, transparent 5%, rgb(var(--c-ink) / 0.08) 30%, rgb(var(--c-accent) / 0.22) 50%, rgb(var(--c-ink) / 0.08) 70%, transparent 95%) !important;
-}
-
-[data-theme='light'] .hero-bottom-glow {
-  background: linear-gradient(to top, rgb(var(--c-accent) / 0.04), transparent 42%) !important;
-}
-
-.theme-logo-light {
-  display: none;
-}
-
-[data-theme='light'] .theme-logo-dark {
-  display: none;
-}
-
-[data-theme='light'] .theme-logo-light {
-  display: block;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .interactive-row,
-  .interactive-card {
-    transition:
-      border-color 300ms ease,
-      background-color 300ms ease,
-      box-shadow 300ms ease,
-      transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .interactive-row:hover {
-    border-color: rgb(var(--c-accent) / 0.38);
-    background: linear-gradient(90deg, rgb(var(--c-accent) / 0.04), transparent 64%);
-    transform: translateX(3px);
-  }
-
-  .interactive-card:hover {
-    border-color: rgb(var(--c-accent) / 0.36);
-    box-shadow: 0 22px 55px -42px rgb(var(--c-accent) / 0.45);
-    transform: translateY(-3px);
-  }
-}
-
-.demo-scroll {
-  scrollbar-color: rgb(var(--c-border)) transparent;
-  scrollbar-width: thin;
-}
-
-.demo-scroll::-webkit-scrollbar {
-  width: 5px;
-}
-
-.demo-scroll::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgb(var(--c-border));
-}
-
-@media (max-width: 767px) {
-  /* Do not leave the mobile hero blank while the staggered desktop entrance runs. */
-  .hero-mobile-static,
-  .hero-mobile-static *,
-  .subpage-mobile-static,
-  .subpage-mobile-static *,
-  .site-mobile-static,
-  .site-mobile-static * {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
+/* Single-theme: both logo variants exist on disk; show only the dark logo
+   for the paper background. Old [data-theme] classes still parse but no-op. */
+.theme-logo-light { display: block; }
+.theme-logo-dark { display: none; }
+[data-theme='light'] .theme-logo-light { display: none; }
+[data-theme='light'] .theme-logo-dark { display: block; }
 
 @layer utilities {
-  .text-balance {
+  .text-balance { text-wrap: balance; }
+
+  /* Editorial eyebrow (e.g. "01 /" label). Mono, tight tracking, accent. */
+  .eyebrow-mono {
+    font-family: var(--font-mono), 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--c-text-tertiary));
+  }
+  .eyebrow-mono-accent {
+    font-family: var(--font-mono), 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--c-accent));
+  }
+
+  /* Centered statement serif (one per page). */
+  .serif-display {
+    font-family: var(--font-serif), 'Source Serif 4', 'Source Han Serif SC', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.32;
     text-wrap: balance;
   }
 }
 
-/* ---------------------------------------------------------------------------
- * Syntax highlighting tokens (consumed by components/demos/highlight.tsx).
- * Dark palette is tuned for the #0C0C0F canvas; light palette is tuned for
- * WCAG AA on #FAFAFB. Pure CSS — flipping html[data-theme] restyles every
- * token with no JS re-render and no hydration mismatch.
- * ------------------------------------------------------------------------ */
-:root,
-[data-theme='dark'] {
-  --tok-keyword: #d2b48c;
-  --tok-type: #b7c2a3;
-  --tok-string: #a8c6a0;
-  --tok-number: #d4a27c;
-  --tok-func: #d8c5a1;
-  --tok-comment: #69665f;
-  --tok-punct: #8c887f;
-  --tok-base: #d0ccc3;
+@layer components {
+  .interactive-row {
+    transition:
+      border-color 300ms ease,
+      background-color 300ms ease,
+      transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .interactive-row:hover {
+      border-color: rgb(var(--c-accent) / 0.4);
+      background: linear-gradient(90deg, rgb(var(--c-accent) / 0.04), transparent 64%);
+      transform: translateX(3px);
+    }
+  }
 }
 
-[data-theme='light'] {
-  --tok-keyword: #795b35;
-  --tok-type: #536044;
-  --tok-string: #426c3f;
-  --tok-number: #965e39;
-  --tok-func: #6e552f;
-  --tok-comment: #8a857b;
-  --tok-punct: #6f6a61;
-  --tok-base: #302e29;
-}
+/* Reserved utilities from the old code — kept for back-compat but no-op. */
+.demo-scroll { scrollbar-color: rgb(var(--c-border)) transparent; scrollbar-width: thin; }
+.demo-scroll::-webkit-scrollbar { width: 5px; }
+.demo-scroll::-webkit-scrollbar-thumb { border-radius: 999px; background: rgb(var(--c-border)); }
 
-.tok-keyword { color: var(--tok-keyword); }
-.tok-type { color: var(--tok-type); }
-.tok-string { color: var(--tok-string); }
-.tok-number { color: var(--tok-number); }
-.tok-func { color: var(--tok-func); }
-.tok-comment { color: var(--tok-comment); }
-.tok-punct { color: var(--tok-punct); }
-.tok-base { color: var(--tok-base); }
+@media (max-width: 767px) {
+  /* Mobile entrance animations get bypassed so first paint is never blank. */
+  .hero-mobile-static, .hero-mobile-static *,
+  .subpage-mobile-static, .subpage-mobile-static *,
+  .site-mobile-static, .site-mobile-static * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
