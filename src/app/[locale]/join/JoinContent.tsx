@@ -16,18 +16,19 @@ export default function JoinContent() {
 
   return (
     <section className="relative overflow-hidden bg-canvas border-t border-rule py-[clamp(72px,9vw,128px)]">
-      {/* Right-half desktop photo (decorative, hidden mobile). Low opacity
-          keeps content on the left half fully readable while adding a warm,
-          lived-in frame for "where the work happens". */}
+      {/* Right-half desktop photo (decorative, hidden mobile). Fixed 55vh
+          tall, anchored bottom-right — about half a screen of imagery
+          rather than full-bleed, so the headline + benefits list keep
+          the dominant role. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-1/2 overflow-hidden md:block"
+        className="pointer-events-none absolute bottom-0 right-0 z-0 hidden h-[55vh] w-1/2 overflow-hidden md:block"
       >
         <img
           src="/assets/joinus.jpg"
           alt=""
           loading="lazy"
-          className="h-full w-full object-cover opacity-[0.22]"
+          className="h-full w-full object-cover opacity-[0.28]"
         />
       </div>
 
