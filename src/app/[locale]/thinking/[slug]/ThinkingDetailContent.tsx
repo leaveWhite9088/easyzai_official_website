@@ -1,7 +1,7 @@
 // Thinking detail — 50vh top concept image + 820px narrow article body.
 // Concept image swaps by category:
-//   methodology      → concept-cyanotype-3.png    (蓝晒)
-//   case study       → thinking-case-study.png    (建筑仰视 / 重复结构)
+//   methodology      → thinking-case-study.png    (建筑仰视 / 重复结构)
+//   case study       → thinking-securities.png    (蓝色数据节点拓扑)
 //   technical view   → thinking-arch.png          (建筑结构)
 'use client'
 
@@ -15,8 +15,8 @@ import type { Article } from '@/types/content'
 
 // Map a Chinese/English category to the matching concept image.
 function imageForCategory(category: string): string {
-  if (category === '方法论' || category === 'Methodology') return '/assets/concept-cyanotype-3.png'
-  if (category === '案例复盘' || category === 'Case Study' || category === 'Case study') return '/assets/thinking-case-study.png'
+  if (category === '方法论' || category === 'Methodology') return '/assets/thinking-case-study.png'
+  if (category === '案例复盘' || category === 'Case Study' || category === 'Case study') return '/assets/thinking-securities.png'
   // 技术观点 / Technical perspective
   return '/assets/thinking-arch.png'
 }

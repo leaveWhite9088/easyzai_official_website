@@ -21,9 +21,10 @@
 | 思考页（列表） | `thinking.html` | **v0.4 已锁**（最终版：820px 窄列、报纸头、inline meta） |
 | 思考详情 | `thinking-detail.html` | v0.1 已锁（50vh 顶部概念图） |
 | Hero 视频 | `hero-4.mp4` | 首页 Hero（大理石墙面 dolly，6s 1080P） |
-| 概念图 | `concept-cyanotype-3.png` | 首页 + 思考方法论类（蓝晒 sparse branch，2K） |
-| 建筑仰视柱阵 | `thinking-case-study.png` | 思考案例复盘类（白色方柱网格 + 暖色点缀 + 仰视纵深，2K） |
-| 大理石纹理 | `marble-texture.png` | 关于页 + 实践（保留作 section 底纹，2K） |
+| 概念图 | `concept-cyanotype-3.png` | 首页 Specimen（蓝晒 sparse branch，2K） |
+| 建筑仰视柱阵 | `thinking-case-study.png` | 思考方法论类（白色方柱网格 + 暖色点缀 + 仰视纵深，2K） |
+| 蓝晒数据节点图 | `thinking-securities.png` | 思考案例复盘类（深蓝 hub + 卫星节点 + 3 高亮，2K） |
+| 大理石纹理 | `marble-texture.png` | 关于页 + 实践 section 底纹（2K） |
 | 建筑结构图 | `thinking-arch.png` | 思考技术观点类（2K） |
 | 合作伙伴 1 | `partner-1.png` | 云汉孵化中心（**原色呈现**） |
 | 合作伙伴 2 | `partner-2.png` | 智猩猩（**原色呈现**） |
