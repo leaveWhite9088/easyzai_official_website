@@ -494,5 +494,51 @@
       "body": "Organizations we've explored AI implementation with, side by side.",
       "count": "3 partners · since 2023"
     }
+  },
+  "practice": {
+    "meta": {
+      "title": "Practice · EasyZ",
+      "description": "EasyZ's capability map and selected case studies. Four capability areas, four real, anonymized deliveries."
+    },
+    "capabilities": {
+      "eyebrowZh": "Capabilities",
+      "title1": "What we've done,",
+      "title2": "listed here.",
+      "items": [
+        {
+          "num": "01",
+          "title": "AI code migration & knowledge engineering",
+          "desc": "Automatic cross-language library rewriting — papers + RAG + Agent."
+        },
+        {
+          "num": "02",
+          "title": "AI transformation of enterprise systems",
+          "desc": "Non-intrusive AI layers on top of legacy systems, no rip-and-replace."
+        },
+        {
+          "num": "03",
+          "title": "RAG / Agent system building",
+          "desc": "Private knowledge base integration, multi-turn dialogue, automated workflows."
+        },
+        {
+          "num": "04",
+          "title": "End-to-end delivery for non-standard work",
+          "desc": "Problem research, solution design, engineering delivery — three stages, all in-house."
+        }
+      ]
+    },
+    "cases": {
+      "eyebrowZh": "Cases",
+      "title": "Selected Cases",
+      "count": "4 · 2023 — now",
+      "body": "All cases are anonymized, with data from real deliveries. Click through to a case for the full research and delivery story."
+    },
+    "next": {
+      "eyebrowZh": "Next",
+      "title1": "Got something non-standard",
+      "title2": "no one can crack?",
+      "body": "Write to us. Research, design, delivery — three stages, all in-house.",
+      "cta": "Start a conversation"
+    }
   }
 }
