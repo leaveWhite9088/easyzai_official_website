@@ -1,5 +1,6 @@
-'use client'
-
+// Blue Footer — cyan-d base + AI-generated blueprint texture overlay at low
+// opacity, white text, email + WeChat QR. The brand's only full-bleed blue
+// surface; everything else on the site is paper + ink.
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
@@ -10,104 +11,135 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-bg-base border-t border-border-subtle">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-10">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 py-14 sm:py-16 lg:py-20">
-          {/* Brand Column */}
-          <div className="sm:col-span-2 md:col-span-3 lg:col-span-2">
-            <div role="img" aria-label="EasyZ" className="relative mb-4 h-9 w-[140px]">
-              <Image
-                src="/assets/导航栏logo（白色）.svg"
-                alt=""
-                fill
-                className="theme-logo-dark object-contain opacity-60"
-                sizes="140px"
-              />
-              <Image
-                src="/assets/导航栏logo（黑色）.svg"
-                alt=""
-                fill
-                className="theme-logo-light object-contain opacity-60"
-                sizes="140px"
-              />
+    <footer
+      className="relative overflow-hidden text-canvas"
+      style={{ backgroundColor: 'rgb(var(--c-cyan-d))' }}
+    >
+      {/* AI-generated blueprint texture (low opacity). The base is solid
+          cyan-d, so even if the texture fails to load the brand color is
+          preserved. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.14] mix-blend-screen"
+        style={{ backgroundImage: 'url(/assets/footer-bg.png)' }}
+      />
+      {/* A second micro-texture: the marble grain, even fainter, to add
+          tactile depth without competing with the foreground content. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.05]"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(112deg, rgba(250,249,245,0.5) 0 1px, transparent 1px 7px)',
+        }}
+      />
+
+      <div className="relative mx-auto max-w-page px-6 py-16 sm:px-10 sm:py-20">
+        {/* Top row: brand + tagline */}
+        <div className="grid grid-cols-12 gap-x-6 gap-y-10 sm:gap-x-10">
+          <div className="col-span-12 md:col-span-5">
+            <div className="mb-5">
+              <span className="font-mono text-[12px] tracking-[0.22em] uppercase text-canvas">
+                {t('brandLabel')}
+              </span>
             </div>
-            <p className="text-[13px] text-text-tertiary leading-relaxed max-w-xs mb-2">
-              {t('companyCn')}
+            <p className="max-w-sm font-serif italic text-[20px] leading-[1.4] text-canvas/90 sm:text-[22px]">
+              {t('quote')}
             </p>
-            <p className="text-[11px] text-text-tertiary leading-relaxed max-w-xs">
-              {t('companyEn')}
-            </p>
+            <Link
+              href={`/${locale}/join`}
+              className="mt-7 inline-flex min-h-[44px] items-center gap-2 text-[14px] text-canvas transition-opacity hover:opacity-80"
+            >
+              {t('joinLabel')}
+              <span aria-hidden>→</span>
+            </Link>
           </div>
 
-          {/* Cases Column */}
-          <div>
-            <h4 className="text-[11px] font-mono text-text-tertiary uppercase tracking-wider mb-4">
+          {/* Cases column */}
+          <div className="col-span-6 md:col-span-3">
+            <h4 className="mb-4 font-mono text-[11px] tracking-[0.18em] uppercase text-canvas/60">
               {t('casesTitle')}
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href={`/${locale}/cases/programming-language-migration`} className="inline-flex min-h-[44px] items-center text-[14px] text-text-secondary hover:text-text-primary transition-colors">
+                <Link
+                  href={`/${locale}/cases/programming-language-migration`}
+                  className="inline-flex min-h-[44px] items-center text-[14px] text-canvas/85 transition-colors hover:text-canvas"
+                >
                   {t('caseMigration')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/cases/securities-ai-platform`} className="inline-flex min-h-[44px] items-center text-[14px] text-text-secondary hover:text-text-primary transition-colors">
+                <Link
+                  href={`/${locale}/cases/securities-ai-platform`}
+                  className="inline-flex min-h-[44px] items-center text-[14px] text-canvas/85 transition-colors hover:text-canvas"
+                >
                   {t('caseSecurities')}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Column */}
-          <div>
-            <h4 className="text-[11px] font-mono text-text-tertiary uppercase tracking-wider mb-4">
+          {/* Contact column — email + WeChat QR */}
+          <div className="col-span-6 md:col-span-4">
+            <h4 className="mb-4 font-mono text-[11px] tracking-[0.18em] uppercase text-canvas/60">
               {t('contactTitle')}
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="mailto:18781630574@163.com" className="inline-flex min-h-[44px] max-w-full items-center break-all text-[14px] text-text-secondary hover:text-accent transition-colors">
-                  18781630574@163.com
-                </a>
-              </li>
-              <li>
-                <span className="text-[14px] text-text-secondary">
-                  {t('address')}
-                </span>
-              </li>
-            </ul>
+            <a
+              href="mailto:18781630574@163.com"
+              className="mb-5 inline-flex min-h-[44px] max-w-full items-center break-all font-mono text-[13px] text-canvas transition-opacity hover:opacity-80"
+            >
+              18781630574@163.com
+            </a>
+            <p className="mb-3 font-mono text-[10px] tracking-[0.18em] uppercase text-canvas/60">
+              {t('wechatHint')}
+            </p>
+            <div className="relative inline-block h-[120px] w-[120px] rounded-md border border-canvas/15 bg-canvas/[0.04] p-2 backdrop-blur-sm">
+              <Image
+                src="/assets/个人二维码.png"
+                alt={t('wechatAria')}
+                width={104}
+                height={104}
+                className="h-full w-full object-contain"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-border-subtle py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p className="text-text-tertiary text-[12px]">
-            &copy; {currentYear} EasyZ. All rights reserved.
-          </p>
-          <div className="flex max-w-full flex-col sm:flex-row items-center gap-1 sm:gap-4 text-[12px] text-text-tertiary">
-            <a
-              href="https://beian.miit.gov.cn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center hover:text-text-secondary transition-colors"
-            >
-              {t('beian')}
-            </a>
-            <a
-              href="https://beian.mps.gov.cn/#/query/webSearch?code=21010602001352"
-              target="_blank"
-              rel="noreferrer"
-              className="flex min-h-[44px] max-w-full items-center gap-1.5 hover:text-text-secondary transition-colors"
-            >
-              <Image
-                src="/assets/备案图标.png"
-                alt=""
-                width={16}
-                height={16}
-                className="w-4 h-4 object-contain"
-              />
-              <span>辽公网安备21010602001352号</span>
-            </a>
+        {/* Bottom: address + 备案 */}
+        <div className="mt-14 border-t border-canvas/15 pt-8 sm:mt-20">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div>
+              <div className="mb-1 font-mono text-[10px] tracking-[0.18em] uppercase text-canvas/60">
+                {t('addressLabel')}
+              </div>
+              <p className="font-mono text-[12px] leading-[1.6] text-canvas/85">
+                {t('address')}
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 sm:items-end">
+              <p className="font-mono text-[12px] text-canvas/60">
+                &copy; {currentYear} {t('companyCn')}
+              </p>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[12px] text-canvas/60">
+                <a
+                  href="https://beian.miit.gov.cn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center transition-colors hover:text-canvas"
+                >
+                  {t('beian')}
+                </a>
+                <a
+                  href="https://beian.mps.gov.cn/#/query/webSearch?code=21010602001352"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-[44px] items-center transition-colors hover:text-canvas"
+                >
+                  辽公网安备21010602001352号
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

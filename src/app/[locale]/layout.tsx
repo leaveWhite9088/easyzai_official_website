@@ -2,18 +2,38 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { MotionConfig } from 'framer-motion'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Source_Serif_4 } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { locales } from '@/i18n'
-import ThemeProvider from '@/components/theme/ThemeProvider'
 import PageTransition from '@/components/PageTransition'
-import { THEME_INIT_SCRIPT } from '@/components/theme/theme-script'
 import '../globals.css'
 
 // Self-hosted via next/font: build-time download, auto-subset, no render-blocking
 // cross-origin @import. Exposed as CSS variables consumed by tailwind.config.js.
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
+// Source Serif 4 — editorial "one serif per page" rhythm. Variable font for
+// fine weight control; the redesigned home / about / practice / thinking each
+// use it in exactly one place.
+//
+// `fallback` (next/font option) points the metric-override @font-face at
+// real Chinese serif system faces. Without this, next/font defaults the
+// override to `local("Times New Roman")`, which on Windows trips the
+// browser's system-font chain into 黑体 instead of 宋体 for CJK glyphs.
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  display: 'swap',
+  weight: ['300', '400', '500'],
+  style: ['normal', 'italic'],
+  fallback: [
+    '"Source Han Serif SC"',
+    '"Noto Serif CJK SC"',
+    'Songti SC',
+    'STSong',
+    'SimSun',
+  ],
+})
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -76,19 +96,15 @@ export default async function LocaleLayout({
       lang={locale}
       data-theme="dark"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerif.variable}`}
     >
       <head>
-        {/* Apply the stored theme before first paint — prevents theme flash. */}
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <ThemeProvider>
-            <MotionConfig reducedMotion="user">
-              <PageTransition>{children}</PageTransition>
-            </MotionConfig>
-          </ThemeProvider>
+          <MotionConfig reducedMotion="user">
+            <PageTransition>{children}</PageTransition>
+          </MotionConfig>
         </NextIntlClientProvider>
       </body>
     </html>

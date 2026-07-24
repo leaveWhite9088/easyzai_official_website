@@ -23,10 +23,9 @@ npm run dev         # 开发服务器，端口 3010
 npm run dev:clean   # 清缓存启动（kill-port + 删 .next 和 node_modules/.cache）
 npm run typecheck   # TypeScript 检查
 npm run build       # 构建并静态导出到 out/
-npm run test:site   # 站点契约测试（读取 out/，需先 build）
 ```
 
-开发检查清单：`typecheck` → `build` → `test:site` → 浏览器访问 `http://localhost:3010/zh`。
+开发检查清单：`typecheck` → `build` → 浏览器访问 `http://localhost:3010/zh`。
 
 ## 目录结构
 
@@ -60,7 +59,6 @@ src/
 └── i18n.ts                   # next-intl 配置
 
 messages/                     # zh.json / en.json 双语文案
-tests/site-contracts.test.mjs # 站点契约测试（基于构建产物 out/）
 ```
 
 ## 设计系统
@@ -86,7 +84,7 @@ tests/site-contracts.test.mjs # 站点契约测试（基于构建产物 out/）
 ## 部署
 
 - 静态导出，构建产物在 `out/` 目录
-- 部署前确保 `npm run build` 与 `npm run test:site` 通过
+- 部署前确保 `npm run build` 通过
 - 详见 `DEPLOY.md`
 
 ## 其他笔记

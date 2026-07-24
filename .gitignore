@@ -92,6 +92,7 @@ skills-lock.json
 # ============ Screenshots (temporary design files) ============
 *.png
 !public/**/*.png
+!docs/**/*.png
 
 # ============ Design docs (optional) ============
 DESIGN.md

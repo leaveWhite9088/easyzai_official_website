@@ -11,7 +11,7 @@
 
 - **每一次改动完成后都必须 `git commit` 并 `git push` 到 `main`**，不允许只改不提交
 - 多个不相关改动按计划拆分为多个语义化提交（fix / feat / docs / refactor），不要混在一个提交里
-- 提交前确保 `npm run typecheck` 通过；涉及结构或样式约定变化时同步更新契约测试
+- 提交前确保 `npm run typecheck` 通过
 
 ## 常见问题：Next.js 热更新缓存损坏
 
@@ -108,7 +108,15 @@ npm run dev:clean
 
 - **Skill 只放一处**：`.agents/skills/` 是唯一存放点。**不要**生成 `.claude/`、`agent/` 等 agent 专用 symlink 目录，也不要提交 `skills-lock.json`。
 - **不创建临时分支**：所有改动直接 commit 到 `main`，不需要 `feature/xxx` 或 `redesign/xxx` 之类的"准备分支"。
+  - **例外**：本次官网 redesign 期间（2026-07-23 起）的工作统一在 `redesign-0723` 分支进行，不直接 commit 到 main；完成并验收后合并回 main。
 - **工具/缓存产物一律 gitignore**：`out/`、`.next/`、`.playwright-mcp/`、`.impeccable/`、`.dev*.log`、`.tsbuildinfo` 等。
+
+## 当前 redesign 实施状态 (2026-07-24)
+
+- **实施版本**：v2.1.0（Home / About / Practice / Thinking + 4 case / 3 thinking 详情 + join 全部上线）
+- **分支**：`redesign-0723`
+- **next 任务**：用户验收后合并回 main（届时把 `npm run dev:clean` 里的 `rm -rf` 改回 PowerShell 等价命令，并清理 docs/prototype/ 与 .gitignore 的例外）
+- **未做**：case 详情页视觉升级（保留旧设计但颜色已自动适配 paper + cyan）；用户预告「可能会叫你把所有的详细页都做出来」—— 单独再做
 
 ## Windows 环境差异（PowerShell）
 

@@ -3,7 +3,6 @@
 import { useTranslations } from 'next-intl'
 import Markdown from 'react-markdown'
 import { motion } from 'framer-motion'
-import SubpageAtmosphere from '@/components/SubpageAtmosphere'
 
 const caseData: Record<string, any> = {
   'programming-language-migration': {
@@ -496,15 +495,15 @@ The specific approach:
 3. **Roll out gradually.** Launch one scenario first, stabilize it, then launch the second, and finally the third. Each scenario is independent and doesn't affect the others.
 
 **Benefits of this approach:**
-- Zero changes to the existing system, keeping risk under control
-- Independent AI service deployment, keeping performance under control
-- Independent scenario rollouts, keeping the timeline under control
+- Zero changes to the existing system, risk under control
+- Independent AI service deployment, performance under control
+- Independent scenario rollouts, timeline under control
 
 ---
 
 ## Three Scenarios
 
-We chose three scenarios as entry points, each with its own logic.
+We chose three scenarios to切入, each with different logic.
 
 ### Scenario 1: Smart Authorization
 
@@ -665,8 +664,330 @@ This project taught us several things:
 2. **Scenario selection matters.** Not all scenarios are suitable for AI. We need to choose scenarios with strong pain points, sufficient data, and enough room for error.
 3. **Toolization is key.** Encapsulating AI capabilities as tools enables reuse, scalability, and maintainability.
 
-If you have a legacy system you'd like to add AI capabilities to, feel free to reach out.`
-    }
+If you have a legacy system you'd like to add AI capabilities to, feel free to reach out.`,
+    },
+  },
+  'laser-equipment-ai-customer-service': {
+    industry: { zh: '工业 / 智能制造', en: 'Industrial / Smart Manufacturing' },
+    title: { zh: '激光加工设备企业智能客服', en: 'AI Customer Service for a Laser-Equipment Maker' },
+    coreMetric: '75%+',
+    coreMetricLabel: { zh: '客户问题综合解决率', en: 'Customer question resolution rate' },
+    content: {
+      zh: `## 背景
+
+这是一家做激光加工设备的企业，单台设备价格不菲。他们的客户群——主要是制造业产线负责人和采购——问的不是「你的产品多少钱」，而是「我这个工件用你们 3000W 光纤激光器切，切不锈钢 3mm 厚度时，切割速度、辅助气体压力、最佳焦点位置怎么配比」。
+
+**这类问题有两个特点：**
+
+1. **高度专业。** 客户需要的是贴合自己工件、产线、设备状态的答案，而不是通识科普。
+2. **错不起。** 设备贵，单次试错成本高。客户宁可 AI 答「不会」，也不愿被错答误导。
+
+他们有大量产品技术书、内部技术文档——既有大段说明，也有大量图纸（光路图、切割参数表、结构爆炸图等）。
+
+**目标：让 AI 在客户问问题时给出一份既专业、又「宁可不说也不能错」的回答。**
+
+---
+
+## 为什么这件事难
+
+一般的 RAG 在文本上是好用的，但激光加工这个场景有两个特殊挑战：
+
+1. **图比文多。** 产品技术书的很多关键信息在图纸里——光路结构、切割参数表、安装尺寸……光靠文字检索几乎取不到关键证据。
+2. **错答代价高。** 普通消费客服答错可以道个歉，激光参数答错一次可能要客户切坏一批工件，返工 + 废料 + 停机，损失远大于一次客服对话。
+
+所以我们要做两件事：**让 AI 能「看懂图」，让 AI「不会就说不会」。**
+
+---
+
+## 方案
+
+### 多模态看图：Qwen2.5-VL 系列 + 微调
+
+我们接入的是千问 **Qwen2.5-VL 系列多模态模型（约 32B 量级）**——一个 ViT 视觉编码器 + Qwen LLM 主干，能同时接收图和文本。我们针对他们的产品技术书做了**轻量微调**，让它更擅长识读激光设备里这几类图纸：
+
+- 切割参数表（功率、气压、速度、焦点位置）
+- 光路结构图（光斑大小、镜片位置）
+- 设备结构爆炸图（部件命名、装配关系）
+
+微调用他们历史技术档案 + 工程师标注的少量样本（小几百到一千条问答对）做监督微调，把识图错误率压下来。
+
+### 文本检索：标准 RAG
+
+图纸以外的长文档——产品手册、维护指南、工艺 SOP——走标准 RAG 流程：分块、向量化、语义检索。文本和图纸的检索结果统一送进同一个问答模块做最终整合。
+
+### 「宁可不说也不能错」
+
+这是这套客服**真正困难的部分**。我们做了三层兜底：
+
+1. **规则层。** 系统提示词硬约束——只允许基于检索到的文档回答，未检索到的不许编造。
+2. **置信度层。** 多模态模型给每个回答输出置信度，低于阈值自动走 fallback。
+3. **兜底层。** 触发 fallback 时直接回退到一句固定回复：「这个暂时我不确定，建议您联系我们的技术支持工程师。」 并把这条会话推送给人工。
+
+三层兜底之后，AI 在它**确实知道**的领域里准确率能稳到 **90%+，贴近 95%**；遇到它不会的，会主动退回「我不确定」——这正是客户期待的边界感。
+
+综合下来：**客户问题被 AI 一次性解决的比例在 75%+。**
+
+---
+
+## 接入
+
+最终交付不是一个独立的云端工具，而是**嵌进客户自己的入口**：
+
+1. **网页端客服。** 客户官网右下角悬浮客服，直接接入。
+2. **自有小程序。** 客户自己的小程序里也接入了同一套问答接口。
+
+两边共用同一套 AI 后端和知识库，更新一次两边同步生效。
+
+---
+
+## 写在最后
+
+这事做下来最深的体会是：**B 端很多场景里，「会拒答」比「能答」更重要。**
+
+通用消费级 AI 训练的目标是「尽量答、答得自然」。但 B 端客户买的是一份「我交给你的活儿能不能放心」——这套 AI 客服能让客户放心，不是因为它什么都能答，而是因为它**知道什么时候该闭嘴**。
+
+把这件事抽象成一条原则：**能不用 AI 就不用，用了也省着。** 项目能跑下来靠的不只是模型，而是规则、阈值和兜底。
+`,
+      en: `## Background
+
+A laser-equipment maker — single machines run into serious money. Their buyers are manufacturing line managers and procurement teams, and the questions they ask aren't "what does your product cost." They're "I'm cutting 3mm stainless with your 3000W fiber laser — what's the right speed, assist-gas pressure, and focal position for this job?"
+
+**Two traits of these questions:**
+
+1. **Highly technical.** Clients need answers tailored to their workpiece, line, and equipment — not generic explanations.
+2. **Costly mistakes.** Machines are expensive; one bad parameter recommendation can ruin a batch, force rework, and cost far more than a single support ticket.
+
+They had a deep archive of product technical documentation — long-form manuals plus a lot of diagrams (optical-path diagrams, cutting-parameter tables, exploded structural drawings).
+
+**Goal:** an AI support agent that's both deeply technical **and** disciplined enough to say "I don't know" rather than guess wrong.
+
+---
+
+## Why This Was Hard
+
+Standard RAG handles text well, but laser manufacturing has two extra challenges:
+
+1. **Diagrams carry the data.** Many key facts live inside drawings — optical layouts, parameter tables, dimensional specs — that text-only retrieval can't reach.
+2. **Wrong answers are expensive.** A consumer support bot can apologize. A wrong parameter recommendation can cost a client an entire batch.
+
+We had to do two things: **let the AI see the diagrams**, and **let the AI stay quiet when it shouldn't answer.**
+
+---
+
+## Approach
+
+### Multimodal diagrams: Qwen2.5-VL + fine-tuning
+
+We deployed the **Qwen2.5-VL multimodal model (~32B)** — a ViT vision encoder + Qwen LLM backbone that accepts images and text together. We fine-tuned it lightly on the client's own archives:
+
+- Cutting parameter tables (power, gas pressure, speed, focal position)
+- Optical path diagrams (spot size, lens placement)
+- Exploded structural drawings (part names, assembly relations)
+
+We used their historical docs plus a few hundred to ~1000 engineer-labeled Q&A pairs as supervised fine-tune data — enough to bring diagram-recognition error down to usable levels.
+
+### Text retrieval: standard RAG
+
+For the long-form docs (manuals, maintenance guides, process SOPs), we ran standard RAG — chunking, vector indexing, semantic retrieval. Text and diagram evidence are merged in the same answer module.
+
+### "Better silent than wrong"
+
+This was the **hardest part** of the build. We layered three fallbacks:
+
+1. **Prompt rules.** Hard constraints: only answer based on retrieved evidence; never invent.
+2. **Confidence thresholding.** The multimodal model emits a confidence with each answer — low confidence triggers fallback.
+3. **Hard fallback reply.** "I'm not certain about this — please contact our support engineer." And the thread is forwarded to a human.
+
+After the three layers, the AI is **90%+ accurate** on the cases it should answer — **closer to 95%** — and stays silent when it shouldn't speak. That's exactly the boundary the client wants.
+
+**Net result: 75%+ of customer questions are resolved by AI without a human in the loop.**
+
+---
+
+## Channels
+
+The deliverable wasn't a separate cloud tool — it was **embedded into the client's own entry points**:
+
+1. **Web widget.** A floating chat icon in the bottom-right of their website.
+2. **Their own mini-program.** The same Q&A API, embedded in their WeChat mini-program.
+
+Both consume the same AI backend and knowledge base — update once, both stay in sync.
+
+---
+
+## Final Thoughts
+
+The deepest lesson from this build: **in many B-side scenarios, "knowing when to stay silent" matters more than "being able to answer."**
+
+General-purpose consumer AI is trained to "answer fully and naturally." But B-side clients buy a guarantee: "can I trust this with my work?" — and that trust comes less from coverage than from **knowing when to shut up.**
+
+It's the same principle as our project rule: **don't reach for AI when rules will do — and keep it lean when you do.** What makes the system safe isn't the model. It's the rules, the thresholds, and the fallbacks.
+`,
+    },
+  },
+  'outbound-lead-automation': {
+    industry: { zh: '外贸 / 跨境电商', en: 'Cross-border / Export' },
+    title: { zh: '出海企业海外获客自动化系统', en: 'Overseas Lead-Gen Automation for an Exporter' },
+    coreMetric: '3x+',
+    coreMetricLabel: { zh: '客户开发效率提升', en: 'Outreach efficiency lift' },
+    content: {
+      zh: `## 背景
+
+2026 年一二月份，新年期间，我们接的一个小项目。客户是一家做劳保手套的厂子老板。他本来就有海外业务——但海外获客一直让他头疼。
+
+他不是不懂产品，是**不懂海外客户**。不知道怎么找到国外的潜在买家，不知道怎么跟他们开口说话，也不知道怎么判断对方到底需不需要他的货。
+
+他找到我们的时候，需求很具体：
+
+> **「帮我自动找到可能需要劳保手套的海外客户，把信息整理好发我手机上让我看一眼，确认完你再发邮件。」**
+
+我们把这个活儿拆成了三个连续的环节来做。
+
+---
+
+## 三步把"找客户"自动化
+
+### 第一步：找公司
+
+通过 **Google Maps API**，按行业 + 地区关键词检索潜在买家实体公司。每检索一次拿回一批带公司名、地址、行业、电话、网址的原始记录。
+
+### 第二步：判断"是不是潜在客户"
+
+拿到这批公司信息，自动去查他们的——有没有相关采购需求记录、官网在卖什么产品、规模大概多大、地理分布合不合理——判断这家公司**有没有可能需要劳保手套**。
+
+这一步要做大量的 HTTP 抓取 + 内容解析 + 业务推理。如果不做这一步就开始群发，邮件基本石沉大海。
+
+### 第三步：写开发信
+
+通过了第二步过滤的客户，进入邮件写作环节。每封邮件**结合这家公司的具体情况写**——你们做什么、规模多大、为什么可能需要劳保手套、我们的产品在什么价位、能解决什么问题。
+
+> 这里有个小插曲：客户**一开始不知道外国人做生意是用邮件的**。是我们调研做出来之后告诉他："对，他们就是用邮件，邮件是主战场。"——所以整套邮件系统也是我们帮他一起搭的。
+
+### 三块要齐全
+
+整套系统由三块拼起来：**找客 → 分析 → 发邮件**，一块都不能漏。
+
+省掉任何一块自动化都做不出来——没有第一步就没有线索池；没有第二步就是群发垃圾；没有第三步就是「你好我们公司做手套」那种没人回的硬广。
+
+---
+
+## 怎么让他"在手机上就能用"
+
+写好邮件不算完。这位老板日常工作不在办公室，他需要一个能**在手机上直接看、改、再发**的入口。
+
+新年期间正好赶上了一个工具火起来：**OpenClaw**。当时我们第一时间接到他的**飞书**里，整套获客流程搬到了飞书侧。
+
+通过飞书推过来的卡片，他能在手机上看到：
+
+1. 今天这一批检索到几家潜在客户
+2. 每家客户的简要画像 + 邮件草稿
+3. 一键「发 / 改 / 跳过」
+
+**人工审批点**嵌在工作流的中间——AI 自动找、自动分析、自动草稿，但**发出去之前**他要肉眼过一眼。等于把「AI 替他找活儿、他自己判方向」这条流程跑通了。
+
+---
+
+## 效果
+
+上线之后这位老板跟我们说了一句让我们挺得意的话：
+
+> 「以前自己一天能写十来封都不知道发给谁，现在一天一百封，有将近十个回我。」
+
+- **人工时期：** 一天 ≈ 10 封，回 < 5 封
+- **AI 自动化后：** 一天 100 封，回 10 封+
+
+**单条回复成本几乎砍到 1/10，效率翻了近 10 倍。**
+
+这件事也印证了我们做 B 端自动化的一条原则：**找到客户永远是第一步、也是最贵的一步**。自动化的价值不在于"省个发送邮件的几秒钟"，而在于把"找到谁、写得准"这两个最贵的环节都自动化了。
+
+---
+
+## 写在最后
+
+项目不算大，但有几个我们比较得意的点：
+
+1. **小项目也能用 AI 跑出真价值。** 老板一个人 + 一套自动化系统，海外获客效率翻了 10 倍。AI 不一定是要做"大项目"才能见效的。
+2. **人工审批点是这种自动化的关键。** 不是每封邮件都该自动发。让老板过一眼，AI 替他找活儿、他自己判方向——这条流程跑得通。
+3. **新工具要敢用。** OpenClaw 当时刚火起来一周，我们第一时间接进去——等于把"最新工具"顺接到了客户的日常工作流。客户体感是"用着就是最新的"，技术债和工具债都不积累。
+`,
+      en: `## Background
+
+In early 2026 — over Chinese New Year — we took on a small project. The client: a factory owner who makes work gloves. He already had overseas business, but overseas lead generation was his bottleneck.
+
+It wasn't the product he didn't understand — it was **the overseas buyer**. He didn't know how to find them, how to talk to them, or how to tell if they actually needed his gloves.
+
+When he called us, his brief was very concrete:
+
+> **"Find overseas customers who might need work gloves. Send me the list on my phone so I can scan it. Once I confirm, send the emails."**
+
+We split this into three sequential steps.
+
+---
+
+## Three Steps to Automate "Finding Customers"
+
+### Step 1: Find companies
+
+We used the **Google Maps API**, querying by industry + geography keywords to retrieve potential buyer companies. Each query returned a batch of raw records: company name, address, industry, phone, website.
+
+### Step 2: Judge "are they a likely customer"
+
+For each company, we automatically scanned: are there signs of relevant procurement, what does their website sell, how big are they, does the geography make sense — to judge **whether this company might actually need work gloves**.
+
+This step is heavy HTTP scraping + content parsing + business reasoning. Skip it and any mail goes straight to spam.
+
+### Step 3: Write the outreach
+
+Customers passing step 2 entered the email-writing stage. Every email is **written around that specific company** — what they do, how big they are, why they might need work gloves, what our price point looks like, what problem we solve.
+
+> One small detail: the client **didn't initially know that overseas business runs on email**. We did the research, then told him: "Yes, email is the main battlefield." So we also helped him set up the email system from scratch.
+
+### All three pieces matter
+
+The system has three parts: **find → qualify → email**. Skip any one and the automation falls apart — no step 1, no pipeline; no step 2, you spam; no step 3, you send "Hi, we make gloves" into the void.
+
+---
+
+## How He Reviews It All on His Phone
+
+Writing the email is half the work. The owner isn't at his desk all day — he needs a way to **scan, edit, and approve on his phone**.
+
+Around New Year, a new tool had just gone viral: **OpenClaw**. We integrated it immediately, hooking the whole pipeline into his **Feishu** (the Lark-based team chat).
+
+Through Feishu cards pushed to his phone, he could see:
+
+1. How many potential customers were surfaced today
+2. Each company's snapshot + the email draft
+3. One-tap **Send / Edit / Skip**
+
+The **human approval gate** sits right in the middle of the workflow — AI does the finding, qualifying, and drafting, but **before anything goes out, he eyeballs it**. Effectively: AI does the hunting, he decides the direction.
+
+---
+
+## Results
+
+After launch, the owner told us something we were pretty pleased about:
+
+> "Before, I could write ten emails a day and not know who I was sending them to. Now I send a hundred a day and get about ten replies."
+
+- **Manual era:** ~10 emails/day, < 5 replies
+- **AI automation:** 100 emails/day, ~10 replies
+
+**Cost-per-reply dropped to roughly 1/10. Outreach throughput lifted ~10×.**
+
+This project also validated one of our B-side automation principles: **finding the customer is always step one — and always the most expensive step.** The value of automation isn't "saving the few seconds of clicking send" — it's automating the two most expensive steps: who to contact and what to say.
+
+---
+
+## Final Thoughts
+
+The project isn't big, but a few things came out of it that we're proud of:
+
+1. **Small projects can still drive real AI value.** One owner + one automation stack = 10× outreach. AI doesn't need a giant project to deliver.
+2. **The human approval gate is the key.** Not every email should auto-send. He eyeballed it; AI hunted, he decided direction. The workflow holds.
+3. **Use new tools early.** OpenClaw had been live about a week when we plugged it in. The client gets to feel "I'm using the newest stuff," and we don't accumulate tool or tech debt.
+`,
+    },
   },
 }
 
@@ -674,12 +995,19 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
   const t = useTranslations('caseDetail')
   const data = caseData[slug]
 
+  // Anchor back to the matching case row in the Practice list. If the slug
+  // isn't in the index yet (case-3 / case-4 not yet implemented), fall back
+  // to /practice as a plain list link.
+  const detailSlugs = ['programming-language-migration', 'securities-ai-platform', 'laser-equipment-ai-customer-service', 'outbound-lead-automation']
+  const caseIndex = detailSlugs.indexOf(slug)
+  const backHref =
+    caseIndex >= 0 ? `/${locale}/practice#case-${caseIndex + 1}` : `/${locale}/practice`
+
   return (
     <article className="relative isolate overflow-hidden pt-24 pb-20 sm:pb-28 lg:pb-32">
-      <SubpageAtmosphere />
-      <div className="subpage-mobile-static relative z-10 max-w-[51.84rem] mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="subpage-mobile-static relative z-10 max-w-read mx-auto px-5 sm:px-6 lg:px-8">
         <motion.a
-          href={`/${locale}#cases`}
+          href={backHref}
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           className="group inline-flex min-h-[44px] items-center gap-2 text-text-tertiary hover:text-text-primary transition-colors text-sm mb-10 sm:mb-12"
@@ -692,7 +1020,7 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-10 border-b border-border-subtle pb-10 sm:mb-12 sm:pb-12"
+          className="mb-10 border-b border-rule pb-10 sm:mb-12 sm:pb-12"
         >
           <span className="font-mono text-xs text-accent tracking-wide">
             {data.industry[locale as 'zh' | 'en']}
@@ -769,7 +1097,7 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
                 </blockquote>
               ),
               hr: () => (
-                <hr className="border-border-subtle my-8" />
+                <hr className="border-rule my-8" />
               ),
               table: ({ children }) => (
                 <div className="max-w-full overflow-x-auto mb-6">
@@ -779,12 +1107,12 @@ export default function CaseContent({ locale, slug }: { locale: string; slug: st
                 </div>
               ),
               th: ({ children }) => (
-                <th className="text-left py-3 px-4 border-b border-border-subtle text-text-primary font-medium">
+                <th className="text-left py-3 px-4 border-b border-rule text-text-primary font-medium">
                   {children}
                 </th>
               ),
               td: ({ children }) => (
-                <td className="py-3 px-4 border-b border-border-subtle text-text-secondary">
+                <td className="py-3 px-4 border-b border-rule text-text-secondary">
                   {children}
                 </td>
               ),
