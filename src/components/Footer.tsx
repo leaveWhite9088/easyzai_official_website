@@ -21,7 +21,7 @@ export default function Footer() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.14] mix-blend-screen"
-        style={{ backgroundImage: 'url(/assets/footer-bg.png)' }}
+        style={{ backgroundImage: 'url(/assets/footer-bg-1920.webp)' }}
       />
       {/* A second micro-texture: the marble grain, even fainter, to add
           tactile depth without competing with the foreground content. */}

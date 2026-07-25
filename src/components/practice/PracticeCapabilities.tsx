@@ -21,7 +21,7 @@ export default function PracticeCapabilities() {
       className="relative border-t border-rule py-[clamp(72px,9vw,128px)]"
       style={{
         backgroundColor: 'rgb(var(--c-bg-base))',
-        backgroundImage: 'url(/assets/marble-texture.png)',
+        backgroundImage: 'url(/assets/marble-texture-1200.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

@@ -1,24 +1,36 @@
 // Thinking detail — 50vh top concept image + 820px narrow article body.
-// Concept image swaps by category:
-//   methodology      → thinking-case-study.png    (建筑仰视 / 重复结构)
-//   case study       → thinking-securities.jpg    (实拍证券终端行情屏)
-//   technical view   → thinking-arch.png          (建筑结构)
+// Concept image swaps by category (compressed WebP, responsive srcset):
+//   methodology      → thinking-case-study-*.webp   (建筑仰视 / 重复结构)
+//   case study       → thinking-securities-*.webp   (实拍证券终端行情屏)
+//   technical view   → thinking-arch-*.webp         (建筑结构)
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import Markdown from 'react-markdown'
 import { useLocale, useTranslations } from 'next-intl'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import type { Article } from '@/types/content'
 
-// Map a Chinese/English category to the matching concept image.
-function imageForCategory(category: string): string {
-  if (category === '方法论' || category === 'Methodology') return '/assets/thinking-case-study.png'
-  if (category === '案例复盘' || category === 'Case Study' || category === 'Case study') return '/assets/thinking-securities.jpg'
+// Map a Chinese/English category to the matching concept image (1080w + 1920w srcset).
+function imageForCategory(category: string): { src: string; srcSet: string } {
+  if (category === '方法论' || category === 'Methodology') {
+    return {
+      src: '/assets/thinking-case-study-1080.webp',
+      srcSet: '/assets/thinking-case-study-1080.webp 1080w, /assets/thinking-case-study-1920.webp 1920w',
+    }
+  }
+  if (category === '案例复盘' || category === 'Case Study' || category === 'Case study') {
+    return {
+      src: '/assets/thinking-securities-1080.webp',
+      srcSet: '/assets/thinking-securities-1080.webp 1080w',
+    }
+  }
   // 技术观点 / Technical perspective
-  return '/assets/thinking-arch.png'
+  return {
+    src: '/assets/thinking-arch-1080.webp',
+    srcSet: '/assets/thinking-arch-1080.webp 1080w, /assets/thinking-arch-1920.webp 1920w',
+  }
 }
 
 export default function ThinkingDetailContent({ slug }: { locale: string; slug: string }) {
@@ -64,13 +76,17 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
           payload; on phones, dedicating half the viewport to it eats the
           first fold. */}
       <section className="w-full bg-canvas h-[40vh] min-h-[240px] sm:h-[50vh] sm:min-h-[360px]">
-        <Image
-          src={conceptImage}
+        {/* 首屏 hero：eager + 高优先级，srcset 让移动端只下载 1080w */}
+        <img
+          src={conceptImage.src}
+          srcSet={conceptImage.srcSet}
+          sizes="100vw"
           alt={`${td('imageAltPrefix')} · ${article.category}`}
           width={1600}
           height={900}
           className="h-full w-full object-cover"
-          priority
+          loading="eager"
+          fetchPriority="high"
         />
       </section>
 

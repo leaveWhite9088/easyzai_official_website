@@ -11,7 +11,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -31,13 +30,17 @@ export default function JoinContent() {
           we cap at 56vh / 340px so the long-article body still gets the
           first fold on small phones. (Trajectory: 50 → 70 → 85 → 78.) */}
       <section className="w-full bg-canvas h-[56vh] min-h-[340px] sm:h-[78vh] sm:min-h-[520px]">
-        <Image
-          src="/assets/joinus.jpg"
+        {/* 首屏 hero：eager + 高优先级，srcset 让移动端只下载 1080w */}
+        <img
+          src="/assets/joinus-1080.webp"
+          srcSet="/assets/joinus-1080.webp 1080w, /assets/joinus-1920.webp 1920w"
+          sizes="100vw"
           alt={t('eyebrowZh')}
           width={1600}
           height={900}
           className="h-full w-full object-cover"
-          priority
+          loading="eager"
+          fetchPriority="high"
         />
       </section>
 
