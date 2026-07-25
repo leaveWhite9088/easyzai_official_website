@@ -3,11 +3,19 @@
 // title centered, English tagline at the bottom, scroll cue on the right.
 'use client'
 
+import { useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 
 export default function HomeHero() {
   const t = useTranslations('home.intro')
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // 部分移动端浏览器/WebView 对 autoplay 属性响应不积极，手动兜底播放。
+  // 被策略拒绝时静默失败 — poster 仍保证大理石画面可见。
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {})
+  }, [])
 
   return (
     <section
@@ -17,14 +25,18 @@ export default function HomeHero() {
     >
       {/* Hero video — 大理石 dolly (AI-generated, 6s loop).
           移动端与桌面端一致展示：文件仅 ~0.8MB，
-          muted + playsInline 下 iOS/Android 均允许自动播放。 */}
+          muted + playsInline 下 iOS/Android 均允许自动播放。
+          poster 保证视频加载前/自动播放被系统策略(如低电量模式)阻止时
+          仍有大理石画面。 */}
       <video
+        ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
+        poster="/assets/hero-poster.webp"
       >
         <source src="/assets/hero-4.mp4" type="video/mp4" />
       </video>
