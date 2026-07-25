@@ -22,10 +22,8 @@ export default function HomeSpecimen() {
       {/* Background bleed — same cyanotype scaled past viewport, washed with
           multiply so the willow branches feel absorbed into the paper. The
           right-edge fade keeps it from feeling like a pasted image.
-          Hidden on mobile: a full-bleed willow image behind the figure
-          reads as visual noise on narrow screens — the figure itself is
-          enough. */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
+          移动端与桌面端一致展示（压缩后仅 ~300KB，不再做取舍）。 */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
         {/* 非首屏装饰背景：lazy，进入视口才加载 */}
         <img
           src={SPECIMEN_BG}

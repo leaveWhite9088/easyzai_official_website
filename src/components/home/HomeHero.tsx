@@ -16,11 +16,10 @@ export default function HomeHero() {
       style={{ minHeight: '100svh' }}
     >
       {/* Hero video — 大理石 dolly (AI-generated, 6s loop).
-          Hidden on mobile: autoplay burns data + battery for a 6s loop
-          that mobile users may not even watch. Mobile gets the paper
-          texture fallback below. */}
+          移动端与桌面端一致展示：文件仅 ~0.8MB，
+          muted + playsInline 下 iOS/Android 均允许自动播放。 */}
       <video
-        className="absolute inset-0 hidden h-full w-full object-cover md:block"
+        className="absolute inset-0 h-full w-full object-cover"
         autoPlay
         muted
         loop
@@ -29,14 +28,6 @@ export default function HomeHero() {
       >
         <source src="/assets/hero-4.mp4" type="video/mp4" />
       </video>
-
-      {/* Mobile background — paper texture (hero-light-texture in globals.css)
-          so the hero still has material weight without the video. Sits
-          behind the white veil above, identical feel to desktop. */}
-      <div
-        aria-hidden
-        className="absolute inset-0 hero-light-texture md:hidden"
-      />
 
       {/* White veil — guarantees text contrast against the marble texture */}
       <div
