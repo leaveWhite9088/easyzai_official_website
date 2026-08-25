@@ -9,6 +9,7 @@ const PARTNERS = [
   { name: '云汉孵化中心', logo: '/assets/partner-1.png' },
   { name: '智猩猩',       logo: '/assets/partner-2.png' },
   { name: '连尚集团',     logo: '/assets/partner-3.png' },
+  { name: 'SHENiCEST',   logo: '/assets/SHENICESTLOGO.jpg' },
 ]
 
 export default function AboutPartners() {
