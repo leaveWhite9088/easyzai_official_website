@@ -14,7 +14,7 @@ const BUILD_PARTNERS = [
 ]
 
 const COMMUNITY_PARTNERS = [
-  { name: 'SHENiCEST',   logo: '/assets/SHENICESTLOGO.jpg' },
+  { name: 'SHENiCEST',   logo: '/assets/SHENICESTLOGO.jpg', className: 'h-9' },
 ]
 
 export default function AboutPartners() {
@@ -31,7 +31,7 @@ export default function AboutPartners() {
         <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10">
           <div className="col-span-12 md:col-span-3">
             <SectionEyebrow number="04" name="co-explorers" />
-            <p className="mt-8 max-w-[16em] font-sans text-ink text-[20px] sm:text-[24px] leading-[1.5] tracking-[0.01em]">
+            <p className="mt-8 max-w-[16em] font-sans text-ink text-[17px] sm:text-[19px] leading-[1.55] tracking-[0.01em]">
               {t('body')}
             </p>
           </div>
@@ -41,14 +41,12 @@ export default function AboutPartners() {
               {groups.map((g, i) => (
                 <div
                   key={g.label}
-                  className={`grid grid-cols-12 items-center gap-x-6 gap-y-5 py-8 sm:gap-x-10 ${
-                    i > 0 ? 'border-t border-rule' : ''
-                  }`}
+                  className={`py-8 ${i > 0 ? 'border-t border-rule' : ''}`}
                 >
-                  <div className="col-span-12 sm:col-span-3 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-3">
+                  <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink-3">
                     {g.label}
                   </div>
-                  <div className="col-span-12 sm:col-span-9 flex flex-wrap items-center gap-x-12 gap-y-6">
+                  <div className="mt-5 flex flex-wrap items-center gap-x-12 gap-y-6">
                     {g.logos.map((p) => (
                       <Image
                         key={p.name}
@@ -56,7 +54,7 @@ export default function AboutPartners() {
                         alt={p.name}
                         width={180}
                         height={40}
-                        className="h-10 w-auto object-contain"
+                        className={`${'className' in p ? p.className : 'h-10'} w-auto object-contain`}
                       />
                     ))}
                   </div>
