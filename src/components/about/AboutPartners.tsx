@@ -9,6 +9,9 @@ const PARTNERS = [
   { name: '云汉孵化中心', logo: '/assets/partner-1.png' },
   { name: '智猩猩',       logo: '/assets/partner-2.png' },
   { name: '连尚集团',     logo: '/assets/partner-3.png' },
+]
+
+const COMMUNITY_PARTNERS = [
   { name: 'SHENiCEST',   logo: '/assets/SHENICESTLOGO.jpg' },
 ]
 
@@ -30,6 +33,22 @@ export default function AboutPartners() {
 
             <div className="mt-10 flex flex-wrap items-center gap-x-12 gap-y-8">
               {PARTNERS.map((p) => (
+                <Image
+                  key={p.name}
+                  src={p.logo}
+                  alt={p.name}
+                  width={180}
+                  height={40}
+                  className="h-10 w-auto object-contain"
+                />
+              ))}
+            </div>
+
+            <div className="mt-12 font-mono text-[11px] tracking-[0.18em] uppercase text-ink-3">
+              {t('communityLabel')}
+            </div>
+            <div className="mt-4 flex flex-wrap items-center gap-x-12 gap-y-8">
+              {COMMUNITY_PARTNERS.map((p) => (
                 <Image
                   key={p.name}
                   src={p.logo}
