@@ -253,10 +253,10 @@
       "link": "See how this plays out in practice"
     },
     "partners": {
-      "eyebrowZh": "Co-explorers",
       "body": "Organizations we've explored AI implementation with, side by side.",
+      "buildLabel": "Co-build partners",
       "communityLabel": "Community partner",
-      "count": "4 partners · since 2025"
+      "count": "3 co-build + 1 community · since 2025"
     }
   },
   "practice": {
