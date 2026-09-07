@@ -78,21 +78,22 @@ ssh ubuntu@81.70.39.239
 
 DEPLOY_DIR='/var/www/easyzai'
 BACKUP_DIR="/var/www/easyzai.bak.$(date +%Y%m%d%H%M%S)"
+NEW_DIR="/var/www/easyzai.new.$(date +%Y%m%d%H%M%S)"
 
-# 1. 备份当前站点
-echo "Backing up current site to $BACKUP_DIR"
-sudo cp -a $DEPLOY_DIR $BACKUP_DIR
+# 1. 解压新构建到一个全新目录（不碰旧站，避免部署窗口内文件缺失）
+echo "Extracting new build to $NEW_DIR"
+sudo mkdir -p $NEW_DIR
+sudo tar -xzf /tmp/easyzai-website.tar.gz -C $NEW_DIR
+sudo chown -R www-data:www-data $NEW_DIR
 
-# 2. 清空旧文件并解压新构建
-echo "Extracting new build to $DEPLOY_DIR"
-sudo rm -rf $DEPLOY_DIR/*
-sudo tar -xzf /tmp/easyzai-website.tar.gz -C $DEPLOY_DIR
+# 2. 原子切换：旧站整体改名为备份目录，新目录接管站点路径。
+#    mv 是同文件系统 rename，瞬间完成；不存在 rm -rf 后解压期间的空窗，
+#    访客不会在部署中途拿到 404 的 JS/CSS chunk。
+echo "Swapping $NEW_DIR -> $DEPLOY_DIR (backup at $BACKUP_DIR)"
+sudo mv $DEPLOY_DIR $BACKUP_DIR
+sudo mv $NEW_DIR $DEPLOY_DIR
 
-# 3. 修正目录权限
-echo "Fixing ownership"
-sudo chown -R www-data:www-data $DEPLOY_DIR
-
-# 4. 重载 Nginx（静态站点无需重启，reload 即可）
+# 3. 重载 Nginx（静态站点无需重启，reload 即可）
 echo "Reloading nginx"
 sudo nginx -t && sudo systemctl reload nginx
 
