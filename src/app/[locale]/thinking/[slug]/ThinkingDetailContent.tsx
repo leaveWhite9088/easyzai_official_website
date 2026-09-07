@@ -90,10 +90,10 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
     <main className="min-h-screen bg-canvas">
       <Navbar />
 
-      {/* Top concept image — 48vh on mobile (with a 280px floor), 64vh on
+      {/* Top concept image — 44vh on mobile (with a 260px floor), 58vh on
           sm+. The image carries more of the first screen now; on phones we
           still keep it under half the viewport so the title peeks through. */}
-      <section className="w-full bg-canvas h-[48vh] min-h-[280px] sm:h-[64vh] sm:min-h-[440px]">
+      <section className="w-full bg-canvas h-[44vh] min-h-[260px] sm:h-[58vh] sm:min-h-[400px]">
         {/* 首屏 hero：eager + 高优先级，srcset 让移动端只下载 1080w */}
         <img
           src={conceptImage.src}
@@ -108,7 +108,7 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
         />
       </section>
 
-      <article className="pb-24 pt-12 sm:pb-32 sm:pt-16">
+      <article className="pb-24 pt-8 sm:pb-32 sm:pt-10">
         <div className="mx-auto max-w-think px-6 sm:px-8">
           {/* Back link */}
           <Link
@@ -120,7 +120,7 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
           </Link>
 
           {/* Header */}
-          <header className="mt-10 sm:mt-12 border-b border-rule pb-8 sm:pb-10">
+          <header className="mt-5 sm:mt-6 border-b border-rule pb-8 sm:pb-10">
             {/* Series breadcrumb — e.g. "易智AI FDE 方法论 · 第 1 / 5 篇" */}
             {article.series && seriesMeta && (
               <Link
