@@ -99,6 +99,18 @@ export default async function LocaleLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerif.variable}`}
     >
       <head>
+        {/* Chunk-failure self-heal: on a static export, a failed /_next/ chunk
+            (deploy window, deleted old hashes, network reset) otherwise crashes
+            to the bare "Application error" screen until a manual refresh. Catch
+            resource errors + ChunkLoadError early and hard-reload once (15s
+            loop guard via sessionStorage). */}
+        {process.env.NODE_ENV === 'production' && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(){var KEY="__ez_chunk_reload_at";function heal(){try{var now=Date.now(),last=parseInt(sessionStorage.getItem(KEY)||"0",10);if(now-last<15000)return;sessionStorage.setItem(KEY,String(now))}catch(e){}window.location.reload()}function isChunkErr(m){return/ChunkLoadError|Loading chunk \\d+ failed|Failed to fetch dynamically imported module|error loading dynamically imported module/i.test(String(m||""))}window.addEventListener("error",function(e){var t=e.target;if(t&&(t.tagName==="SCRIPT"||t.tagName==="LINK")){var u=t.src||t.href||"";if(u.indexOf("/_next/")!==-1){heal();return}}if(isChunkErr(e.message)||isChunkErr(e.error&&e.error.message))heal()},true);window.addEventListener("unhandledrejection",function(e){var r=e.reason;if(isChunkErr(r&&(r.message||r)))heal()})})();`,
+            }}
+          />
+        )}
       </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages} locale={locale}>
