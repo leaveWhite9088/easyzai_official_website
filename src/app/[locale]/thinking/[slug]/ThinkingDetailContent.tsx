@@ -1,5 +1,7 @@
 // Thinking detail — 50vh top concept image + 820px narrow article body.
-// Concept image swaps by category (compressed WebP, responsive srcset):
+// Concept image: series articles get their own series cover; otherwise the
+// image swaps by category (compressed WebP, responsive srcset):
+//   fde series       → fde-series-cover.webp        (系列专属封面)
 //   methodology      → thinking-case-study-*.webp   (建筑仰视 / 重复结构)
 //   case study       → thinking-securities-*.webp   (实拍证券终端行情屏)
 //   technical view   → thinking-arch-*.webp         (建筑结构)
@@ -11,6 +13,18 @@ import { useLocale, useTranslations } from 'next-intl'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import type { Article, SeriesMeta } from '@/types/content'
+
+// Series articles get a dedicated cover; everything else falls back to the
+// per-category concept image (1080w + 1920w srcset).
+function imageForArticle(article: Article): { src: string; srcSet: string } {
+  if (article.series) {
+    return {
+      src: `/assets/${article.series.id}-series-cover.webp`,
+      srcSet: `/assets/${article.series.id}-series-cover.webp 1920w`,
+    }
+  }
+  return imageForCategory(article.category)
+}
 
 // Map a Chinese/English category to the matching concept image (1080w + 1920w srcset).
 function imageForCategory(category: string): { src: string; srcSet: string } {
@@ -65,10 +79,12 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
 
   const prev = index > 0 ? articles[index - 1] : null
   const next = index < articles.length - 1 ? articles[index + 1] : null
-  const conceptImage = imageForCategory(article.category)
   const seriesMeta = article.series
     ? (t.raw('series') as Record<string, SeriesMeta>)[article.series.id]
     : undefined
+  const conceptImage = imageForArticle(article)
+  // Series covers use the series title as alt; others use the category.
+  const imageAlt = `${td('imageAltPrefix')} · ${seriesMeta?.title ?? article.category}`
 
   return (
     <main className="min-h-screen bg-canvas">
@@ -84,7 +100,7 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
           src={conceptImage.src}
           srcSet={conceptImage.srcSet}
           sizes="100vw"
-          alt={`${td('imageAltPrefix')} · ${article.category}`}
+          alt={imageAlt}
           width={1600}
           height={900}
           className="h-full w-full object-cover"
