@@ -104,3 +104,6 @@ PRODUCT.md
 *.zip
 *.tgz
 .ssh_key_setup.py
+
+# ============ Local Trash (intermediate files moved out of commit scope) ============
+.trash/
