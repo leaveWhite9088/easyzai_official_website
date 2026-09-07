@@ -90,11 +90,10 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
     <main className="min-h-screen bg-canvas">
       <Navbar />
 
-      {/* Top concept image — 40vh on mobile (with a 240px floor), 50vh on
-          sm+. The concept image is a visual tone-setter, not the page's
-          payload; on phones, dedicating half the viewport to it eats the
-          first fold. */}
-      <section className="w-full bg-canvas h-[40vh] min-h-[240px] sm:h-[50vh] sm:min-h-[360px]">
+      {/* Top concept image — 48vh on mobile (with a 280px floor), 64vh on
+          sm+. The image carries more of the first screen now; on phones we
+          still keep it under half the viewport so the title peeks through. */}
+      <section className="w-full bg-canvas h-[48vh] min-h-[280px] sm:h-[64vh] sm:min-h-[440px]">
         {/* 首屏 hero：eager + 高优先级，srcset 让移动端只下载 1080w */}
         <img
           src={conceptImage.src}
