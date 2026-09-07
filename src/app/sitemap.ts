@@ -12,8 +12,14 @@ const ROUTES = [
   '/cases/securities-ai-platform',
 ]
 
+// zh-only routes (e.g. series not yet translated) — no hreflang alternates.
+const ZH_ONLY_ROUTES = [
+  '/thinking/fde-client-alignment',
+  '/thinking/fde-two-realities',
+]
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return LOCALES.flatMap((locale) =>
+  const bilingual = LOCALES.flatMap((locale) =>
     ROUTES.map((route) => ({
       url: `${BASE}/${locale}${route}`,
       alternates: {
@@ -25,4 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     }))
   )
+  const zhOnly = ZH_ONLY_ROUTES.map((route) => ({ url: `${BASE}/zh${route}` }))
+  return [...bilingual, ...zhOnly]
 }

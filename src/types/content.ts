@@ -29,6 +29,12 @@ export interface CompareRow {
   solution: string
 }
 
+export interface ArticleSeriesRef {
+  id: string
+  // 1-based position of this article inside the series
+  index: number
+}
+
 export interface Article {
   slug: string
   title: string
@@ -36,6 +42,16 @@ export interface Article {
   date: string
   category: string
   content: string
+  series?: ArticleSeriesRef
+}
+
+// Series-level metadata lives in messages/*.json under thinking.series[id].
+// `parts` lists every planned part title (published or not) so the list page
+// can render the full series map with unpublished parts greyed out.
+export interface SeriesMeta {
+  title: string
+  intro: string
+  parts: string[]
 }
 
 export interface FactItem {

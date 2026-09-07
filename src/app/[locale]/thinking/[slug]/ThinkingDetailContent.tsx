@@ -10,7 +10,7 @@ import Markdown from 'react-markdown'
 import { useLocale, useTranslations } from 'next-intl'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import type { Article } from '@/types/content'
+import type { Article, SeriesMeta } from '@/types/content'
 
 // Map a Chinese/English category to the matching concept image (1080w + 1920w srcset).
 function imageForCategory(category: string): { src: string; srcSet: string } {
@@ -66,6 +66,9 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
   const prev = index > 0 ? articles[index - 1] : null
   const next = index < articles.length - 1 ? articles[index + 1] : null
   const conceptImage = imageForCategory(article.category)
+  const seriesMeta = article.series
+    ? (t.raw('series') as Record<string, SeriesMeta>)[article.series.id]
+    : undefined
 
   return (
     <main className="min-h-screen bg-canvas">
@@ -103,6 +106,19 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
 
           {/* Header */}
           <header className="mt-10 sm:mt-12 border-b border-rule pb-8 sm:pb-10">
+            {/* Series breadcrumb — e.g. "EasyZ FDE 方法论 · 第 1 / 5 篇" */}
+            {article.series && seriesMeta && (
+              <Link
+                href={`/${locale}/thinking`}
+                className="mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] uppercase text-cyan transition-colors hover:text-ink"
+              >
+                {seriesMeta.title}
+                <span aria-hidden className="text-ink-3">·</span>
+                <span className="text-ink-2">
+                  {td('seriesPart', { index: article.series.index, total: seriesMeta.parts.length })}
+                </span>
+              </Link>
+            )}
             <div className="mb-6 flex flex-wrap items-center gap-3">
               <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink-3">
                 {String(index + 1).padStart(2, '0')}

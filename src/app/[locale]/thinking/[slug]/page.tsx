@@ -14,11 +14,19 @@ import {
   webPageNode,
 } from '@/lib/structured-data'
 
-export function generateStaticParams() {
-  const slugs = ['ai-project-screening', 'securities-ai-case-study', 'why-not-dify-langchain']
+export async function generateStaticParams() {
+  // Union of slugs across locales (some series are zh-only) × every locale.
+  // A locale missing an article for a slug 404s in the page component —
+  // with output:export every param must still be declared up front.
+  const allSlugs = new Set<string>()
+  for (const locale of locales) {
+    const t = await getTranslations({ locale, namespace: 'thinking' })
+    const articles = t.raw('articles') as Array<{ slug: string }>
+    for (const article of articles) allSlugs.add(article.slug)
+  }
   const params: { locale: string; slug: string }[] = []
   for (const locale of locales) {
-    for (const slug of slugs) {
+    for (const slug of Array.from(allSlugs)) {
       params.push({ locale, slug })
     }
   }
@@ -56,12 +64,12 @@ export default async function ThinkingDetailPage({ params }: { params: { locale:
   const { locale, slug } = params
   setRequestLocale(locale)
 
-  const validSlugs = ['ai-project-screening', 'securities-ai-case-study', 'why-not-dify-langchain']
-  if (!validSlugs.includes(slug)) notFound()
-
   const t = await getTranslations({ locale, namespace: 'thinking' })
   const articles = t.raw('articles') as Article[]
   const article = articles.find((a) => a.slug === slug)
+  // The slug set differs per locale (some series are zh-only); a slug that
+  // has no article in this locale is a real 404.
+  if (!article) notFound()
   const path = `/thinking/${slug}`
   const url = localizedUrl(locale, path)
   const listName = t('title')
