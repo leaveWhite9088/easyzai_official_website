@@ -93,7 +93,7 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
       {/* Top concept image — 44vh on mobile (with a 260px floor), 58vh on
           sm+. The image carries more of the first screen now; on phones we
           still keep it under half the viewport so the title peeks through. */}
-      <section className="w-full bg-canvas h-[44vh] min-h-[260px] sm:h-[58vh] sm:min-h-[400px]">
+      <section className="w-full bg-canvas h-[40vh] min-h-[240px] sm:h-[56vh] sm:min-h-[380px]">
         {/* 首屏 hero：eager + 高优先级，srcset 让移动端只下载 1080w */}
         <img
           src={conceptImage.src}
@@ -120,7 +120,7 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
           </Link>
 
           {/* Header */}
-          <header className="mt-5 sm:mt-6 border-b border-rule pb-8 sm:pb-10">
+          <header className="mt-6 sm:mt-8 border-b border-rule pb-8 sm:pb-10">
             {/* Series breadcrumb — e.g. "易智AI FDE 方法论 · 第 1 / 5 篇" */}
             {article.series && seriesMeta && (
               <Link
