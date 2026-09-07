@@ -1,9 +1,9 @@
 {
   "meta": {
-    "siteName": "EasyZ",
-    "title": "EasyZ · Hard Problems, Researched Solutions",
+    "siteName": "易智AI",
+    "title": "易智AI · Hard Problems, Researched Solutions",
     "description": "Complex AI implementation by a research-driven team from top universities. RAG, Agents, and private LLMs that bring AI into your real business.",
-    "keywords": "AI implementation, complex AI, research team, Agent, RAG, private LLM, LLM applications, EasyZ",
+    "keywords": "AI implementation, complex AI, research team, Agent, RAG, private LLM, LLM applications",
     "casesTitle": "Selected Cases",
     "casesDesc": "Anonymized real deliveries: language library migration, securities-platform AI, smart support, and overseas lead generation.",
     "thinkingTitle": "Thinking · Views & Methodology",
@@ -89,7 +89,7 @@
     ]
   },
   "footer": {
-    "brandLabel": "EASYZ AI",
+    "brandLabel": "易智AI",
     "companyCn": "沈阳易智软件信息技术服务有限公司",
     "companyEn": "Shenyang EasyZ Software Information Technology Service Co., Ltd.",
     "addressLabel": "Address",
@@ -103,7 +103,7 @@
     "contactTitle": "Contact",
     "joinLabel": "Join us",
     "wechatHint": "Scan to add on WeChat",
-    "wechatAria": "EasyZ WeChat QR"
+    "wechatAria": "易智AI WeChat QR"
   },
   "thinking": {
     "title": "Thinking",
@@ -169,7 +169,7 @@
       "eyebrowZh": "Who we are",
       "titleLine1": "We research AI implementation.",
       "titleLine2": "Non-standard work. Cost down, margin up.",
-      "body1": "EasyZ AI, research-driven team. We build AI around your business —<br />to cut cost, to lift margin.",
+      "body1": "易智AI, research-driven team. We build AI around your business —<br />to cut cost, to lift margin.",
       "body2": "Full-stack delivery: problem research · solution design · engineering implementation.",
       "estLabel": "Est.",
       "estValue": "2025",
@@ -180,7 +180,7 @@
     },
     "specimen": {
       "eyebrowZh": "Specimen 01",
-      "imageAlt": "Cyanotype plant specimen — EasyZ Specimen No. 01",
+      "imageAlt": "Cyanotype plant specimen — 易智AI Specimen No. 01",
       "caption1": "Specimen No. 01 — Cyanotype, Pinus",
       "caption2": "Cyanotype 2026"
     },
@@ -213,12 +213,12 @@
   },
   "about": {
     "meta": {
-      "title": "About · EasyZ",
-      "description": "EasyZ is a small research-driven team that ships AI into complex business workflows. Three principles: go deep on non-standard work, dig for the efficiency gains clients haven't spotted yet, and embed into the workflow so it feels like nothing."
+      "title": "About · 易智AI",
+      "description": "易智AI is a small research-driven team that ships AI into complex business workflows. Three principles: go deep on non-standard work, dig for the efficiency gains clients haven't spotted yet, and embed into the workflow so it feels like nothing."
     },
     "intro": {
       "eyebrowZh": "Intro",
-      "titleLine1": "EasyZ, a research-driven team,",
+      "titleLine1": "易智AI, a research-driven team,",
       "titleLine2": "shipping AI for complex, real-world business,",
       "titleLine3": "cutting cost, lifting margin.",
       "body": "Problem research, solution design, engineering delivery — three stages, all in-house.<br />We go deep on standard work — and deeper on non-standard."
@@ -265,8 +265,8 @@
   },
   "practice": {
     "meta": {
-      "title": "Practice · EasyZ",
-      "description": "EasyZ's capability map and selected case studies. Four capability areas, four real, anonymized deliveries."
+      "title": "Practice · 易智AI",
+      "description": "易智AI's capability map and selected case studies. Four capability areas, four real, anonymized deliveries."
     },
     "capabilities": {
       "eyebrowZh": "Capabilities",
@@ -311,7 +311,7 @@
   },
   "join": {
     "meta": {
-      "title": "Join us · EasyZ",
+      "title": "Join us · 易智AI",
       "description": "We're looking for teammates with dreams and drive — long-termists with real AI interest who'd go to the front line. Email 1411169639@qq.com."
     },
     "eyebrowZh": "Join us",

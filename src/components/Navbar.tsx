@@ -30,11 +30,11 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-base/85 backdrop-blur-md border-b border-border-subtle/60">
       <div className="max-w-page mx-auto px-5 sm:px-6 lg:px-10">
         <div className="flex items-center justify-between h-16">
-          <Link href={`/${locale}`} aria-label="EasyZ" className="group flex min-h-[44px] items-center gap-2.5">
+          <Link href={`/${locale}`} aria-label="易智AI" className="group flex min-h-[44px] items-center gap-2.5">
             <span className="relative block h-8 w-[122px] sm:h-9 sm:w-[140px]">
               <Image
                 src="/assets/导航栏logo（黑色）.svg"
-                alt="EasyZ"
+                alt="易智AI"
                 fill
                 priority
                 className="object-contain opacity-85 transition-opacity duration-300 group-hover:opacity-100"

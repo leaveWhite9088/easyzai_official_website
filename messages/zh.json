@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteName": "EasyZ 易智",
-    "title": "EasyZ 易智 · 难解的问题，研究着做",
+    "siteName": "易智AI",
+    "title": "易智AI · 难解的问题，研究着做",
     "description": "复杂场景 AI 落地 · 来自顶尖院校的研究型小团队。用 RAG、Agent、私有化 LLM，把 AI 真正落进你的业务。",
     "keywords": "AI落地, 复杂场景AI, 研究型团队, Agent, RAG, 私有化部署, 大模型应用, 易智软件",
     "casesTitle": "代表案例",
@@ -99,7 +99,7 @@
     ]
   },
   "footer": {
-    "brandLabel": "EASYZ AI",
+    "brandLabel": "易智AI",
     "companyCn": "沈阳易智软件信息技术服务有限公司",
     "companyEn": "Shenyang EasyZ Software Information Technology Service Co., Ltd.",
     "addressLabel": "地址",
@@ -113,7 +113,7 @@
     "contactTitle": "联系我们",
     "joinLabel": "加入我们",
     "wechatHint": "扫码添加微信",
-    "wechatAria": "EasyZ 微信二维码"
+    "wechatAria": "易智AI 微信二维码"
   },
   "thinking": {
     "title": "思考",
@@ -183,7 +183,7 @@
     ],
     "series": {
       "fde": {
-        "title": "EasyZ FDE 方法论",
+        "title": "易智AI FDE 方法论",
         "intro": "FDE 不是写完代码就走的人，是把「说不清的需求」跑成「能验收的成果」的人。这个系列把我们踩过的坑整理成 5 篇：怎么和甲方对齐、怎么活下来、怎么推进项目、怎么治理文档和代码、怎么控住 AI 的边界。",
         "parts": [
           "FDE 的第一道坎：怎么和甲方对齐",
@@ -215,7 +215,7 @@
       "eyebrowZh": "我们是谁",
       "titleLine1": "我们研究 AI 落地，",
       "titleLine2": "非标场景、降本增效。",
-      "body1": "EasyZ AI，研究型团队。我们针对你的业务场景做 AI——<br />去节省成本，去降本增效。",
+      "body1": "易智AI，研究型团队。我们针对你的业务场景做 AI——<br />去节省成本，去降本增效。",
       "body2": "全链路交付：问题研究 · 方案设计 · 工程落地。",
       "estLabel": "Est.",
       "estValue": "2025",
@@ -226,7 +226,7 @@
     },
     "specimen": {
       "eyebrowZh": "标本 01",
-      "imageAlt": "蓝晒植物标本 — EasyZ Specimen No. 01",
+      "imageAlt": "蓝晒植物标本 — 易智AI Specimen No. 01",
       "caption1": "Specimen No. 01 — Cyanotype, Pinus",
       "caption2": "蓝晒 2026"
     },
@@ -259,12 +259,12 @@
   },
   "about": {
     "meta": {
-      "title": "关于 · EasyZ",
-      "description": "EasyZ 是一支小型研究型团队，专为复杂业务场景做 AI 落地。三条原则：啃非标、做深度；去挖客户没意识到的提效点；嵌入工作流，润物细无声。"
+      "title": "关于 · 易智AI",
+      "description": "易智AI 是一支小型研究型团队，专为复杂业务场景做 AI 落地。三条原则：啃非标、做深度；去挖客户没意识到的提效点；嵌入工作流，润物细无声。"
     },
     "intro": {
       "eyebrowZh": "段头",
-      "titleLine1": "EasyZ 研究型团队，",
+      "titleLine1": "易智AI 研究型团队，",
       "titleLine2": "专为复杂业务场景做 AI 落地、",
       "titleLine3": "降本增效。",
       "body": "问题研究、方案设计、工程交付——三段全做。<br />标准需求做扎实，非标做得更深。"
@@ -311,8 +311,8 @@
   },
   "practice": {
     "meta": {
-      "title": "实践 · EasyZ",
-      "description": "EasyZ 的能力图谱与代表案例。4 大能力方向，4 个真实交付案例，所有数据均已脱敏。"
+      "title": "实践 · 易智AI",
+      "description": "易智AI 的能力图谱与代表案例。4 大能力方向，4 个真实交付案例，所有数据均已脱敏。"
     },
     "capabilities": {
       "eyebrowZh": "能力图谱",
@@ -357,7 +357,7 @@
   },
   "join": {
     "meta": {
-      "title": "加入我们 · EasyZ",
+      "title": "加入我们 · 易智AI",
       "description": "我们在找有梦想、有激情的小伙伴——长期主义，对 AI 真兴趣，能沉一线。写信到 1411169639@qq.com。"
     },
     "eyebrowZh": "加入我们",

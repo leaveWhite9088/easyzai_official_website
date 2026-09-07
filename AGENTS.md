@@ -1,4 +1,4 @@
-# AGENTS.md — EasyZ 官网项目笔记
+# AGENTS.md — 易智AI 官网项目笔记
 
 ## 项目概况
 

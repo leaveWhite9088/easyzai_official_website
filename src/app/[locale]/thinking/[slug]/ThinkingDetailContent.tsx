@@ -106,7 +106,7 @@ export default function ThinkingDetailContent({ slug }: { locale: string; slug: 
 
           {/* Header */}
           <header className="mt-10 sm:mt-12 border-b border-rule pb-8 sm:pb-10">
-            {/* Series breadcrumb — e.g. "EasyZ FDE 方法论 · 第 1 / 5 篇" */}
+            {/* Series breadcrumb — e.g. "易智AI FDE 方法论 · 第 1 / 5 篇" */}
             {article.series && seriesMeta && (
               <Link
                 href={`/${locale}/thinking`}

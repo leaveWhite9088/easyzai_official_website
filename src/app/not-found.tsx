@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: '404 · EasyZ AI',
+  title: '404 · 易智AI',
   robots: { index: false },
 }
 

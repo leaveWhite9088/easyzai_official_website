@@ -23,9 +23,9 @@ export function organizationNode(locale: string, description: string, serviceIds
   return {
     '@type': 'Organization',
     '@id': ORGANIZATION_ID,
-    name: 'EasyZ 易智',
+    name: '易智AI',
     legalName: '沈阳易智软件信息技术服务有限公司',
-    alternateName: 'EasyZ',
+    alternateName: '易智AI',
     url: SITE_URL,
     logo: {
       '@type': 'ImageObject',
@@ -62,7 +62,7 @@ export function websiteNode(locale: string, name: string, description: string): 
     '@id': WEBSITE_ID,
     url: SITE_URL,
     name,
-    alternateName: 'EasyZ',
+    alternateName: '易智AI',
     description,
     publisher: { '@id': ORGANIZATION_ID },
     inLanguage: ['zh-CN', 'en-US'],

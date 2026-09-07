@@ -2,8 +2,8 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'EasyZ 易智',
-    short_name: 'EasyZ',
+    name: '易智AI',
+    short_name: '易智AI',
     description: '复杂场景 AI 落地 · 来自顶尖院校的研究型团队',
     start_url: '/zh',
     display: 'standalone',
