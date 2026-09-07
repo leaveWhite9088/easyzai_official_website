@@ -85,6 +85,7 @@ skills-lock.json
 
 # ============ Dev server logs ============
 .dev*.log
+.dev*.err
 
 # ============ Impeccable critique output (regenerated each run) ============
 .impeccable/
