@@ -15,7 +15,10 @@ const ROUTES = [
 // zh-only routes (e.g. series not yet translated) — no hreflang alternates.
 const ZH_ONLY_ROUTES = [
   '/thinking/fde-client-alignment',
-  '/thinking/fde-two-realities',
+  '/thinking/fde-survival',
+  '/thinking/fde-project-execution',
+  '/thinking/fde-docs-and-code',
+  '/thinking/fde-ai-collaboration',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
